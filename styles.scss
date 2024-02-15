@@ -1,0 +1,148 @@
+$paper-color: white;
+$nav-color: #1a1a1a;
+$settings-color: #333333;
+$current-color: 0, 0, 255;
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    color: white;
+}
+body {
+    height: 100vh;
+    #grid-container {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 8% auto;
+        grid-template-columns: auto;
+        #grid-con {
+            min-height: 100%;
+            display: inline-grid;
+            grid-template-columns: 1fr 2fr;
+            #settings-left {
+                display: grid;
+                grid-template-rows: 9fr 4fr 3fr;
+                background-color: $settings-color;
+                z-index: 1000;                    
+                .selected-settings {
+                    border: white 0.3rem solid !important;
+                }
+                p {
+                    padding: 0.2rem 0 0 0.5rem;
+                }
+                #color-settings {
+                    display: grid;
+                    grid-template-columns: auto;
+                    grid-template-rows: 2fr 3fr 3fr 2fr 6fr 2fr 3fr;
+
+                    .color-setting-square {
+                        width: 2rem;
+                        height: 2rem;
+                        border-radius: 0;
+                        background-color: transparent;
+                        border: 0.3rem black solid;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    #rainbow-colors,
+                    #black-white-colors,
+                    #custom-colors {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                    }
+                    #lightning-and-opacity {
+                        display: grid;
+                        grid-template-columns: auto auto;
+                        gap: 4rem;
+                        #lightning,
+                        #opacity {
+                            display: flex;
+                            flex-direction: column;
+                            $percentages: 100, 80, 60, 40, 20, 0;
+                            .settings-flex-wrapper {
+                                height: 100%;
+                                display: flex;
+                                justify-content: space-around;
+                                align-items: space-around;
+                                .light-square {
+                                    background-color: rgb(
+                                        nth($current-color, 1),
+                                        nth($current-color, 2),
+                                        nth($current-color, 3)
+                                    );
+                                }
+                                @each $percentage in $percentages {
+                                    #light-#{$percentage} {
+                                        filter: brightness(#{$percentage + "%"});
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .hidden {
+                        pointer-events: none;
+                        width: 2rem;
+                        height: 2rem;
+                        background-color: transparent;
+                        border: transparent 0.3rem solid;
+                    }
+                    .custom {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                    }
+
+                    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgray, silver, gray, darkgray,
+                        dimgray, black;
+                    @each $color in $colors {
+                        ##{$color} {
+                            background-color: $color;
+                        }
+                    }
+                }
+                #size-settings,
+                #pencil-type-settings {
+                    display: grid;
+                    grid-template-rows: 0.7fr 1fr;
+                    #size-choices,
+                    #pencil-types-wrapper {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        .size-span-flex-wrapper,
+                        .pencil-types-flex-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            .size-option,
+                            .pencil-type {
+                                width: 1.3rem;
+                                height: 1.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #settings-top {
+        background-color: $nav-color;
+        z-index: 2;
+    }
+    #drawing-paper {
+        z-index: 1;
+        border: black 2px solid;
+        #drawing-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: 1px solid #000; /* Optional: Add a border for better visibility */
+            cursor: crosshair;
+            position: relative;
+        }
+    }
+}

@@ -1,0 +1,217 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  height: 100vh;
+}
+body #grid-container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 8% auto;
+  grid-template-columns: auto;
+}
+body #grid-container #grid-con {
+  min-height: 100%;
+  display: inline-grid;
+  grid-template-columns: 1fr 2fr;
+}
+body #grid-container #grid-con #settings-left {
+  display: grid;
+  grid-template-rows: 9fr 4fr 3fr;
+  background-color: #333333;
+  z-index: 1000;
+}
+body #grid-container #grid-con #settings-left .selected-settings {
+  border: white 0.3rem solid !important;
+}
+body #grid-container #grid-con #settings-left p {
+  padding: 0.2rem 0 0 0.5rem;
+}
+body #grid-container #grid-con #settings-left #color-settings {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 2fr 3fr 3fr 2fr 6fr 2fr 3fr;
+}
+body #grid-container #grid-con #settings-left #color-settings .color-setting-square {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0;
+  background-color: transparent;
+  border: 0.3rem black solid;
+}
+body #grid-container #grid-con #settings-left #color-settings .color-setting-square:hover {
+  cursor: pointer;
+}
+body #grid-container #grid-con #settings-left #color-settings #rainbow-colors,
+body #grid-container #grid-con #settings-left #color-settings #black-white-colors,
+body #grid-container #grid-con #settings-left #color-settings #custom-colors {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 4rem;
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity {
+  display: flex;
+  flex-direction: column;
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper .light-square,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper .light-square {
+  background-color: rgb(0, 0, 255);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper #light-100,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper #light-100 {
+  filter: brightness(100%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper #light-80,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper #light-80 {
+  filter: brightness(80%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper #light-60,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper #light-60 {
+  filter: brightness(60%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper #light-40,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper #light-40 {
+  filter: brightness(40%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper #light-20,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper #light-20 {
+  filter: brightness(20%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #lightning .settings-flex-wrapper #light-0,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-opacity #opacity .settings-flex-wrapper #light-0 {
+  filter: brightness(0%);
+}
+body #grid-container #grid-con #settings-left #color-settings .hidden {
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: transparent 0.3rem solid;
+}
+body #grid-container #grid-con #settings-left #color-settings .custom {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+body #grid-container #grid-con #settings-left #color-settings #red {
+  background-color: red;
+}
+body #grid-container #grid-con #settings-left #color-settings #orange {
+  background-color: orange;
+}
+body #grid-container #grid-con #settings-left #color-settings #yellow {
+  background-color: yellow;
+}
+body #grid-container #grid-con #settings-left #color-settings #green {
+  background-color: green;
+}
+body #grid-container #grid-con #settings-left #color-settings #blue {
+  background-color: blue;
+}
+body #grid-container #grid-con #settings-left #color-settings #indigo {
+  background-color: indigo;
+}
+body #grid-container #grid-con #settings-left #color-settings #violet {
+  background-color: violet;
+}
+body #grid-container #grid-con #settings-left #color-settings #white {
+  background-color: white;
+}
+body #grid-container #grid-con #settings-left #color-settings #lightgray {
+  background-color: lightgray;
+}
+body #grid-container #grid-con #settings-left #color-settings #silver {
+  background-color: silver;
+}
+body #grid-container #grid-con #settings-left #color-settings #gray {
+  background-color: gray;
+}
+body #grid-container #grid-con #settings-left #color-settings #darkgray {
+  background-color: darkgray;
+}
+body #grid-container #grid-con #settings-left #color-settings #dimgray {
+  background-color: dimgray;
+}
+body #grid-container #grid-con #settings-left #color-settings #black {
+  background-color: black;
+}
+body #grid-container #grid-con #settings-left #size-settings,
+body #grid-container #grid-con #settings-left #pencil-type-settings {
+  display: grid;
+  grid-template-rows: 0.7fr 1fr;
+}
+body #grid-container #grid-con #settings-left #size-settings #size-choices,
+body #grid-container #grid-con #settings-left #size-settings #pencil-types-wrapper,
+body #grid-container #grid-con #settings-left #pencil-type-settings #size-choices,
+body #grid-container #grid-con #settings-left #pencil-type-settings #pencil-types-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+body #grid-container #grid-con #settings-left #size-settings #size-choices .size-span-flex-wrapper,
+body #grid-container #grid-con #settings-left #size-settings #size-choices .pencil-types-flex-wrapper,
+body #grid-container #grid-con #settings-left #size-settings #pencil-types-wrapper .size-span-flex-wrapper,
+body #grid-container #grid-con #settings-left #size-settings #pencil-types-wrapper .pencil-types-flex-wrapper,
+body #grid-container #grid-con #settings-left #pencil-type-settings #size-choices .size-span-flex-wrapper,
+body #grid-container #grid-con #settings-left #pencil-type-settings #size-choices .pencil-types-flex-wrapper,
+body #grid-container #grid-con #settings-left #pencil-type-settings #pencil-types-wrapper .size-span-flex-wrapper,
+body #grid-container #grid-con #settings-left #pencil-type-settings #pencil-types-wrapper .pencil-types-flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body #grid-container #grid-con #settings-left #size-settings #size-choices .size-span-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #size-settings #size-choices .size-span-flex-wrapper .pencil-type,
+body #grid-container #grid-con #settings-left #size-settings #size-choices .pencil-types-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #size-settings #size-choices .pencil-types-flex-wrapper .pencil-type,
+body #grid-container #grid-con #settings-left #size-settings #pencil-types-wrapper .size-span-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #size-settings #pencil-types-wrapper .size-span-flex-wrapper .pencil-type,
+body #grid-container #grid-con #settings-left #size-settings #pencil-types-wrapper .pencil-types-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #size-settings #pencil-types-wrapper .pencil-types-flex-wrapper .pencil-type,
+body #grid-container #grid-con #settings-left #pencil-type-settings #size-choices .size-span-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #pencil-type-settings #size-choices .size-span-flex-wrapper .pencil-type,
+body #grid-container #grid-con #settings-left #pencil-type-settings #size-choices .pencil-types-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #pencil-type-settings #size-choices .pencil-types-flex-wrapper .pencil-type,
+body #grid-container #grid-con #settings-left #pencil-type-settings #pencil-types-wrapper .size-span-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #pencil-type-settings #pencil-types-wrapper .size-span-flex-wrapper .pencil-type,
+body #grid-container #grid-con #settings-left #pencil-type-settings #pencil-types-wrapper .pencil-types-flex-wrapper .size-option,
+body #grid-container #grid-con #settings-left #pencil-type-settings #pencil-types-wrapper .pencil-types-flex-wrapper .pencil-type {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+body #settings-top {
+  background-color: #1a1a1a;
+  z-index: 2;
+}
+body #drawing-paper {
+  z-index: 1;
+  border: black 2px solid;
+}
+body #drawing-paper #drawing-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 1px solid #000; /* Optional: Add a border for better visibility */
+  cursor: crosshair;
+  position: relative;
+}
+/*# sourceMappingURL=styles.css.map */
