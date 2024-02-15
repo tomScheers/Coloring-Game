@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brightness: 100,
         opacity: 1,
         size: "medium",
-        //eraser: false,
+        eraser: false,
     };
     colorOpacityButtons.forEach((b) => {
         b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${opacityMap[b.id]})`;
