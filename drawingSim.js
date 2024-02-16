@@ -51,46 +51,46 @@ document.addEventListener("DOMContentLoaded", () => {
                     b.classList.remove("selected-settings");
                     b.classList.add("eraser-light")
                 })
-            } else {
-                const colorMap = {
-                    red: [255, 0, 0],
-                    orange: [255, 165, 0],
-                    yellow: [255, 255, 0],
-                    green: [0, 128, 0],
-                    blue: [0, 0, 255],
-                    indigo: [75, 0, 130],
-                    violet: [238, 130, 238],
-                    white: [255, 255, 255],
-                    lightgray: [211, 211, 211],
-                    silver: [192, 192, 192],
-                    gray: [128, 128, 128],
-                    darkgray: [169, 169, 169],
-                    dimgray: [105, 105, 105],
-                    black: [0, 0, 0]
-                }
-                colorButtons.forEach((b) => {
-                    b.classList.remove("selected-settings");
-                    const color = colorMap[b.id]
-                    b.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-                })
-                colorButtons[0].classList.add("selected-settings");
-                button.classList.add("selected-settings");
-                userData.redVal = 255;
-                userData.greenVal = 0;
-                userData.blueVal = 0;
-                circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-                context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-                circle.style.width = `${getRadius()}rem`;
-                circle.style.height = `${getRadius()}rem`;
-                context.lineWidth = getRadius(userData.size) * 2;
-                coloralphaButtons.forEach((b) => {
-                    b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
-                })
-                colorBrightnessButtons.forEach((b) => {
-                    b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
-                    b.classList.remove("eraser-light");
-                })
+                return;
             }
+            const colorMap = {
+                red: [255, 0, 0],
+                orange: [255, 165, 0],
+                yellow: [255, 255, 0],
+                green: [0, 128, 0],
+                blue: [0, 0, 255],
+                indigo: [75, 0, 130],
+                violet: [238, 130, 238],
+                white: [255, 255, 255],
+                lightgray: [211, 211, 211],
+                silver: [192, 192, 192],
+                gray: [128, 128, 128],
+                darkgray: [169, 169, 169],
+                dimgray: [105, 105, 105],
+                black: [0, 0, 0]
+            }
+            colorButtons.forEach((b) => {
+                b.classList.remove("selected-settings");
+                const color = colorMap[b.id]
+                b.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+            })
+            colorButtons[0].classList.add("selected-settings");
+            button.classList.add("selected-settings");
+            userData.redVal = 255;
+            userData.greenVal = 0;
+            userData.blueVal = 0;
+            circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+            circle.style.width = `${getRadius() / 2}rem`;
+            circle.style.height = `${getRadius() / 2}rem`;
+            context.lineWidth = getRadius(userData.size) * 2;
+            coloralphaButtons.forEach((b) => {
+                b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
+            })
+            colorBrightnessButtons.forEach((b) => {
+                b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
+                b.classList.remove("eraser-light");
+            })
         })
     })
     const getRadius = () => {
