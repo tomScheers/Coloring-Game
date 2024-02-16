@@ -13,6 +13,10 @@ $current-color: 0, 0, 255;
 }
 body {
     height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
     #grid-container {
         height: 100%;
         display: grid;
@@ -55,12 +59,12 @@ body {
                         align-items: center;
                         justify-content: space-around;
                     }
-                    #lightning-and-opacity {
+                    #lightning-and-alpha {
                         display: grid;
                         grid-template-columns: auto auto;
                         gap: 4rem;
                         #lightning,
-                        #opacity {
+                        #alpha {
                             display: flex;
                             flex-direction: column;
                             $percentages: 100, 80, 60, 40, 20, 0;
@@ -135,14 +139,18 @@ body {
     }
     #drawing-paper {
         z-index: 1;
-        border: black 2px solid;
+        overflow: hidden;
         #drawing-canvas {
-            width: 100%;
-            height: 100%;
             display: block;
-            border: 1px solid #000; /* Optional: Add a border for better visibility */
             cursor: crosshair;
             position: relative;
         }
     }
+}
+#circle {
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    filter: blur(0.2rem);
+    
 }

@@ -1,18 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const colorBrightnessButtons = document.querySelectorAll(".light-square");
-    const colorOpacityButtons = document.querySelectorAll(".opacity-square");
+    const coloralphaButtons = document.querySelectorAll(".alpha-square");
     const sizeButtons = document.querySelectorAll(".size-option");
-    const sizeForm = document.getElementById("size-choices");
-    const leftBar = document.getElementById("settings-left");
-    const topBar = document.getElementById("settings-top");
-    const opacityMap = {
-        "opacity-100": 1,
-        "opacity-80": 0.8,
-        "opacity-60": 0.6,
-        "opacity-40": 0.4,
-        "opacity-20": 0.2,
-        "opacity-0": 0,
+    const canvas = document.getElementById('drawing-canvas');
+    const context = canvas.getContext('2d');
+    const alphaMap = {
+        "alpha-100": 1,
+        "alpha-80": 0.8,
+        "alpha-60": 0.6,
+        "alpha-40": 0.4,
+        "alpha-20": 0.2,
+        "alpha-0": 0,
     }
     let userData = {
         redVal: 255,
@@ -20,12 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
         blueVal: 0,
         alphaVal: 1,
         brightness: 100,
-        opacity: 1,
         size: "medium",
         eraser: false,
     };
-    colorOpacityButtons.forEach((b) => {
-        b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${opacityMap[b.id]})`;
+    coloralphaButtons.forEach((b) => {
+        b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
     })
     colorBrightnessButtons.forEach((b) => {
         b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
@@ -34,23 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const getRadius = () => {
         switch (userData.size) {
             case "super-small":
-                return "0.5rem"
+                return 0.5;
             case "small":
-                return "1rem"
+                return 1;
             case "medium":
-                return "2rem"
+                return 2;
             case "big":
-                return "3rem"
+                return 3;
             case "super-big":
-                return "4rem"
+                return 4;
         }
     }
-    colorOpacityButtons.forEach((button) => {
+    coloralphaButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const newOpacity = opacityMap[button.id];
-            userData.opacity = newOpacity;
-            circle.style.opacity = userData.opacity;
-            colorOpacityButtons.forEach((b) => {
+            const newAlpha = alphaMap[button.id];
+            userData.alphaVal = newAlpha;
+            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${newAlpha})`;
+            coloralphaButtons.forEach((b) => {
                 b.classList.remove("selected-settings");
             })
             button.classList.add("selected-settings");
@@ -83,8 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
             userData.greenVal = newColor[1];
             userData.blueVal = newColor[2];
             circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            colorOpacityButtons.forEach((b) => {
-                b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${opacityMap[b.id]})`;
+            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+            coloralphaButtons.forEach((b) => {
+                b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
             })
             colorBrightnessButtons.forEach((b) => {
                 b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
@@ -104,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const newBrightness = brightnessMap[button.id];
             userData.brightness = newBrightness;
             circle.style.filter = `brightness(${userData.brightness}%) blur(0.2rem)`;
+            context.filter = `brightness(${userData.brightness}%)`;
             colorBrightnessButtons.forEach((b) => {
                 b.classList.remove("selected-settings");
             })
@@ -114,8 +114,9 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", () => {
             const selectedSizeValue = button.value;
             userData.size = `${selectedSizeValue}`;
-            circle.style.width = getRadius();
-            circle.style.height = getRadius();
+            circle.style.width = `${getRadius()}rem`;
+            circle.style.height = `${getRadius()}rem`;
+            context.lineWidth = getRadius(userData.size) * 2;
         });
     });
     const getMousePos = (event) => {
@@ -125,10 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     };
 
-    circle.style.borderRadius = "50%";
-    circle.style.position = "absolute";
-    circle.style.zIndex = "1";
-    circle.style.filter = "blur(0.2rem)";
     circle.style.width = getRadius();
     circle.style.height = getRadius();
     circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
@@ -140,44 +137,40 @@ document.addEventListener("DOMContentLoaded", function () {
         circle.style.left = `calc(${mousePos.x}px - ${circle.style.width} / 2)`;
         circle.style.top = `calc(${mousePos.y}px - ${circle.style.height} / 2)`;
     });
-
-    const canvas = document.getElementById('drawing-canvas');
-    const context = canvas.getContext('2d');
-
-    // Set initial drawing settings
-    context.lineWidth = 2;
-    context.strokeStyle = '#000';
-
+    canvas.width = window.innerHeight / 2 * 3;
+    canvas.height = canvas.width / 4 * 6;
+    context.lineWidth = getRadius(userData.size) * 2;
+    context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+    context.filter = `brightness(${userData.brightness}%)`;
     let isDrawing = false;
+    let startPoint = {
+        x: 0,
+        y: 0
+    };
+
     function startDrawing(event) {
         isDrawing = true;
+        startPoint = {
+            x: event.clientX - canvas.getBoundingClientRect().left,
+            y: event.clientY - canvas.getBoundingClientRect().top
+        };
         context.beginPath();
-        context.moveTo(event.clientX - canvas.getBoundingClientRect().left, event.clientY - canvas.getBoundingClientRect().top);
+        context.moveTo(startPoint.x, startPoint.y);
     }
-    
-    
+
     function draw(event) {
         if (!isDrawing) return;
         const rect = canvas.getBoundingClientRect();
         context.lineTo(event.clientX - rect.left, event.clientY - rect.top);
         context.stroke();
     }
-    
-    
 
     function stopDrawing() {
         isDrawing = false;
     }
-    // Event listeners for drawing
+
     canvas.addEventListener("mousedown", startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
-
-
-    
-
-
-
-
 });
