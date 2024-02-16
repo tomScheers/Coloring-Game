@@ -1,8 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const colorBrightnessButtons = document.querySelectorAll(".light-square");
     const coloralphaButtons = document.querySelectorAll(".alpha-square");
     const sizeButtons = document.querySelectorAll(".size-option");
+    const pencilOptions = document.querySelectorAll(".pencil-type")
     const canvas = document.getElementById('drawing-canvas');
     const context = canvas.getContext('2d');
     const alphaMap = {
@@ -28,7 +29,70 @@ document.addEventListener("DOMContentLoaded", function () {
     colorBrightnessButtons.forEach((b) => {
         b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
     })
-    const circle = document.createElement("div");
+    pencilOptions.forEach((button) => {
+        button.addEventListener("click", () => {
+            userData.eraser = button.id === "eraser";
+            if (userData.eraser) {
+                circle.style.width = `${getRadius() * 1.5}rem`;
+                circle.style.height = `${getRadius() * 1.5}rem`;
+                context.lineWidth = getRadius(userData.size) * 10;
+                context.strokeStyle = "white";
+                circle.style.background = "white";
+                colorButtons.forEach((b) => {
+                    b.style.backgroundColor = "white";
+                    b.classList.remove("selected-settings")
+                })
+                coloralphaButtons.forEach((b) => {
+                    b.style.backgroundColor = "white";
+                    b.classList.remove("selected-settings");
+                })
+                colorBrightnessButtons.forEach((b) => {
+                    b.style.backgroundColor = "white";
+                    b.classList.remove("selected-settings");
+                    b.classList.add("eraser-light")
+                })
+            } else {
+                const colorMap = {
+                    red: [255, 0, 0],
+                    orange: [255, 165, 0],
+                    yellow: [255, 255, 0],
+                    green: [0, 128, 0],
+                    blue: [0, 0, 255],
+                    indigo: [75, 0, 130],
+                    violet: [238, 130, 238],
+                    white: [255, 255, 255],
+                    lightgray: [211, 211, 211],
+                    silver: [192, 192, 192],
+                    gray: [128, 128, 128],
+                    darkgray: [169, 169, 169],
+                    dimgray: [105, 105, 105],
+                    black: [0, 0, 0]
+                }
+                colorButtons.forEach((b) => {
+                    b.classList.remove("selected-settings");
+                    const color = colorMap[b.id]
+                    b.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+                })
+                colorButtons[0].classList.add("selected-settings");
+                button.classList.add("selected-settings");
+                userData.redVal = 255;
+                userData.greenVal = 0;
+                userData.blueVal = 0;
+                circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+                context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+                circle.style.width = `${getRadius()}rem`;
+                circle.style.height = `${getRadius()}rem`;
+                context.lineWidth = getRadius(userData.size) * 2;
+                coloralphaButtons.forEach((b) => {
+                    b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
+                })
+                colorBrightnessButtons.forEach((b) => {
+                    b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
+                    b.classList.remove("eraser-light");
+                })
+            }
+        })
+    })
     const getRadius = () => {
         switch (userData.size) {
             case "super-small":
@@ -43,11 +107,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 return 4;
         }
     }
+    const circle = document.createElement("div");
+    circle.id = "circle";
+    circle.style.width = `${getRadius()}rem`
+    circle.style.height = `${getRadius()}rem`;
+    circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+    document.body.appendChild(circle);
     coloralphaButtons.forEach((button) => {
         button.addEventListener("click", () => {
+            if (userData.eraser) return;
             const newAlpha = alphaMap[button.id];
             userData.alphaVal = newAlpha;
-            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${newAlpha})`;
+            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+            circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
             coloralphaButtons.forEach((b) => {
                 b.classList.remove("selected-settings");
             })
@@ -56,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     colorButtons.forEach((button) => {
         button.addEventListener("click", () => {
+            if (userData.eraser) return;
             const colorMap = {
                 red: [255, 0, 0],
                 orange: [255, 165, 0],
@@ -92,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     colorBrightnessButtons.forEach((button) => {
         button.addEventListener("click", () => {
+            if (userData.eraser) return;
             const brightnessMap = {
                 "light-100": 100,
                 "light-80": 80,
@@ -114,6 +188,12 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", () => {
             const selectedSizeValue = button.value;
             userData.size = `${selectedSizeValue}`;
+            if (userData.eraser) {
+                circle.style.width = `${getRadius() * 1.5}rem`;
+                circle.style.height = `${getRadius() * 1.5}rem`;
+                context.lineWidth = getRadius(userData.size) * 10;
+                return;
+            }
             circle.style.width = `${getRadius()}rem`;
             circle.style.height = `${getRadius()}rem`;
             context.lineWidth = getRadius(userData.size) * 2;
@@ -126,13 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     };
 
-    circle.style.width = getRadius();
-    circle.style.height = getRadius();
-    circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-    circle.style.pointerEvents = "none";
-    document.body.appendChild(circle);
-
-    document.addEventListener("mousemove", function (event) {
+    document.addEventListener("mousemove", (event) => {
         const mousePos = getMousePos(event);
         circle.style.left = `calc(${mousePos.x}px - ${circle.style.width} / 2)`;
         circle.style.top = `calc(${mousePos.y}px - ${circle.style.height} / 2)`;
@@ -148,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
         y: 0
     };
 
-    function startDrawing(event) {
+    const startDrawing = (event) => {
         isDrawing = true;
         startPoint = {
             x: event.clientX - canvas.getBoundingClientRect().left,
@@ -158,19 +232,19 @@ document.addEventListener("DOMContentLoaded", function () {
         context.moveTo(startPoint.x, startPoint.y);
     }
 
-    function draw(event) {
+    const draw = (event) => {
         if (!isDrawing) return;
         const rect = canvas.getBoundingClientRect();
         context.lineTo(event.clientX - rect.left, event.clientY - rect.top);
         context.stroke();
     }
 
-    function stopDrawing() {
+    const stopDrawing = () => {
         isDrawing = false;
     }
-
     canvas.addEventListener("mousedown", startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
+
 });

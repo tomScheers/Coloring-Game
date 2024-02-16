@@ -1,7 +1,6 @@
 $paper-color: white;
 $nav-color: #1a1a1a;
 $settings-color: #333333;
-$current-color: 0, 0, 255;
 *,
 *::after,
 *::before {
@@ -30,7 +29,7 @@ body {
                 display: grid;
                 grid-template-rows: 9fr 4fr 3fr;
                 background-color: $settings-color;
-                z-index: 1000;                    
+                z-index: 1000;
                 .selected-settings {
                     border: white 0.3rem solid !important;
                 }
@@ -74,16 +73,15 @@ body {
                                 justify-content: space-around;
                                 align-items: space-around;
                                 .light-square {
-                                    background-color: rgb(
-                                        nth($current-color, 1),
-                                        nth($current-color, 2),
-                                        nth($current-color, 3)
-                                    );
+                                    background-color: red;
                                 }
                                 @each $percentage in $percentages {
                                     #light-#{$percentage} {
                                         filter: brightness(#{$percentage + "%"});
                                     }
+                                }
+                                .eraser-light {
+                                    filter: brightness(100%) !important;
                                 }
                             }
                         }
@@ -146,11 +144,12 @@ body {
             position: relative;
         }
     }
-}
-#circle {
-    border-radius: 50%;
-    position: absolute;
-    z-index: 1;
-    filter: blur(0.2rem);
-    
+    #circle {
+        border-radius: 50%;
+        position: absolute;
+        z-index: 1;
+        filter: blur(0.2rem);
+        pointer-events: none;
+        background-color: red;
+    }
 }

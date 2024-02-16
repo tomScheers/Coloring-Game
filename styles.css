@@ -79,7 +79,7 @@ body #grid-container #grid-con #settings-left #color-settings #lightning-and-alp
 }
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper .light-square,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper .light-square {
-  background-color: rgb(0, 0, 255);
+  background-color: red;
 }
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-100,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-100 {
@@ -104,6 +104,10 @@ body #grid-container #grid-con #settings-left #color-settings #lightning-and-alp
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-0,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-0 {
   filter: brightness(0%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper .eraser-light,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper .eraser-light {
+  filter: brightness(100%) !important;
 }
 body #grid-container #grid-con #settings-left #color-settings .hidden {
   pointer-events: none;
@@ -215,11 +219,12 @@ body #drawing-paper #drawing-canvas {
   cursor: crosshair;
   position: relative;
 }
-
-#circle {
+body #circle {
   border-radius: 50%;
   position: absolute;
   z-index: 1;
   filter: blur(0.2rem);
+  pointer-events: none;
+  background-color: red;
 }
 /*# sourceMappingURL=styles.css.map */
