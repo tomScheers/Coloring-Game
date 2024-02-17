@@ -1,30 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const colorBrightnessButtons = document.querySelectorAll(".light-square");
-    const colorAlphaButtons = document.querySelectorAll(".alpha-square");
+    const colorBlurButtons = document.querySelectorAll(".blur-square");
     const sizeButtons = document.querySelectorAll(".size-option");
     const pencilOptions = document.querySelectorAll(".pencil-type")
     const canvas = document.getElementById('drawing-canvas');
     const context = canvas.getContext('2d');
-    const alphaMap = {
-        "alpha-100": 1,
-        "alpha-80": 0.8,
-        "alpha-60": 0.6,
-        "alpha-40": 0.4,
-        "alpha-20": 0.2,
-        "alpha-0": 0,
+    const blurMap = {
+        "blur-100": 0,
+        "blur-80": 0.06,
+        "blur-60": 0.12,
+        "blur-40": 0.18,
+        "blur-20": 0.24,
+        "blur-0": 0.30,
     }
     let userData = {
         redVal: 255,
         greenVal: 0,
         blueVal: 0,
-        alphaVal: 1,
+        blurVal: 0,
         brightness: 100,
         size: "medium",
         eraser: false,
     };
-    colorAlphaButtons.forEach((b) => {
-        b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
+    colorBlurButtons.forEach((b) => {
+        b.style.filter = `blur(${blurMap[b.id]}rem)`;
+        b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
     })
     colorBrightnessButtons.forEach((b) => {
         b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
@@ -37,16 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 circle.style.width = `${getRadius() * 1.5}rem`;
                 circle.style.height = `${getRadius() * 1.5}rem`;
                 context.lineWidth = getRadius(userData.size) * 10;
-                context.filter = "none";
+                context.filter = `blur(${userData.blurVal}rem)`;
                 context.strokeStyle = "white";
                 circle.style.background = "white";
                 colorButtons.forEach((b) => {
                     b.style.backgroundColor = "white";
                     b.classList.remove("selected-settings")
                 })
-                colorAlphaButtons.forEach((b) => {
+                colorBlurButtons.forEach((b) => {
                     b.style.backgroundColor = "white";
-                    b.classList.remove("selected-settings");
                 })
                 colorBrightnessButtons.forEach((b) => {
                     b.style.backgroundColor = "white";
@@ -78,18 +78,19 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             colorButtons[0].classList.add("selected-settings");
             colorBrightnessButtons[0].classList.add("selected-settings");
-            colorAlphaButtons[0].classList.add("selected-settings")
             button.classList.add("selected-settings");
             userData.redVal = 255;
             userData.greenVal = 0;
             userData.blueVal = 0;
-            circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+            circle.style.background = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
+            context.strokeStyle = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
             circle.style.width = `${getRadius() / 2}rem`;
             circle.style.height = `${getRadius() / 2}rem`;
             context.lineWidth = getRadius(userData.size) * 2;
-            colorAlphaButtons.forEach((b) => {
-                b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
+            context.filter = `blur(${userData.blurVal}rem)`;
+            console.log(context)
+            colorBlurButtons.forEach((b) => {
+                b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
             })
             colorBrightnessButtons.forEach((b) => {
                 b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
@@ -115,16 +116,14 @@ document.addEventListener("DOMContentLoaded", () => {
     circle.id = "circle";
     circle.style.width = `${getRadius()}rem`
     circle.style.height = `${getRadius()}rem`;
-    circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
+    circle.style.background = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
     document.body.appendChild(circle);
-    colorAlphaButtons.forEach((button) => {
+    colorBlurButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            if (userData.eraser) return;
-            const newAlpha = alphaMap[button.id];
-            userData.alphaVal = newAlpha;
-            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            colorAlphaButtons.forEach((b) => {
+            const newBlur = blurMap[button.id];
+            userData.blurVal = newBlur;
+            context.filter = `blur(${newBlur}rem)`;
+            colorBlurButtons.forEach((b) => {
                 b.classList.remove("selected-settings");
             })
             button.classList.add("selected-settings");
@@ -157,10 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
             userData.redVal = newColor[0];
             userData.greenVal = newColor[1];
             userData.blueVal = newColor[2];
-            circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            colorAlphaButtons.forEach((b) => {
-                b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
+            circle.style.background = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
+            context.strokeStyle = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
+            colorBlurButtons.forEach((b) => {
+                b.style.filter = `blur(${blurMap[b.id]}rem)`;
+                b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
             })
             colorBrightnessButtons.forEach((b) => {
                 b.style.backgroundColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
@@ -175,13 +175,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 "light-80": 80,
                 "light-60": 60,
                 "light-40": 40,
-                "light-29": 20,
+                "light-20": 20,
                 "light-0": 0,
             }
             const newBrightness = brightnessMap[button.id];
             userData.brightness = newBrightness;
             circle.style.filter = `brightness(${userData.brightness}%) blur(0.2rem)`;
-            context.filter = `brightness(${userData.brightness}%)`;
+            context.filter = `brightness(${userData.brightness}%) blur(${userData.blurVal}rem)`;
             colorBrightnessButtons.forEach((b) => {
                 b.classList.remove("selected-settings");
             })
@@ -218,8 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.width = window.innerHeight / 2 * 3;
     canvas.height = canvas.width / 4 * 6;
     context.lineWidth = getRadius(userData.size) * 2;
-    context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-    context.filter = `brightness(${userData.brightness}%)`;
+    context.strokeStyle = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
+    context.filter = `brightness(100}%) blur(0rem)`;
     let isDrawing = false;
     let startPoint = {
         x: 0,

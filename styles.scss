@@ -58,12 +58,12 @@ body {
                         align-items: center;
                         justify-content: space-around;
                     }
-                    #lightning-and-alpha {
+                    #lightning-and-blur {
                         display: grid;
                         grid-template-columns: auto auto;
                         gap: 4rem;
                         #lightning,
-                        #alpha {
+                        #blur {
                             display: flex;
                             flex-direction: column;
                             $percentages: 100, 80, 60, 40, 20, 0;
@@ -151,5 +151,6 @@ body {
         filter: blur(0.2rem);
         pointer-events: none;
         background-color: red;
+        opacity: 0.3;
     }
 }

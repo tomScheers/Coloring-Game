@@ -60,53 +60,53 @@ body #grid-container #grid-con #settings-left #color-settings #custom-colors {
   align-items: center;
   justify-content: space-around;
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur {
   display: grid;
   grid-template-columns: auto auto;
   gap: 4rem;
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur {
   display: flex;
   flex-direction: column;
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper {
   height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: space-around;
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper .light-square,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper .light-square {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper .light-square,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper .light-square {
   background-color: red;
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-100,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-100 {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-100,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-100 {
   filter: brightness(100%);
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-80,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-80 {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-80,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-80 {
   filter: brightness(80%);
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-60,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-60 {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-60,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-60 {
   filter: brightness(60%);
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-40,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-40 {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-40,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-40 {
   filter: brightness(40%);
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-20,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-20 {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-20,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-20 {
   filter: brightness(20%);
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper #light-0,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper #light-0 {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-0,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-0 {
   filter: brightness(0%);
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #lightning .settings-flex-wrapper .eraser-light,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-alpha #alpha .settings-flex-wrapper .eraser-light {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper .eraser-light,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper .eraser-light {
   filter: brightness(100%) !important;
 }
 body #grid-container #grid-con #settings-left #color-settings .hidden {
@@ -226,5 +226,6 @@ body #circle {
   filter: blur(0.2rem);
   pointer-events: none;
   background-color: red;
+  opacity: 0.3;
 }
 /*# sourceMappingURL=styles.css.map */
