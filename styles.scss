@@ -97,6 +97,16 @@ body {
                         font-size: 1.2rem;
                         font-weight: bold;
                     }
+                    dialog {
+                        width: 50vw;
+                        height: 80vh;
+                        background-color: beige;
+                        position: absolute;
+                        margin: auto;
+                        button {
+                            background-color: purple;
+                        }
+                    }
 
                     $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgray, silver, gray, darkgray,
                         dimgray, black;

@@ -120,6 +120,16 @@ body #grid-container #grid-con #settings-left #color-settings .custom {
   font-size: 1.2rem;
   font-weight: bold;
 }
+body #grid-container #grid-con #settings-left #color-settings dialog {
+  width: 50vw;
+  height: 80vh;
+  background-color: beige;
+  position: absolute;
+  margin: auto;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog button {
+  background-color: purple;
+}
 body #grid-container #grid-con #settings-left #color-settings #red {
   background-color: red;
 }

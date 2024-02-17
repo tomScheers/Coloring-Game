@@ -16,6 +16,15 @@ let userData = {
     size: "medium",
     eraser: false,
     lockedSquareColor: "white",
+    customColors: {
+        "custom-color1": {
+            redVal: 0,
+            greenVal: 0,
+            blueVal: 0,
+            blurVal: 0,
+            brightness: 100,
+        }
+    }
 };
 
 const colorMap = {
@@ -241,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     colorBrightnessButtons.forEach((button) => {
         button.style.backgroundColor = currentColor;
-        
+
         button.addEventListener("click", () => {
             if (userData.eraser) return;
 
@@ -294,4 +303,20 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
 
+
+
+    const dialog = document.getElementById("dialog-1");
+    const showButton = document.getElementById("custom-color1"); // Change this to the correct button ID
+    const closeButton = document.querySelector("#dialog-1 button");
+    
+    // "Show the dialog" button opens the dialog modally
+    showButton.addEventListener("click", () => {
+        dialog.showModal();
+    });
+    
+    // "Close" button closes the dialog
+    closeButton.addEventListener("click", () => {
+        dialog.close();
+    });
+    
 });
