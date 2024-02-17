@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const colorBrightnessButtons = document.querySelectorAll(".light-square");
-    const coloralphaButtons = document.querySelectorAll(".alpha-square");
+    const colorAlphaButtons = document.querySelectorAll(".alpha-square");
     const sizeButtons = document.querySelectorAll(".size-option");
     const pencilOptions = document.querySelectorAll(".pencil-type")
     const canvas = document.getElementById('drawing-canvas');
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         size: "medium",
         eraser: false,
     };
-    coloralphaButtons.forEach((b) => {
+    colorAlphaButtons.forEach((b) => {
         b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
     })
     colorBrightnessButtons.forEach((b) => {
@@ -31,18 +31,20 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     pencilOptions.forEach((button) => {
         button.addEventListener("click", () => {
+            if ((button.id === "eraser") === (userData.eraser)) return;
             userData.eraser = button.id === "eraser";
             if (userData.eraser) {
                 circle.style.width = `${getRadius() * 1.5}rem`;
                 circle.style.height = `${getRadius() * 1.5}rem`;
                 context.lineWidth = getRadius(userData.size) * 10;
+                context.filter = "none";
                 context.strokeStyle = "white";
                 circle.style.background = "white";
                 colorButtons.forEach((b) => {
                     b.style.backgroundColor = "white";
                     b.classList.remove("selected-settings")
                 })
-                coloralphaButtons.forEach((b) => {
+                colorAlphaButtons.forEach((b) => {
                     b.style.backgroundColor = "white";
                     b.classList.remove("selected-settings");
                 })
@@ -75,6 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 b.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
             })
             colorButtons[0].classList.add("selected-settings");
+            colorBrightnessButtons[0].classList.add("selected-settings");
+            colorAlphaButtons[0].classList.add("selected-settings")
             button.classList.add("selected-settings");
             userData.redVal = 255;
             userData.greenVal = 0;
@@ -84,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             circle.style.width = `${getRadius() / 2}rem`;
             circle.style.height = `${getRadius() / 2}rem`;
             context.lineWidth = getRadius(userData.size) * 2;
-            coloralphaButtons.forEach((b) => {
+            colorAlphaButtons.forEach((b) => {
                 b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
             })
             colorBrightnessButtons.forEach((b) => {
@@ -113,14 +117,14 @@ document.addEventListener("DOMContentLoaded", () => {
     circle.style.height = `${getRadius()}rem`;
     circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
     document.body.appendChild(circle);
-    coloralphaButtons.forEach((button) => {
+    colorAlphaButtons.forEach((button) => {
         button.addEventListener("click", () => {
             if (userData.eraser) return;
             const newAlpha = alphaMap[button.id];
             userData.alphaVal = newAlpha;
             context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
             circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            coloralphaButtons.forEach((b) => {
+            colorAlphaButtons.forEach((b) => {
                 b.classList.remove("selected-settings");
             })
             button.classList.add("selected-settings");
@@ -155,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             userData.blueVal = newColor[2];
             circle.style.background = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
             context.strokeStyle = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${userData.alphaVal})`;
-            coloralphaButtons.forEach((b) => {
+            colorAlphaButtons.forEach((b) => {
                 b.style.backgroundColor = `rgba(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal}, ${alphaMap[b.id]})`;
             })
             colorBrightnessButtons.forEach((b) => {
