@@ -68,6 +68,8 @@ const getRadius = () => {
     }
 };
 
+const customColorsMap = ["red-value-decrement", "red-value-increment", "green-value-decrement", "green-value-increment", "blue-value-decrement", "blue-value-increment", "brightness-value-decrement", "brightness-value-increment", "blur-value-decrement", "blur-value-increment"];
+
 const getMousePos = (event) => {
     return {
         x: event.clientX,
@@ -293,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     rect = canvas;
     ctx = context;
-    canvas.width = window.innerHeight / 2 * 3;
+    canvas.width = window.innerWidth / 2 * 3;
     canvas.height = canvas.width / 4 * 6;
     context.lineWidth = getRadius(userData.size) * 2;
     context.strokeStyle = currentColor;
@@ -307,16 +309,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const dialog = document.getElementById("dialog-1");
     const showButton = document.getElementById("custom-color1"); // Change this to the correct button ID
-    const closeButton = document.querySelector("#dialog-1 button");
-    
+    const closeButton = document.querySelector("#dialog-1 .close-button");
     // "Show the dialog" button opens the dialog modally
     showButton.addEventListener("click", () => {
         dialog.showModal();
     });
-    
+
     // "Close" button closes the dialog
     closeButton.addEventListener("click", () => {
         dialog.close();
     });
-    
+    dialog.close();
+
+    const customColorsInputElements = document.querySelectorAll('input[type=number]');
+    customColorsInputElements.forEach((input) => {
+        input.addEventListener('blur', function () {
+            // Parse the entered value as a floating-point number
+            let enteredValue = parseFloat(this.value);
+
+            // Check if the entered value is less than the minimum
+            if (enteredValue < parseFloat(this.min)) {
+                this.value = this.min; // Set the value to the minimum allowed
+            }
+
+            // Check if the entered value is greater than the maximum
+            if (enteredValue > parseFloat(this.max)) {
+                this.value = this.max; // Set the value to the maximum allowed
+            }
+        });
+    })
+
+    customColorsMap.forEach((id) => {
+        const currentItem = document.querySelector(`#${dialog.id} .${id}`);
+        currentItem.addEventListener("click", () => {
+            const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList} input`);
+            if (customColorsMap.indexOf(id) % 2 === 0) {
+                if (parseFloat(inputElement.value) - 1 < inputElement.min) return;
+                inputElement.value--;
+                return;
+            }
+            if (parseFloat(inputElement.value) + 1 > inputElement.max) return;
+            inputElement.value++;
+        })
+    })
+
 });

@@ -127,8 +127,54 @@ body #grid-container #grid-con #settings-left #color-settings dialog {
   position: absolute;
   margin: auto;
 }
-body #grid-container #grid-con #settings-left #color-settings dialog button {
-  background-color: purple;
+body #grid-container #grid-con #settings-left #color-settings dialog #dialog-inner-wrapper {
+  display: flex;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 80vh;
+  border: solid 2px blue;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-settings-wrapper button {
+  background-color: aquamarine;
+  color: black;
+  width: 5rem;
+  height: 2rem;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-settings-wrapper button:hover {
+  cursor: pointer;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-settings-wrapper input {
+  color: black;
+  scrollbar-width: 0;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-settings-wrapper input[type=number]::-webkit-inner-spin-button, body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-settings-wrapper input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-settings-wrapper div {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-previewer {
+  width: 50%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #grid-container #grid-con #settings-left #color-settings dialog #custom-colors-previewer .color-preview {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 0;
+  background-color: transparent;
+  border: 0.3rem black solid;
+  background-color: black;
 }
 body #grid-container #grid-con #settings-left #color-settings #red {
   background-color: red;

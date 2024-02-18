@@ -103,8 +103,55 @@ body {
                         background-color: beige;
                         position: absolute;
                         margin: auto;
-                        button {
-                            background-color: purple;
+                        #dialog-inner-wrapper {
+                            display: flex;
+                        }
+                        #custom-colors-settings-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: center;
+                            width: 50%;
+                            height: 80vh;
+                            border: solid 2px blue;
+                            button {
+                                background-color: aquamarine;
+                                color: black;
+                                width: 5rem;
+                                height: 2rem;
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                            input {
+                                color: black;
+                                scrollbar-width: 0;
+                                &[type="number"]::-webkit-inner-spin-button,
+                                &[type="number"]::-webkit-outer-spin-button {
+                                    -webkit-appearance: none;
+                                    margin: 0;
+                                }
+                            }
+                            div {
+                                display: flex;
+                                width: 70%;
+                                justify-content: space-around;
+                            }
+                        }
+                        #custom-colors-previewer {
+                            width: 50%;
+                            height: 80vh;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .color-preview {
+                                width: 10rem;
+                                height: 10rem;
+                                border-radius: 0;
+                                background-color: transparent;
+                                border: 0.3rem black solid;
+                                background-color: black;
+                            }
                         }
                     }
 
