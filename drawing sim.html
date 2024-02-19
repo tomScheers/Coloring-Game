@@ -87,12 +87,12 @@
                                     </div>
                                     <div class="brigthness-value-changer">
                                         <button class="brightness-value-decrement">-</button>
-                                        <input type="number" value="100" class="red-value-input" min="0" max="100"> 
+                                        <input type="number" value="100" class="brightness-value-input" min="0" max="100"> 
                                         <button class="brightness-value-increment">+</button>
                                     </div>
                                     <div class="blur-value-changer">
                                         <button class="blur-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="100"> 
+                                        <input type="number" value="0" class="blur-value-input" min="0" max="100"> 
                                         <button class="blur-value-increment">+</button>
                                     </div>
                                     <div class="exit-save-buttons">
@@ -109,34 +109,244 @@
 
                         </dialog>
                         <button id="custom-color2" class="hidden custom"></button>
-                        <dialog>
-                            <button>X</button>
-                            <button>Save</button>
+                        <dialog id="dialog-2">
+                            <div id="dialog-inner-wrapper">
+                                <div id="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input" min="0" max="255"> 
+                                        <button class="red-value-increment">+</button>
+                                    </div>
+                                    <div class="green-value-changer">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input" min="0" max="255"> 
+                                        <button class="green-value-increment">+</button>
+                                    </div>
+                                    <div class="blue-value-changer">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input" min="0" max="255"> 
+                                        <button class="blue-value-increment">+</button>
+                                    </div>
+                                    <div class="brigthness-value-changer">
+                                        <button class="brightness-value-decrement">-</button>
+                                        <input type="number" value="100" class="brightness-value-input" min="0" max="100"> 
+                                        <button class="brightness-value-increment">+</button>
+                                    </div>
+                                    <div class="blur-value-changer">
+                                        <button class="blur-value-decrement">-</button>
+                                        <input type="number" value="0" class="blur-value-input" min="0" max="100"> 
+                                        <button class="blur-value-increment">+</button>
+                                    </div>
+                                    <div class="exit-save-buttons">
+                                        <button id="close-button-1" class="close-button">X</button>
+                                        <button id="save-button-1" class="save=button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div id="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
                         </dialog>
                         <button id="custom-color3" class="hidden custom"></button>
-                        <dialog>
-                            <button>X</button>
-                            <button>Save</button>
+                        <dialog id="dialog-3">
+                            <div id="dialog-inner-wrapper">
+                                <div id="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input" min="0" max="255"> 
+                                        <button class="red-value-increment">+</button>
+                                    </div>
+                                    <div class="green-value-changer">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input" min="0" max="255"> 
+                                        <button class="green-value-increment">+</button>
+                                    </div>
+                                    <div class="blue-value-changer">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input" min="0" max="255"> 
+                                        <button class="blue-value-increment">+</button>
+                                    </div>
+                                    <div class="brigthness-value-changer">
+                                        <button class="brightness-value-decrement">-</button>
+                                        <input type="number" value="100" class="brightness-value-input" min="0" max="100"> 
+                                        <button class="brightness-value-increment">+</button>
+                                    </div>
+                                    <div class="blur-value-changer">
+                                        <button class="blur-value-decrement">-</button>
+                                        <input type="number" value="0" class="blur-value-input" min="0" max="100"> 
+                                        <button class="blur-value-increment">+</button>
+                                    </div>
+                                    <div class="exit-save-buttons">
+                                        <button id="close-button-1" class="close-button">X</button>
+                                        <button id="save-button-1" class="save=button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div id="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
                         </dialog>
                         <button id="custom-color4" class="hidden custom"></button>
-                        <dialog>
-                            <button>X</button>
-                            <button>Save</button>
+                        <dialog id="dialog-4">
+                            <div id="dialog-inner-wrapper">
+                                <div id="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input" min="0" max="255"> 
+                                        <button class="red-value-increment">+</button>
+                                    </div>
+                                    <div class="green-value-changer">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input" min="0" max="255"> 
+                                        <button class="green-value-increment">+</button>
+                                    </div>
+                                    <div class="blue-value-changer">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input" min="0" max="255"> 
+                                        <button class="blue-value-increment">+</button>
+                                    </div>
+                                    <div class="brigthness-value-changer">
+                                        <button class="brightness-value-decrement">-</button>
+                                        <input type="number" value="100" class="brightness-value-input" min="0" max="100"> 
+                                        <button class="brightness-value-increment">+</button>
+                                    </div>
+                                    <div class="blur-value-changer">
+                                        <button class="blur-value-decrement">-</button>
+                                        <input type="number" value="0" class="blur-value-input" min="0" max="100"> 
+                                        <button class="blur-value-increment">+</button>
+                                    </div>
+                                    <div class="exit-save-buttons">
+                                        <button id="close-button-1" class="close-button">X</button>
+                                        <button id="save-button-1" class="save=button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div id="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
                         </dialog>
                         <button id="custom-color5" class="hidden custom"></button>
-                        <dialog>
-                            <button>X</button>
-                            <button>Save</button>
+                        <dialog id="dialog-5">
+                            <div id="dialog-inner-wrapper">
+                                <div id="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input" min="0" max="255"> 
+                                        <button class="red-value-increment">+</button>
+                                    </div>
+                                    <div class="green-value-changer">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input" min="0" max="255"> 
+                                        <button class="green-value-increment">+</button>
+                                    </div>
+                                    <div class="blue-value-changer">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input" min="0" max="255"> 
+                                        <button class="blue-value-increment">+</button>
+                                    </div>
+                                    <div class="brigthness-value-changer">
+                                        <button class="brightness-value-decrement">-</button>
+                                        <input type="number" value="100" class="brightness-value-input" min="0" max="100"> 
+                                        <button class="brightness-value-increment">+</button>
+                                    </div>
+                                    <div class="blur-value-changer">
+                                        <button class="blur-value-decrement">-</button>
+                                        <input type="number" value="0" class="blur-value-input" min="0" max="100"> 
+                                        <button class="blur-value-increment">+</button>
+                                    </div>
+                                    <div class="exit-save-buttons">
+                                        <button id="close-button-1" class="close-button">X</button>
+                                        <button id="save-button-1" class="save=button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div id="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
                         </dialog>
                         <button id="custom-color6" class="hidden custom"></button>
-                        <dialog>
-                            <button>X</button>
-                            <button>Save</button>
+                        <dialog id="dialog-6">
+                            <div id="dialog-inner-wrapper">
+                                <div id="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input" min="0" max="255"> 
+                                        <button class="red-value-increment">+</button>
+                                    </div>
+                                    <div class="green-value-changer">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input" min="0" max="255"> 
+                                        <button class="green-value-increment">+</button>
+                                    </div>
+                                    <div class="blue-value-changer">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input" min="0" max="255"> 
+                                        <button class="blue-value-increment">+</button>
+                                    </div>
+                                    <div class="brigthness-value-changer">
+                                        <button class="brightness-value-decrement">-</button>
+                                        <input type="number" value="100" class="brightness-value-input" min="0" max="100"> 
+                                        <button class="brightness-value-increment">+</button>
+                                    </div>
+                                    <div class="blur-value-changer">
+                                        <button class="blur-value-decrement">-</button>
+                                        <input type="number" value="0" class="blur-value-input" min="0" max="100"> 
+                                        <button class="blur-value-increment">+</button>
+                                    </div>
+                                    <div class="exit-save-buttons">
+                                        <button id="close-button-1" class="close-button">X</button>
+                                        <button id="save-button-1" class="save=button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div id="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
                         </dialog>
                         <button id="custom-color7" class="hidden custom"></button>
-                        <dialog>
-                            <button>X</button>
-                            <button>Save</button>
+                        <dialog id="dialog-7">
+                            <div id="dialog-inner-wrapper">
+                                <div id="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input" min="0" max="255"> 
+                                        <button class="red-value-increment">+</button>
+                                    </div>
+                                    <div class="green-value-changer">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input" min="0" max="255"> 
+                                        <button class="green-value-increment">+</button>
+                                    </div>
+                                    <div class="blue-value-changer">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input" min="0" max="255"> 
+                                        <button class="blue-value-increment">+</button>
+                                    </div>
+                                    <div class="brigthness-value-changer">
+                                        <button class="brightness-value-decrement">-</button>
+                                        <input type="number" value="100" class="brightness-value-input" min="0" max="100"> 
+                                        <button class="brightness-value-increment">+</button>
+                                    </div>
+                                    <div class="blur-value-changer">
+                                        <button class="blur-value-decrement">-</button>
+                                        <input type="number" value="0" class="blur-value-input" min="0" max="100"> 
+                                        <button class="blur-value-increment">+</button>
+                                    </div>
+                                    <div class="exit-save-buttons">
+                                        <button id="close-button-1" class="close-button">X</button>
+                                        <button id="save-button-1" class="save=button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div id="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
                         </dialog>
                     </div>
                 </div>

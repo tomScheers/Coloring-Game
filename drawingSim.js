@@ -17,13 +17,7 @@ let userData = {
     eraser: false,
     lockedSquareColor: "white",
     customColors: {
-        "custom-color1": {
-            redVal: 0,
-            greenVal: 0,
-            blueVal: 0,
-            blurVal: 0,
-            brightness: 100,
-        }
+        
     }
 };
 
@@ -188,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
             setCircleCircumference(getRadius() * 1.5);
             context.lineWidth = getRadius(userData.size) * 2;
             context.filter = `blur(${userData.blurVal}rem)`;
-            console.log(context)
 
             colorBlurButtons.forEach((b) => {
                 b.style.backgroundColor = currentColor;
@@ -306,51 +299,81 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.addEventListener('mouseout', stopDrawing);
 
 
-
-    const dialog = document.getElementById("dialog-1");
-    const showButton = document.getElementById("custom-color1"); // Change this to the correct button ID
-    const closeButton = document.querySelector("#dialog-1 .close-button");
-    // "Show the dialog" button opens the dialog modally
-    showButton.addEventListener("click", () => {
-        dialog.showModal();
-    });
-
-    // "Close" button closes the dialog
-    closeButton.addEventListener("click", () => {
-        dialog.close();
-    });
-    dialog.close();
-
-    const customColorsInputElements = document.querySelectorAll('input[type=number]');
-    customColorsInputElements.forEach((input) => {
-        input.addEventListener('blur', function () {
-            // Parse the entered value as a floating-point number
-            let enteredValue = parseFloat(this.value);
-
-            // Check if the entered value is less than the minimum
-            if (enteredValue < parseFloat(this.min)) {
-                this.value = this.min; // Set the value to the minimum allowed
-            }
-
-            // Check if the entered value is greater than the maximum
-            if (enteredValue > parseFloat(this.max)) {
-                this.value = this.max; // Set the value to the maximum allowed
-            }
+    const dialogList = document.querySelectorAll("dialog");
+    dialogList.forEach((dialog) => {
+        userData.customColors[dialog.id] =  {
+            redVal: 0,
+            greenVal: 0,
+            blueVal: 0,
+            blurVal: 0,
+            brightness: 100,
+        }
+        const showButton = document.querySelector(`#custom-color${dialog.id.split("-")[1]}`); 
+        const closeButton = document.querySelector("#dialog-1 .close-button");
+        showButton.addEventListener("click", () => {
+            dialog.showModal();
         });
-    })
 
-    customColorsMap.forEach((id) => {
-        const currentItem = document.querySelector(`#${dialog.id} .${id}`);
-        currentItem.addEventListener("click", () => {
-            const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList} input`);
-            if (customColorsMap.indexOf(id) % 2 === 0) {
-                if (parseFloat(inputElement.value) - 1 < inputElement.min) return;
-                inputElement.value--;
-                return;
+        closeButton.addEventListener("click", () => {
+            dialog.close();
+        });
+        dialog.close();
+        const previewSquare = document.querySelector(`#${dialog.id} .color-preview`)
+        const customColorsInputElements = document.querySelectorAll('input[type=number]');
+        const changeViaInput = (elem) => {
+            let enteredValue = parseFloat(elem.value);
+    
+            if (enteredValue < parseFloat(elem.min)) {
+                elem.value = elem.min;
             }
-            if (parseFloat(inputElement.value) + 1 > inputElement.max) return;
-            inputElement.value++;
+    
+            if (enteredValue > parseFloat(elem.max)) {
+                elem.value = elem.max;
+            }
+    
+            elem.value = parseFloat(elem.value) + 0;
+            const valKey = `${elem.classList[0].split("-")[0]}Val`;
+            const currentUserValue = userData.customColors[dialog.id][valKey];
+            userData.customColors[dialog.id][valKey] = elem.value;
+            previewSquare.style.backgroundColor = `rgb(${currentUserValue.redVal}, ${currentUserValue.greenVal}, ${currentUserValue.blueVal})`;
+            previewSquare.style.filter = `blur(${parseFloat(currentUserValue.blurVal) / 100}rem) brightness(${currentUserValue.brightnessVal}%)`;
+        }
+        customColorsInputElements.forEach((input) => {
+            input.addEventListener('blur', changeViaInput(input));
+            input.addEventListener("keydown", () => {
+                if (event.keyCode === 13) {
+                    input.blur();
+                    changeViaInput(input);
+                }
+            })
+        });
+        customColorsMap.forEach((id) => {
+            const currentItem = document.querySelector(`#${dialog.id} .${id}`);
+            currentItem.addEventListener("click", () => {
+
+                const propKey = `${currentItem.className.split("-")[0]}Val`;
+                
+                const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList} input`);
+                if (customColorsMap.indexOf(id) % 2 === 0) {
+
+                    if (parseFloat(inputElement.value) - 1 < inputElement.min) return;
+                    inputElement.value--;
+                    userData.customColors[`custom-color${dialog.id.split("-")[1]}`][propKey]--;
+                    console.log(userData.customColors[`custom-color${dialog.id.split("-")[1]}`])
+                } else {
+
+                    if (parseFloat(inputElement.value) + 1 > inputElement.max) return;
+                    inputElement.value++;
+                    console.log(userData.customColors[`custom-color${dialog.id.split("-")[1]}`])
+                    userData.customColors[`custom-color${dialog.id.split("-")[1]}`][propKey]++;
+                }
+
+
+                previewSquare.style.backgroundColor = `rgb(${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].redVal}, ${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].greenVal}, ${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].blueVal})`;
+                previewSquare.style.filter = `blur(${parseFloat(userData.customColors[`custom-color${dialog.id.split("-")[1]}`].blurVal) / 100}rem) brightness(${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].brightnessVal}%)`;
+            })
         })
     })
+    
 
 });
