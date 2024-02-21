@@ -105,6 +105,7 @@ body {
                         margin: auto;
                         #dialog-inner-wrapper {
                             display: flex;
+                            height: 100%;
                         }
                         #custom-colors-settings-wrapper {
                             display: flex;
@@ -112,8 +113,8 @@ body {
                             justify-content: space-around;
                             align-items: center;
                             width: 50%;
-                            height: 80vh;
-                            border: solid 2px blue;
+                            height: 100%;
+                            overflow: hidden;
                             button {
                                 background-color: aquamarine;
                                 color: black;
@@ -140,7 +141,7 @@ body {
                         }
                         #custom-colors-previewer {
                             width: 50%;
-                            height: 80vh;
+                            height: 100%;
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -155,8 +156,8 @@ body {
                         }
                     }
 
-                    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgray, silver, gray, darkgray,
-                        dimgray, black;
+                    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgrey, silver, grey, darkgrey,
+                        dimgrey, black;
                     @each $color in $colors {
                         ##{$color} {
                             background-color: $color;

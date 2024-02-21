@@ -17,11 +17,11 @@ let userData = {
     eraser: false,
     lockedSquareColor: "white",
     customColors: {
-        
+
     }
 };
 
-const colorMap = {
+let colorMap = {
     red: [255, 0, 0],
     orange: [255, 165, 0],
     yellow: [255, 255, 0],
@@ -30,11 +30,11 @@ const colorMap = {
     indigo: [75, 0, 130],
     violet: [238, 130, 238],
     white: [255, 255, 255],
-    lightgray: [211, 211, 211],
+    lightgrey: [211, 211, 211],
     silver: [192, 192, 192],
     gray: [128, 128, 128],
-    darkgray: [169, 169, 169],
-    dimgray: [105, 105, 105],
+    darkgrey: [169, 169, 169],
+    dimgrey: [105, 105, 105],
     black: [0, 0, 0]
 };
 
@@ -212,35 +212,39 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 
+    const setColorButtons = (buttons) => {
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                if (userData.eraser) return;
+                console.log(button.id)
+                const newColor = colorMap[button.id];
 
-    colorButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            if (userData.eraser) return;
+                colorButtons.forEach((b) => {
+                    b.classList.remove("selected-settings");
+                })
 
-            const newColor = colorMap[button.id];
+                button.classList.add("selected-settings");
+                console.log(newColor)
+                userData.redVal = newColor[0];
+                userData.greenVal = newColor[1];
+                userData.blueVal = newColor[2];
+                updateCurrentColor();
+                circle.style.background = currentColor;
+                context.strokeStyle = currentColor;
 
-            colorButtons.forEach((b) => {
-                b.classList.remove("selected-settings");
-            })
+                colorBlurButtons.forEach((b) => {
+                    b.style.filter = `blur(${blurMap[b.id]}rem)`;
+                    b.style.backgroundColor = currentColor;
+                })
 
-            button.classList.add("selected-settings");
-            userData.redVal = newColor[0];
-            userData.greenVal = newColor[1];
-            userData.blueVal = newColor[2];
-            updateCurrentColor();
-            circle.style.background = currentColor;
-            context.strokeStyle = currentColor;
-
-            colorBlurButtons.forEach((b) => {
-                b.style.filter = `blur(${blurMap[b.id]}rem)`;
-                b.style.backgroundColor = currentColor;
-            })
-
-            colorBrightnessButtons.forEach((b) => {
-                b.style.backgroundColor = currentColor;
+                colorBrightnessButtons.forEach((b) => {
+                    b.style.backgroundColor = currentColor;
+                })
             })
         })
-    })
+    }
+    setColorButtons(colorButtons);
+
 
 
     colorBrightnessButtons.forEach((button) => {
@@ -300,17 +304,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const dialogList = document.querySelectorAll("dialog");
+
     dialogList.forEach((dialog) => {
-        userData.customColors[dialog.id] =  {
+        const currentButton = document.getElementById(`custom-color${dialog.id.split("-")[1]}`);
+        userData.customColors[dialog.id] = {
             redVal: 0,
             greenVal: 0,
             blueVal: 0,
             blurVal: 0,
             brightness: 100,
         }
-        const showButton = document.querySelector(`#custom-color${dialog.id.split("-")[1]}`); 
-        const closeButton = document.querySelector("#dialog-1 .close-button");
+        const showButton = document.querySelector(`#custom-color${dialog.id.split("-")[1]}`);
+        const closeButton = document.querySelector(`#${dialog.id} .close-button`);
         showButton.addEventListener("click", () => {
+            if (currentButton.classList.contains("color-settings-icon")) return;
             dialog.showModal();
         });
 
@@ -318,26 +325,28 @@ document.addEventListener("DOMContentLoaded", () => {
             dialog.close();
         });
         dialog.close();
-        const previewSquare = document.querySelector(`#${dialog.id} .color-preview`)
+        const previewSquare = document.querySelector(`#${dialog.id} .color-preview`);
         const customColorsInputElements = document.querySelectorAll('input[type=number]');
         const changeViaInput = (elem) => {
             let enteredValue = parseFloat(elem.value);
-    
-            if (enteredValue < parseFloat(elem.min)) {
+
+            if (enteredValue < parseFloat(elem.min) || elem.value.length <= 0) {
                 elem.value = elem.min;
             }
-    
+
             if (enteredValue > parseFloat(elem.max)) {
                 elem.value = elem.max;
             }
-    
+
             elem.value = parseFloat(elem.value) + 0;
             const valKey = `${elem.classList[0].split("-")[0]}Val`;
-            const currentUserValue = userData.customColors[dialog.id][valKey];
+            const currentUserValue = userData.customColors[dialog.id];
             userData.customColors[dialog.id][valKey] = elem.value;
             previewSquare.style.backgroundColor = `rgb(${currentUserValue.redVal}, ${currentUserValue.greenVal}, ${currentUserValue.blueVal})`;
             previewSquare.style.filter = `blur(${parseFloat(currentUserValue.blurVal) / 100}rem) brightness(${currentUserValue.brightnessVal}%)`;
         }
+
+
         customColorsInputElements.forEach((input) => {
             input.addEventListener('blur', changeViaInput(input));
             input.addEventListener("keydown", () => {
@@ -347,33 +356,44 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             })
         });
+
         customColorsMap.forEach((id) => {
             const currentItem = document.querySelector(`#${dialog.id} .${id}`);
             currentItem.addEventListener("click", () => {
 
                 const propKey = `${currentItem.className.split("-")[0]}Val`;
-                
                 const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList} input`);
                 if (customColorsMap.indexOf(id) % 2 === 0) {
 
                     if (parseFloat(inputElement.value) - 1 < inputElement.min) return;
                     inputElement.value--;
-                    userData.customColors[`custom-color${dialog.id.split("-")[1]}`][propKey]--;
-                    console.log(userData.customColors[`custom-color${dialog.id.split("-")[1]}`])
+                    userData.customColors[dialog.id][propKey]--;
                 } else {
 
                     if (parseFloat(inputElement.value) + 1 > inputElement.max) return;
                     inputElement.value++;
-                    console.log(userData.customColors[`custom-color${dialog.id.split("-")[1]}`])
-                    userData.customColors[`custom-color${dialog.id.split("-")[1]}`][propKey]++;
+                    userData.customColors[dialog.id][propKey]++;
                 }
 
 
-                previewSquare.style.backgroundColor = `rgb(${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].redVal}, ${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].greenVal}, ${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].blueVal})`;
-                previewSquare.style.filter = `blur(${parseFloat(userData.customColors[`custom-color${dialog.id.split("-")[1]}`].blurVal) / 100}rem) brightness(${userData.customColors[`custom-color${dialog.id.split("-")[1]}`].brightnessVal}%)`;
+                previewSquare.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
+                previewSquare.style.filter = `blur(${parseFloat(userData.customColors[dialog.id].blurVal) / 100}rem) brightness(${userData.customColors[dialog.id].brightnessVal}%)`;
+            })
+            const saveButton = document.querySelector(`#${dialog.id} .save-button`);
+            saveButton.addEventListener("click", () => {
+                dialog.close();
+                currentButton.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
+                currentButton.style.filter = `blur(${parseFloat(userData.customColors[dialog.id].blurVal) / 100}rem) brightness(${userData.customColors[dialog.id].brightnessVal}%)`;
+                currentButton.innerText = "";
+                currentButton.classList.add("color-settings-icon");
+                colorMap[currentButton.id] = [userData.customColors[dialog.id].redVal, userData.customColors[dialog.id].greenVal, userData.customColors[dialog.id].blueVal]
+                const nextButton = document.getElementById(`custom-color${parseInt(dialog.id.split("-")[1]) + 1}`);
+                setColorButtons([currentButton])
+                nextButton.classList.remove("hidden");
+                nextButton.classList.add("color-setting-square")
             })
         })
     })
-    
+
 
 });
