@@ -92,6 +92,7 @@ body {
                         height: 2rem;
                         background-color: transparent;
                         border: transparent 0.3rem solid;
+    
                     }
                     .custom {
                         font-size: 1.2rem;
@@ -156,8 +157,8 @@ body {
                         }
                     }
 
-                    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgrey, silver, grey, darkgrey,
-                        dimgrey, black;
+                    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgray, silver, darkgray, gray,
+                        dimgray, black;
                     @each $color in $colors {
                         ##{$color} {
                             background-color: $color;

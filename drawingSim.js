@@ -30,11 +30,11 @@ let colorMap = {
     indigo: [75, 0, 130],
     violet: [238, 130, 238],
     white: [255, 255, 255],
-    lightgrey: [211, 211, 211],
+    lightgray: [211, 211, 211],
     silver: [192, 192, 192],
-    gray: [128, 128, 128],
-    darkgrey: [169, 169, 169],
-    dimgrey: [105, 105, 105],
+    gray: [169, 169, 169],
+    darkgray: [128, 128, 128],
+    dimgray: [105, 105, 105],
     black: [0, 0, 0]
 };
 
@@ -62,7 +62,7 @@ const getRadius = () => {
     }
 };
 
-const customColorsMap = ["red-value-decrement", "red-value-increment", "green-value-decrement", "green-value-increment", "blue-value-decrement", "blue-value-increment", "brightness-value-decrement", "brightness-value-increment", "blur-value-decrement", "blur-value-increment"];
+const customColorsMap = ["red-value-decrement", "red-value-increment", "green-value-decrement", "green-value-increment", "blue-value-decrement", "blue-value-increment"];
 
 const getMousePos = (event) => {
     return {
@@ -111,7 +111,7 @@ const updateCurrentColor = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-
+    const dialogList = document.querySelectorAll("dialog");
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const colorBrightnessButtons = document.querySelectorAll(".light-square");
     const colorBlurButtons = document.querySelectorAll(".blur-square");
@@ -216,15 +216,13 @@ document.addEventListener("DOMContentLoaded", () => {
         buttons.forEach((button) => {
             button.addEventListener("click", () => {
                 if (userData.eraser) return;
-                console.log(button.id)
                 const newColor = colorMap[button.id];
-
-                colorButtons.forEach((b) => {
+                const buttonsToDeselect = document.querySelectorAll(`.color-settings-icon`)
+                buttonsToDeselect.forEach((b) => {
                     b.classList.remove("selected-settings");
                 })
 
                 button.classList.add("selected-settings");
-                console.log(newColor)
                 userData.redVal = newColor[0];
                 userData.greenVal = newColor[1];
                 userData.blueVal = newColor[2];
@@ -252,7 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         button.addEventListener("click", () => {
             if (userData.eraser) return;
-
             const newBrightness = brightnessMap[button.id];
             userData.brightness = newBrightness;
             circle.style.filter = `brightness(${userData.brightness}%) blur(0.2rem)`;
@@ -303,16 +300,13 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.addEventListener('mouseout', stopDrawing);
 
 
-    const dialogList = document.querySelectorAll("dialog");
 
-    dialogList.forEach((dialog) => {
+    const dialogFunctionality = (dialog) => {
         const currentButton = document.getElementById(`custom-color${dialog.id.split("-")[1]}`);
         userData.customColors[dialog.id] = {
             redVal: 0,
             greenVal: 0,
             blueVal: 0,
-            blurVal: 0,
-            brightness: 100,
         }
         const showButton = document.querySelector(`#custom-color${dialog.id.split("-")[1]}`);
         const closeButton = document.querySelector(`#${dialog.id} .close-button`);
@@ -340,10 +334,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             elem.value = parseFloat(elem.value) + 0;
             const valKey = `${elem.classList[0].split("-")[0]}Val`;
-            const currentUserValue = userData.customColors[dialog.id];
             userData.customColors[dialog.id][valKey] = elem.value;
-            previewSquare.style.backgroundColor = `rgb(${currentUserValue.redVal}, ${currentUserValue.greenVal}, ${currentUserValue.blueVal})`;
-            previewSquare.style.filter = `blur(${parseFloat(currentUserValue.blurVal) / 100}rem) brightness(${currentUserValue.brightnessVal}%)`;
+            previewSquare.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
         }
 
 
@@ -377,23 +369,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 previewSquare.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
-                previewSquare.style.filter = `blur(${parseFloat(userData.customColors[dialog.id].blurVal) / 100}rem) brightness(${userData.customColors[dialog.id].brightnessVal}%)`;
             })
             const saveButton = document.querySelector(`#${dialog.id} .save-button`);
             saveButton.addEventListener("click", () => {
                 dialog.close();
                 currentButton.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
-                currentButton.style.filter = `blur(${parseFloat(userData.customColors[dialog.id].blurVal) / 100}rem) brightness(${userData.customColors[dialog.id].brightnessVal}%)`;
                 currentButton.innerText = "";
                 currentButton.classList.add("color-settings-icon");
                 colorMap[currentButton.id] = [userData.customColors[dialog.id].redVal, userData.customColors[dialog.id].greenVal, userData.customColors[dialog.id].blueVal]
                 const nextButton = document.getElementById(`custom-color${parseInt(dialog.id.split("-")[1]) + 1}`);
+                nextButton.innerText = "+";
+                dialogFunctionality(dialogList[parseInt(dialog.id.split("-")[1])]);
                 setColorButtons([currentButton])
                 nextButton.classList.remove("hidden");
-                nextButton.classList.add("color-setting-square")
+                nextButton.classList.add("color-setting-square");
+                previewSquare.style.backgroundColor = "rgb(0,0,0)";
             })
         })
-    })
-
-
+    }
+    dialogFunctionality(dialogList[0]);
 });
