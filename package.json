@@ -1,0 +1,13 @@
+{
+  "name": "coloring-game",
+  "version": "1.0.0",
+  "description": "You can make your own beautiful drawings using this coloring game!",
+  "main": "drawingSim.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Tom Scheers",
+  "license": "ISC"
+}
