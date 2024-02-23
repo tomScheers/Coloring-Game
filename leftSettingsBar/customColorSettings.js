@@ -7,8 +7,17 @@ import {
 import {
     dialogList,
 } from "../variables.js";
-import { customColorsMap } from "../arrayMap.js"
+import {
+    customColorsMap
+} from "../arrayMap.js";
 
+function stringToNodeList(htmlString) {
+    console.log("input str: " + htmlString)
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    console.log("output nodeList: " + doc.body.childNodes);
+    return doc.body.childNodes;
+}
 export const dialogFunctionality = (dialog) => {
     const currentButton = document.getElementById(`custom-color${dialog.id.split("-")[1]}`);
     userData.customColors[dialog.id] = {
@@ -63,6 +72,7 @@ export const dialogFunctionality = (dialog) => {
 
             const propKey = `${currentItem.className.split("-")[0]}Val`;
             const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList} input`);
+
             if (customColorsMap.indexOf(id) % 2 === 0) {
 
                 if (parseFloat(inputElement.value) - 1 < inputElement.min) return;
@@ -78,7 +88,9 @@ export const dialogFunctionality = (dialog) => {
 
             previewSquare.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
         })
+
         const saveButton = document.querySelector(`#${dialog.id} .save-button`);
+
         saveButton.addEventListener("click", () => {
             dialog.close();
             currentButton.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
@@ -88,7 +100,7 @@ export const dialogFunctionality = (dialog) => {
             const nextButton = document.getElementById(`custom-color${parseInt(dialog.id.split("-")[1]) + 1}`);
             nextButton.innerText = "+";
             dialogFunctionality(dialogList[parseInt(dialog.id.split("-")[1])]);
-            setColorButtons()
+            setColorButtons(([currentButton]));
             nextButton.classList.remove("hidden");
             nextButton.classList.add("color-setting-square");
             previewSquare.style.backgroundColor = "rgb(0,0,0)";

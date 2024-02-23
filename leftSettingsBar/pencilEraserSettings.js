@@ -1,6 +1,6 @@
-import { pencilOptions } from "../variables.js";
+import { pencilOptions, context, colorButtons, colorBlurButtons, colorBrightnessButtons } from "../variables.js";
 import { userData } from "../userData.js";
-import { getRadius } from "../functions.js";
+import { getRadius, setCircleCircumference, updateCurrentColor } from "../functions.js";
 export const setPencilOptions = () => {
     pencilOptions.forEach((button) => {
     button.addEventListener("click", () => {

@@ -1,27 +1,10 @@
  import {
      userData
 } from "../userData.js";
- import { context } from "../variables.js"
- const getRadius = () => {
-     switch (userData.size) {
-         case "super-small":
-             return 0.5;
-         case "small":
-             return 1;
-         case "medium":
-             return 2;
-         case "big":
-             return 3;
-         case "super-big":
-             return 4;
-     }
- };
- const setCircleCircumference = (s) => {
-     circle.style.width = `${s}rem`;
-     circle.style.height = `${s}rem`;
- }
- export const setSizeButtons = (buttons) => {
-     buttons.forEach((button) => {
+ import { context, sizeButtons } from "../variables.js"
+ import { getRadius, setCircleCircumference } from "../functions.js";
+ export const setSizeButtons = () => {
+     sizeButtons.forEach((button) => {
          button.addEventListener("click", () => {
              const selectedSizeValue = button.value;
              userData.size = `${selectedSizeValue}`;

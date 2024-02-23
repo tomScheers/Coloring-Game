@@ -1,13 +1,16 @@
 import {
     canvas,
     context
-} from "../variables.js"
+} from "../variables.js";
+
 import {
     userData
 } from "../userData.js";
+
 import {
     getRadius
 } from "../functions.js";
+
 let isDrawing = false;
 let startPoint = {
     x: 0,

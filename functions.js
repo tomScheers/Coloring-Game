@@ -1,4 +1,5 @@
 import { userData } from "./userData.js";
+import { circle } from "./variables.js";
 const updateCurrentColor = () => {
     userData.currentColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
 }
@@ -22,4 +23,8 @@ const getMousePos = (event) => {
         y: event.clientY
     };
 };
-export { updateCurrentColor, getMousePos, getRadius };
+ const setCircleCircumference = (s) => {
+     circle.style.width = `${s}rem`;
+     circle.style.height = `${s}rem`;
+ }
+export { updateCurrentColor, getMousePos, getRadius, setCircleCircumference };

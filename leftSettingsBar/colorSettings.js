@@ -14,9 +14,11 @@ import {
 } from "../arrayMap.js"
 import { updateCurrentColor } from '../functions.js';
 
-export const setColorButtons = () => {
-    colorButtons.forEach((button) => {
+export const setColorButtons = (buttons) => {
+    buttons.forEach((button) => {
+        console.log(button)
         button.addEventListener("click", () => {
+            console.log("HELELELLEL")
             if (userData.eraser) return;
             console.log(button.id)
             const newColor = userData.colorMap[button.id];
@@ -24,7 +26,6 @@ export const setColorButtons = () => {
             buttonsToDeselect.forEach((b) => {
                 b.classList.remove("selected-settings");
             })
-            console.log(newColor)
             button.classList.add("selected-settings");
             userData.redVal = newColor[0];
             userData.greenVal = newColor[1];
