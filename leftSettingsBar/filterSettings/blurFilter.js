@@ -1,8 +1,20 @@
-import { userData } from "../../userData.js";
-import { colorBlurButtons } from "../../variables.js";
-import { blurMap } from "../../arrayMap.js";
-import { context } from "../../variables.js";
+import {
+    userData
+} from "../../userData.js";
+import {
+    colorBlurButtons
+} from "../../variables.js";
+import {
+    blurMap
+} from "../../arrayMap.js";
+import {
+    context
+} from "../../variables.js";
 
+/**
+ * The function `setColorBlurButtons` sets the blur effect and background color for the blurButtons, updates
+ * blur value in user data, and adds a selected class on button click.
+ */
 export const setColorBlurButtons = () => {
     colorBlurButtons.forEach((button) => {
         button.style.filter = `blur(${blurMap[button.id]}rem)`;

@@ -28,4 +28,14 @@ let userData = {
         black: [0, 0, 0]
     }
 };
-export {userData}
+
+const setNewValues = (redVal, greenVal, blueVal) => {
+    userData.redVal = redVal;
+    userData.greenVal = greenVal;
+    userData.blueVal = blueVal;
+}
+
+export {
+    userData,
+    setNewValues
+}

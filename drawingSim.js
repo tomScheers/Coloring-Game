@@ -10,7 +10,8 @@ import {
 
 import {
     dialogFunctionality
-} from './leftSettingsBar/customColorSettings.js';
+}
+from './leftSettingsBar/pencilEraserSettings/customColorsSettings/customColorSettings.js';
 
 import {
     setSizeButtons
@@ -24,18 +25,24 @@ import {
 
 import {
     setPencilOptions
-} from './leftSettingsBar/pencilEraserSettings.js';
+} from './leftSettingsBar/pencilEraserSettings/pencilEraserSettings.js';
 
 import {
     getRadius,
     setCircleCircumference
 } from './functions.js';
 
-import { setColorBlurButtons } from './leftSettingsBar/filterSettings/blurFilter.js';
+import {
+    setColorBlurButtons
+} from './leftSettingsBar/filterSettings/blurFilter.js';
 
-import { setColorBrightnessButtons } from './leftSettingsBar/filterSettings/brightnessFilter.js';
+import {
+    setColorBrightnessButtons
+} from './leftSettingsBar/filterSettings/brightnessFilter.js';
 
-import { createMouseListener } from './blurCircleAroundMouser.js';
+import {
+    createMouseListener
+} from './blurCircleAroundMouser.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     setCircleCircumference(getRadius());
@@ -51,6 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
-    
+
 
 });
