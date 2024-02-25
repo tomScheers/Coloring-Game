@@ -1,22 +1,18 @@
 import {
     userData,
     setNewValues
-} from '../userData.js';
+} from '../data/userData.js';
 
 import {
     colorBrightnessButtons,
     colorBlurButtons,
     context,
     circle
-} from "../variables.js";
-
-import {
-    blurMap,
-} from "../arrayMap.js";
+} from "../data/variables.js";
 
 import {
     updateCurrentColor
-} from '../functions.js';
+} from '../data/functions.js';
 
 export const setColorButtons = (buttons) => {
 
@@ -37,7 +33,8 @@ export const setColorButtons = (buttons) => {
             context.strokeStyle = userData.currentColor;
 
             colorBlurButtons.forEach((b) => {
-                b.style.filter = `blur(${blurMap[b.id]}rem)`;
+                const buttonBlurValue = 0.075 * (parseFloat(b.id.split("-")[1]) / 50);
+                b.style.filter = `blur(${buttonBlurValue}rem)`;
                 b.style.backgroundColor = userData.currentColor;
             })
 

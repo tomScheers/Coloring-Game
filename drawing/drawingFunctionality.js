@@ -1,15 +1,15 @@
 import {
     canvas,
     context
-} from "../variables.js";
+} from "../data/variables.js";
 
 import {
     userData
-} from "../userData.js";
+} from "../data/userData.js";
 
 import {
     getRadius
-} from "../functions.js";
+} from "../data/functions.js";
 
 let isDrawing = false;
 let startPoint = {
@@ -30,7 +30,6 @@ const startDrawing = (event) => {
 
 const draw = (event) => {
     if (!isDrawing) return;
-
     context.lineTo(event.clientX - canvas.getBoundingClientRect().left, event.clientY - canvas.getBoundingClientRect().top);
     context.stroke();
 }

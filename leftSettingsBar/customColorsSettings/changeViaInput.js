@@ -1,6 +1,6 @@
 import {
     userData
-} from "../../../userData.js";
+} from "../../data/userData.js";
 
 /**
  * The function `changeViaInput` updates a color preview square based on user input within specified
@@ -14,7 +14,7 @@ import {
  */
 export const changeViaInput = (elem, dialog) => {
     const previewSquare = document.querySelector(`#${dialog.id} .color-preview`);
-    let enteredValue = parseFloat(elem.value);
+    const enteredValue = parseFloat(elem.value);
 
     if (enteredValue < parseFloat(elem.min) || elem.value.length <= 0) {
         elem.value = elem.min;

@@ -1,4 +1,4 @@
-let userData = {
+const userData = {
     redVal: 255,
     greenVal: 0,
     blueVal: 0,

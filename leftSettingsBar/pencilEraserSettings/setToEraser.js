@@ -1,19 +1,20 @@
 import {
     setCircleCircumference,
     getRadius
-} from "../../functions.js";
+} from "../../data/functions.js";
 
 import {
     context,
     circle,
     colorBlurButtons,
     colorButtons,
-    colorBrightnessButtons
-} from "../../variables.js";
+    colorBrightnessButtons,
+    customColorButtons,
+} from "../../data/variables.js";
 
 import {
     userData
-} from "../../userData.js";
+} from "../../data/userData.js";
 
 /**
  * The `ifPencil` function sets various properties and styles based on user data for a drawing tool.
@@ -21,8 +22,7 @@ import {
  * various properties and styles on elements and buttons based on the `userData` values, but it does
  * not have a return value specified, this is to escape the forEach.
  */
-export const ifPencil = () => {
-
+export const setToEraser = () => {
     setCircleCircumference(getRadius() * 1.5);
     context.lineWidth = getRadius(userData.size) * 10;
     context.filter = `blur(${userData.blurVal}rem)`;
@@ -44,5 +44,13 @@ export const ifPencil = () => {
         b.classList.add("eraser-light")
     })
 
-    return;
+    customColorButtons.forEach((button) => {
+        console.log(button.classList)
+        if (button.classList.contains("color-setting-square") && !button.classList.contains("color-settings-icon")) {
+            button.innerText = "X";
+            return;
+        }
+        if (!button.classList.contains("color-settings-icon")) return;
+        button.style.backgroundColor = userData.lockedSquareColor;
+    })
 }

@@ -1,15 +1,12 @@
 import {
     userData
-} from "../../userData.js";
+} from "../../data/userData.js";
 import {
     colorBlurButtons
-} from "../../variables.js";
-import {
-    blurMap
-} from "../../arrayMap.js";
+} from "../../data/variables.js";
 import {
     context
-} from "../../variables.js";
+} from "../../data/variables.js";
 
 /**
  * The function `setColorBlurButtons` sets the blur effect and background color for the blurButtons, updates
@@ -17,11 +14,8 @@ import {
  */
 export const setColorBlurButtons = () => {
     colorBlurButtons.forEach((button) => {
-        button.style.filter = `blur(${blurMap[button.id]}rem)`;
-        button.style.backgroundColor = userData.currentColor;
-
         button.addEventListener("click", () => {
-            const newBlur = blurMap[button.id];
+            const newBlur = 0.075 * (parseFloat(button.id.split("-")[1]) / 50);
             userData.blurVal = newBlur;
             context.filter = `blur(${newBlur}rem)`;
 

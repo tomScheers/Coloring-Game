@@ -10,7 +10,6 @@ var _customColorSettings = require("./leftSettingsBar/customColorSettings.js");
 
 var _arrayMap = require("./arrayMap.js");
 
-console.log(_arrayMap.blurMap, _arrayMap.brightnessMap);
 
 var getRadius = function getRadius() {
   switch (_userData.userData.size) {

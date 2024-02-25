@@ -1,6 +1,6 @@
 import {
     userData
-} from "../../../userData.js";
+} from "../../data/userData.js";
 
 import {
     dialogFunctionality
@@ -8,11 +8,11 @@ import {
 
 import {
     dialogList
-} from "../../../variables.js";
+} from "../../data/variables.js";
 
 import {
     setColorButtons
-} from "../../colorSettings.js";
+} from "../colorSettings.js";
 
 
 /**
@@ -28,13 +28,13 @@ export const addSaveButtonFunctionality = (dialog) => {
     const previewSquare = document.querySelector(`#${dialog.id} .color-preview`);
     const saveButton = document.querySelector(`#${dialog.id} .save-button`);
     saveButton.addEventListener("click", () => {
-        console.log("save button clicked!!!")
         dialog.close();
         currentButton.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
         currentButton.innerText = "";
         currentButton.classList.add("color-settings-icon");
         userData.colorMap[currentButton.id] = [userData.customColors[dialog.id].redVal, userData.customColors[dialog.id].greenVal, userData.customColors[dialog.id].blueVal]
         const nextButton = document.getElementById(`custom-color${parseInt(dialog.id.split("-")[1]) + 1}`);
+        if (nextButton === null) return;
         nextButton.innerText = "+";
         dialogFunctionality(dialogList[parseInt(dialog.id.split("-")[1])]);
         setColorButtons(([currentButton]));

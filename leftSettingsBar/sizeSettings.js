@@ -1,21 +1,21 @@
  import {
      userData
-} from "../userData.js";
- 
-import {
-    context,
-    sizeButtons
-} from "../variables.js";
+ } from "../data/userData.js";
+
+ import {
+     context,
+     sizeButtons
+ } from "../data/variables.js";
 
  import {
      getRadius,
      setCircleCircumference
-} from "../functions.js";
- 
-/**
- * The function `setSizeButtons` sets event listeners on size radio buttons to update the selected size value
- * in the userData object and adjust the circle circumference and line width accordingly.
- */
+ } from "../data/functions.js";
+
+ /**
+  * The function `setSizeButtons` sets event listeners on size radio buttons to update the selected size value
+  * in the userData object and adjust the circle circumference and line width accordingly.
+  */
 
  export const setSizeButtons = () => {
      sizeButtons.forEach((button) => {

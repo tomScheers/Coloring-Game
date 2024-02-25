@@ -6,12 +6,12 @@ import {
     dialogList,
     colorButtons,
     canvas
-} from "./variables.js";
+} from "./data/variables.js";
 
 import {
     dialogFunctionality
 }
-from './leftSettingsBar/pencilEraserSettings/customColorsSettings/customColorSettings.js';
+from './leftSettingsBar/customColorsSettings/customColorSettings.js';
 
 import {
     setSizeButtons
@@ -30,7 +30,7 @@ import {
 import {
     getRadius,
     setCircleCircumference
-} from './functions.js';
+} from './data/functions.js';
 
 import {
     setColorBlurButtons

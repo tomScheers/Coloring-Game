@@ -1,18 +1,18 @@
 import {
     pencilOptions
-} from "../../variables.js";
+} from "../../data/variables.js";
 
 import {
     userData
-} from "../../userData.js";
+} from "../../data/userData.js";
 
 import {
-    ifEraser
-} from "./ifEraser.js";
+    setToPencil
+} from "./setToPencil.js";
 
 import {
-    ifPencil
-} from "./ifPencil.js";
+    setToEraser
+} from "./setToEraser.js";
 
 /**
  * The function `setPencilOptions` adds event listeners to pencil options buttons and updates the user
@@ -24,13 +24,13 @@ export const setPencilOptions = () => {
 
             if ((button.id === "eraser") === (userData.eraser)) return;
 
-            userData.eraser = button.id === "eraser";
+            userData.eraser = !userData.eraser;
 
             if (userData.eraser) {
-                ifEraser(button);
+                setToEraser(button);
+                return;
             }
-
-            ifPencil(button);
+    	    setToPencil(button);
         })
     })
 }

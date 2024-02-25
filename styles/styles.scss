@@ -72,12 +72,15 @@ body {
                                 display: flex;
                                 justify-content: space-around;
                                 align-items: space-around;
-                                .light-square {
+                                .light-square, .blur-square {
                                     background-color: red;
                                 }
                                 @each $percentage in $percentages {
                                     #light-#{$percentage} {
                                         filter: brightness(#{$percentage + "%"});
+                                    }
+                                    #blur-#{$percentage} {
+                                        filter: blur(#{0.075 * ($percentage / 50) + "rem"});
                                     }
                                 }
                                 .eraser-light {

@@ -1,7 +1,7 @@
 import {
     setCircleCircumference,
     getRadius
-} from "../../functions.js";
+} from "../../data/functions.js";
 
 import {
     context,
@@ -9,16 +9,16 @@ import {
     colorBlurButtons,
     colorButtons,
     colorBrightnessButtons
-} from "../../variables.js";
+} from "../../data/variables.js";
 
 import {
     userData,
     setNewValues
-} from "../../userData.js";
+} from "../../data/userData.js";
 
 import {
     updateCurrentColor
-} from "../../functions.js";
+} from "../../data/functions.js";
 
 /**
  * The `ifEraser` function resets color buttons and settings to default values for an eraser tool in a
@@ -28,7 +28,7 @@ import {
  * the current color, adjusts the circle size, and updates various styles and values to reflect the
  * eraser mode
  */
-export const ifEraser = (button) => {
+export const setToPencil = (button) => {
     colorButtons.forEach((b) => {
         b.classList.remove("selected-settings");
         const color = userData.colorMap[b.id];
@@ -41,7 +41,7 @@ export const ifEraser = (button) => {
 
     setNewValues(255, 0, 0);
     updateCurrentColor();
-    setCircleCircumference(getRadius() * 1.5);
+    setCircleCircumference(getRadius());
 
     circle.style.background = userData.currentColor;
     context.strokeStyle = userData.currentColor;

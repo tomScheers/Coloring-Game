@@ -1,16 +1,13 @@
 import {
     colorBrightnessButtons
-} from "../../variables.js";
+} from "../../data/variables.js";
 import {
     userData
-} from "../../userData.js";
+} from "../../data/userData.js";
 import {
     circle,
     context
-} from "../../variables.js";
-import {
-    brightnessMap
-} from "../../arrayMap.js";
+} from "../../data/variables.js";
 
 /**
  * The function `setColorBrightnessButtons` sets the background color of the brightness buttons to the current color,
@@ -19,11 +16,9 @@ import {
 
 export const setColorBrightnessButtons = () => {
     colorBrightnessButtons.forEach((button) => {
-        button.style.backgroundColor = userData.currentColor;
-
         button.addEventListener("click", () => {
             if (userData.eraser) return;
-            const newBrightness = brightnessMap[button.id];
+            const newBrightness = parseInt(button.id.split("-")[1]);
             userData.brightness = newBrightness;
             circle.style.filter = `brightness(${userData.brightness}%) blur(0.2rem)`;
             context.filter = `brightness(${userData.brightness}%) blur(${userData.blurVal}rem)`;

@@ -77,33 +77,58 @@ body #grid-container #grid-con #settings-left #color-settings #lightning-and-blu
   justify-content: space-around;
   align-items: space-around;
 }
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper .light-square,
-body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper .light-square {
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper .light-square, body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper .blur-square,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper .light-square,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper .blur-square {
   background-color: red;
 }
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-100,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-100 {
   filter: brightness(100%);
 }
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #blur-100,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #blur-100 {
+  filter: blur(0.15rem);
+}
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-80,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-80 {
   filter: brightness(80%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #blur-80,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #blur-80 {
+  filter: blur(0.12rem);
 }
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-60,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-60 {
   filter: brightness(60%);
 }
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #blur-60,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #blur-60 {
+  filter: blur(0.09rem);
+}
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-40,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-40 {
   filter: brightness(40%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #blur-40,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #blur-40 {
+  filter: blur(0.06rem);
 }
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-20,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-20 {
   filter: brightness(20%);
 }
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #blur-20,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #blur-20 {
+  filter: blur(0.03rem);
+}
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #light-0,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #light-0 {
   filter: brightness(0%);
+}
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper #blur-0,
+body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper #blur-0 {
+  filter: blur(0rem);
 }
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #lightning .settings-flex-wrapper .eraser-light,
 body #grid-container #grid-con #settings-left #color-settings #lightning-and-blur #blur .settings-flex-wrapper .eraser-light {

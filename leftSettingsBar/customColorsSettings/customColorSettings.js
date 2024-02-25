@@ -1,6 +1,6 @@
 import {
     userData
-} from "../../../userData.js";
+} from "../../data/userData.js";
 
 import {
     incrementOrDecrementCustomColorValues
@@ -27,7 +27,6 @@ import {
  * decrementing custom color values, and adding
  */
 export const dialogFunctionality = (dialog) => {
-
     userData.customColors[dialog.id] = {
         redVal: 0,
         greenVal: 0,
