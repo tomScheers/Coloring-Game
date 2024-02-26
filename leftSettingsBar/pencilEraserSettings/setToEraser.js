@@ -45,7 +45,6 @@ export const setToEraser = () => {
     })
 
     customColorButtons.forEach((button) => {
-        console.log(button.classList)
         if (button.classList.contains("color-setting-square") && !button.classList.contains("color-settings-icon")) {
             button.innerText = "X";
             return;

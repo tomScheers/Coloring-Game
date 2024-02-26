@@ -43,8 +43,12 @@ canvas.height = canvas.width / 4 * 6;
 context.lineWidth = getRadius(userData.size) * 2;
 context.strokeStyle = userData.currentColor;
 
+const addDrawEventListeners = () => {
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+}
 export {
-    startDrawing,
-    draw,
-    stopDrawing
+    addDrawEventListeners
 };

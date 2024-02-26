@@ -29,7 +29,7 @@ const getMousePos = (event) => {
 };
 const setCircleCircumference = (s) => {
     circle.style.width = `${s}rem`;
-    circle.style.height = `${s}rem`;
+    circle.style.height = `${s}}rem`;
 }
 export {
     updateCurrentColor,
