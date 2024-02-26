@@ -20,7 +20,7 @@ import {
  */
 export const incrementOrDecrement = (currentItem, dialog) => {
     const propKey = `${currentItem.className.split("-")[0]}Val`;
-    const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList} input`);
+    const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList[0]} input`);
     const isIncrement = currentItem.classList[0].split("-").includes("increment");
     if (isIncrement) {
         if (parseFloat(inputElement.value) + 1 > inputElement.max) return;
