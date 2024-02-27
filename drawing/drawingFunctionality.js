@@ -38,7 +38,7 @@ const stopDrawing = () => {
     isDrawing = false;
 }
 
-canvas.width = window.innerWidth / 2 * 3;
+canvas.width = window.innerWidth / 3 * 2;
 canvas.height = canvas.width / 4 * 6;
 context.lineWidth = getRadius(userData.size) * 2;
 context.strokeStyle = userData.currentColor;
