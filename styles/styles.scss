@@ -104,7 +104,7 @@ body {
                     }
                     @each $percentage in $percentages {
                         #light-#{$percentage} {
-                            filter: brightness(#{$percentage + "%"});
+                            filter: brightness(#{$percentage} + "%");
                         }
                         #blur-#{$percentage} {
                             filter: blur(#{0.075 * ($percentage / 50) + "rem"});
@@ -217,21 +217,44 @@ body {
 #pencil-type-settings {
     display: grid;
     grid-template-rows: 0.7fr 1fr;
+    #size-choices {
+        width: 80%;
+        height: 1.3rem;
+        justify-self: center;
+        justify-content: space-between;
+    }
+    #pencil-types-wrapper {
+        justify-content: space-around;
+    }
     #size-choices,
     #pencil-types-wrapper {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        .size-span-flex-wrapper,
-        .pencil-types-flex-wrapper {
+
+        .pencil-types-flex-wrapper,
+        .size-span-flex-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            .size-option,
-            .pencil-type {
-                width: 1.3rem;
-                height: 1.3rem;
-            }
+        }
+        .size-option,
+        .pencil-type {
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+        label {
+            position: absolute;
+            transform: translateY(1.5rem);
         }
     }
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }

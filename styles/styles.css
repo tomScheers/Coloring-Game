@@ -297,42 +297,62 @@ body #circle {
   grid-template-rows: 0.7fr 1fr;
 }
 #size-settings #size-choices,
+#pencil-type-settings #size-choices {
+  width: 80%;
+  height: 1.3rem;
+  justify-self: center;
+  justify-content: space-between;
+}
+#size-settings #pencil-types-wrapper,
+#pencil-type-settings #pencil-types-wrapper {
+  justify-content: space-around;
+}
+#size-settings #size-choices,
 #size-settings #pencil-types-wrapper,
 #pencil-type-settings #size-choices,
 #pencil-type-settings #pencil-types-wrapper {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
 }
-#size-settings #size-choices .size-span-flex-wrapper,
 #size-settings #size-choices .pencil-types-flex-wrapper,
-#size-settings #pencil-types-wrapper .size-span-flex-wrapper,
+#size-settings #size-choices .size-span-flex-wrapper,
 #size-settings #pencil-types-wrapper .pencil-types-flex-wrapper,
-#pencil-type-settings #size-choices .size-span-flex-wrapper,
+#size-settings #pencil-types-wrapper .size-span-flex-wrapper,
 #pencil-type-settings #size-choices .pencil-types-flex-wrapper,
-#pencil-type-settings #pencil-types-wrapper .size-span-flex-wrapper,
-#pencil-type-settings #pencil-types-wrapper .pencil-types-flex-wrapper {
+#pencil-type-settings #size-choices .size-span-flex-wrapper,
+#pencil-type-settings #pencil-types-wrapper .pencil-types-flex-wrapper,
+#pencil-type-settings #pencil-types-wrapper .size-span-flex-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#size-settings #size-choices .size-span-flex-wrapper .size-option,
-#size-settings #size-choices .size-span-flex-wrapper .pencil-type,
-#size-settings #size-choices .pencil-types-flex-wrapper .size-option,
-#size-settings #size-choices .pencil-types-flex-wrapper .pencil-type,
-#size-settings #pencil-types-wrapper .size-span-flex-wrapper .size-option,
-#size-settings #pencil-types-wrapper .size-span-flex-wrapper .pencil-type,
-#size-settings #pencil-types-wrapper .pencil-types-flex-wrapper .size-option,
-#size-settings #pencil-types-wrapper .pencil-types-flex-wrapper .pencil-type,
-#pencil-type-settings #size-choices .size-span-flex-wrapper .size-option,
-#pencil-type-settings #size-choices .size-span-flex-wrapper .pencil-type,
-#pencil-type-settings #size-choices .pencil-types-flex-wrapper .size-option,
-#pencil-type-settings #size-choices .pencil-types-flex-wrapper .pencil-type,
-#pencil-type-settings #pencil-types-wrapper .size-span-flex-wrapper .size-option,
-#pencil-type-settings #pencil-types-wrapper .size-span-flex-wrapper .pencil-type,
-#pencil-type-settings #pencil-types-wrapper .pencil-types-flex-wrapper .size-option,
-#pencil-type-settings #pencil-types-wrapper .pencil-types-flex-wrapper .pencil-type {
+#size-settings #size-choices .size-option,
+#size-settings #size-choices .pencil-type,
+#size-settings #pencil-types-wrapper .size-option,
+#size-settings #pencil-types-wrapper .pencil-type,
+#pencil-type-settings #size-choices .size-option,
+#pencil-type-settings #size-choices .pencil-type,
+#pencil-type-settings #pencil-types-wrapper .size-option,
+#pencil-type-settings #pencil-types-wrapper .pencil-type {
   width: 1.3rem;
   height: 1.3rem;
+}
+#size-settings #size-choices label,
+#size-settings #pencil-types-wrapper label,
+#pencil-type-settings #size-choices label,
+#pencil-type-settings #pencil-types-wrapper label {
+  position: absolute;
+  transform: translateY(1.5rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 /*# sourceMappingURL=styles.css.map */

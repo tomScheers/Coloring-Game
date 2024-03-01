@@ -14,6 +14,7 @@ import {
  */
 export const setColorBlurButtons = () => {
     colorBlurButtons.forEach((button) => {
+        button.ariaLabel = `${button.id}-button`;
         button.addEventListener("click", () => {
             const newBlur = 0.075 * (parseFloat(button.id.split("-")[1]) / 50);
             userData.blurVal = newBlur;

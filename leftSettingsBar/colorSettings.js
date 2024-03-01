@@ -17,6 +17,8 @@ import {
 export const setColorButtons = (buttons) => {
 
     buttons.forEach((button) => {
+        button.ariaLabel = `${button.id.split("-")[0]}-button`;
+        console.log(button)
         button.addEventListener("click", () => {
             if (userData.eraser) return;
             const newColor = userData.colorMap[button.id];
