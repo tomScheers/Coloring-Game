@@ -13,7 +13,7 @@ const context = canvas.getContext('2d');
 const circle = document.getElementById("circle");
 circle.style.width = "2rem";
 circle.style.height = "2rem";
-circle.style.background = userData.currentColor;
+circle.style.backgroundColor = userData.currentColor;
 export {
     dialogList,
     colorButtons,

@@ -17,6 +17,7 @@ import {
 export const setColorBrightnessButtons = () => {
     colorBrightnessButtons.forEach((button) => {
         button.ariaLabel = `${button.id}-button`;
+        
         button.addEventListener("click", () => {
             if (userData.eraser) return;
             const newBrightness = parseInt(button.id.split("-")[1]);

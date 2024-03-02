@@ -27,10 +27,10 @@ export const setPencilOptions = () => {
             userData.eraser = !userData.eraser;
 
             if (userData.eraser) {
-                setToEraser(button);
+                setToEraser();
                 return;
             }
-    	    setToPencil(button);
+    	    setToPencil();
         })
     })
 }

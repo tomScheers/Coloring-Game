@@ -16,9 +16,10 @@ export const setColorBlurButtons = () => {
     colorBlurButtons.forEach((button) => {
         button.ariaLabel = `${button.id}-button`;
         button.addEventListener("click", () => {
-            const newBlur = 0.075 * (parseFloat(button.id.split("-")[1]) / 50);
+            const buttonBlurValue = parseInt(button.id.split("-")[1]);
+            const newBlur = 0.075 * (buttonBlurValue / 50);
             userData.blurVal = newBlur;
-            context.filter = `blur(${newBlur}rem)`;
+            context.filter = `blur(${newBlur}rem) brightness(${userData.brightness}%)`;
 
             colorBlurButtons.forEach((b) => {
                 b.classList.remove("selected-settings");

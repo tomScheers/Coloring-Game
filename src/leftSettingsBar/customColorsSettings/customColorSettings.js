@@ -18,6 +18,7 @@ import {
     makeInputFieldsFunctional
 } from "./createInputFields.js";
 
+import { changeColorOnHover } from "./changeColorOnHover.js";
 /**
  * The function `dialogFunctionality` sets up functionality for a dialog box including custom color
  * values, close/open buttons, input fields, color value adjustments, and a save button.
@@ -40,4 +41,6 @@ export const dialogFunctionality = (dialog) => {
     incrementOrDecrementCustomColorValues(dialog);
 
     addSaveButtonFunctionality(dialog)
+
+    changeColorOnHover(dialog);
 }

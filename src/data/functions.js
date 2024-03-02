@@ -1,9 +1,12 @@
 import {
     userData
 } from "./userData.js";
+
 import {
     circle
 } from "./variables.js";
+
+
 const updateCurrentColor = () => {
     userData.currentColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
 }
@@ -27,13 +30,24 @@ const getMousePos = (event) => {
         y: event.clientY
     };
 };
+
+const setButtonColor = (button) => {
+    button.style.backgroundColor = userData.lockedSquareColor;
+}
 const setCircleCircumference = (s) => {
     circle.style.width = `${s}rem`;
-    circle.style.height = `${s}}rem`;
+    circle.style.height = `${s}rem`;
+    console.log(s)
+}
+
+const setCircleColor = (color) => {
+    circle.style.backgroundColor = color;
 }
 export {
     updateCurrentColor,
     getMousePos,
     getRadius,
-    setCircleCircumference
+    setCircleCircumference,
+    setButtonColor,
+    setCircleColor
 };

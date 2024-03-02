@@ -11,7 +11,8 @@ import {
 } from "../data/variables.js";
 
 import {
-    updateCurrentColor
+    updateCurrentColor,
+    setCircleColor
 } from '../data/functions.js';
 
 export const setColorButtons = (buttons) => {
@@ -30,7 +31,7 @@ export const setColorButtons = (buttons) => {
             button.classList.add("selected-settings");
             setNewValues(newColor[0], newColor[1], newColor[2]);
             updateCurrentColor();
-            circle.style.background = userData.currentColor;
+            setCircleColor(userData.currentColor)
             context.strokeStyle = userData.currentColor;
 
             colorBlurButtons.forEach((b) => {

@@ -6,7 +6,7 @@ const userData = {
     brightness: 100,
     size: "medium",
     eraser: false,
-    lockedSquareColor: "white",
+    lockedSquareColor: [255, 255, 255],
     currentColor: `rgb(255,0,0)`,
     customColors: {
 

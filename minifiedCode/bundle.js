@@ -47,7 +47,7 @@
   var circle = document.getElementById("circle");
   circle.style.width = "2rem";
   circle.style.height = "2rem";
-  circle.style.background = userData.currentColor;
+  circle.style.backgroundColor = userData.currentColor;
 
   // data/functions.js
   var updateCurrentColor = () => {
@@ -93,7 +93,7 @@
         button.classList.add("selected-settings");
         setNewValues(newColor[0], newColor[1], newColor[2]);
         updateCurrentColor();
-        circle.style.background = userData.currentColor;
+        circle.style.backgroundColor = userData.currentColor;
         context.strokeStyle = userData.currentColor;
         colorBlurButtons.forEach((b) => {
           const buttonBlurValue = 0.075 * (parseFloat(b.id.split("-")[1]) / 50);
@@ -257,7 +257,7 @@
     setNewValues(255, 0, 0);
     updateCurrentColor();
     setCircleCircumference(getRadius());
-    circle.style.background = userData.currentColor;
+    circle.style.backgroundColor = userData.currentColor;
     context.strokeStyle = userData.currentColor;
     context.lineWidth = getRadius(userData.size) * 2;
     context.filter = `blur(${userData.blurVal}rem)`;
@@ -276,7 +276,7 @@
     context.lineWidth = getRadius(userData.size) * 10;
     context.filter = `blur(${userData.blurVal}rem)`;
     context.strokeStyle = userData.lockedSquareColor;
-    circle.style.background = userData.lockedSquareColor;
+    circle.style.backgroundColor = userData.lockedSquareColor;
     colorButtons.forEach((b) => {
       b.style.backgroundColor = userData.lockedSquareColor;
       b.classList.remove("selected-settings");
