@@ -10,4 +10,14 @@ module.exports = {
     optimization: {
         minimizer: [new TerserPlugin()],
     },
+      module: {
+          rules: [{
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: [
+                  'babel-loader',
+                  'eslint-loader',
+              ],
+          }, ],
+      },
 };

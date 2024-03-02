@@ -40,15 +40,15 @@ body {
             position: relative;
         }
     }
-    #circle {
-        border-radius: 50%;
-        position: absolute;
-        z-index: 1;
-        filter: blur(0.2rem);
-        pointer-events: none;
-        background-color: red;
-        opacity: 0.3;
-    }
+}
+#circle {
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    filter: blur(0.2rem);
+    pointer-events: none;
+    background-color: red;
+    opacity: 0.3;
 }
 
 #settings-left {

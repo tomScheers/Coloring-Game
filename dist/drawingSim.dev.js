@@ -1,14 +1,14 @@
 "use strict";
 
-var _userData = require("./userData.js");
+var _userData = require("./src/userData.js");
 
-var _colorSettings = require("./leftSettingsBar/colorSettings.js");
+var _colorSettings = require("./src/leftSettingsBar/colorSettings.js");
 
-var _variables = require("./variables.js");
+var _variables = require("./src/variables.js");
 
-var _customColorSettings = require("./leftSettingsBar/customColorSettings.js");
+var _customColorSettings = require("./src/leftSettingsBar/customColorSettings.js");
 
-var _arrayMap = require("./arrayMap.js");
+var _arrayMap = require("./src/arrayMap.js");
 
 
 var getRadius = function getRadius() {

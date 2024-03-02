@@ -39,7 +39,8 @@ body #drawing-paper #drawing-canvas {
   cursor: crosshair;
   position: relative;
 }
-body #circle {
+
+#circle {
   border-radius: 50%;
   position: absolute;
   z-index: 1;
