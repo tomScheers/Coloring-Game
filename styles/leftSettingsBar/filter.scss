@@ -1,0 +1,35 @@
+#lightning-and-blur {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4rem;
+}
+
+#lightning,
+#blur {
+    display: flex;
+    flex-direction: column;
+    .light-square,
+    .blur-square {
+        background-color: red;
+    }
+}
+.settings-flex-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: space-around;
+}
+
+$percentages: 100, 80, 60, 40, 20, 0;
+@each $percentage in $percentages {
+    #light-#{$percentage} {
+        filter: brightness(#{$percentage} + "%");
+    }
+    #blur-#{$percentage} {
+        filter: blur(#{0.075 * ($percentage / 50) + "rem"});
+    }
+}
+
+.eraser-light {
+    filter: brightness(100%) !important;
+}

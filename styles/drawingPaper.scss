@@ -1,0 +1,21 @@
+#drawing-paper {
+    z-index: 1;
+    overflow: hidden;
+}
+
+#drawing-canvas {
+    display: block;
+    cursor: crosshair;
+    position: relative;
+}
+
+#circle {
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    filter: blur(0.2rem);
+    pointer-events: none;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.3;
+}

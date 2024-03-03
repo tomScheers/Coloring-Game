@@ -4,11 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple rather handy drawing application for your daily usage, you get a wide variety of colors to choose from and can you can adjust so many more settings!">
+    <meta name="description"
+        content="A simple rather handy drawing application for your daily usage, you get a wide variety of colors to choose from and can you can adjust so many more settings!">
     <meta name="theme-color" content="#333333">
-    <title>Drawing Simulator</title>
+    <meta name="author" content="Tom Scheers">
+    <meta name="language" content="English">
+    <meta name="subtitle" content="draw beautiful arts">
+    <meta name="keywords" content="drawing, game, programming">
+    <meta name="category" content="game">
+    <title>Drawing Game</title>
     <link rel="stylesheet" href="./styles/styles.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/colorSettings.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/sizeAndTypeSettings.min.css">
+    <link rel="stylesheet" href="./styles/drawingPaper.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors/button.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors/preview.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors/settings.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/filter.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <script type="module" src="./src/drawingsim.js"></script>
 </head>
 
 <body>
@@ -20,7 +35,7 @@
             <section id="settings-left">
                 <div id="color-settings" class="section-wrapper">
                     <p>Change Color Settings:</p>
-                    <div id="rainbow-colors">
+                    <div id="rainbow-colors" class="button-wrapper">
                         <button id="red" class="color-settings-icon color-setting-square selected-settings"></button>
                         <button id="orange" class="color-settings-icon color-setting-square"></button>
                         <button id="yellow" class="color-settings-icon color-setting-square"></button>
@@ -29,7 +44,7 @@
                         <button id="indigo" class="color-settings-icon color-setting-square"></button>
                         <button id="violet" class="color-settings-icon color-setting-square"></button>
                     </div>
-                    <div id="black-white-colors">
+                    <div id="black-white-colors" class="button-wrapper">
                         <button id="white" class="color-settings-icon color-setting-square"></button>
                         <button id="lightgray" class="color-settings-icon color-setting-square"></button>
                         <button id="silver" class="color-settings-icon color-setting-square"></button>
@@ -67,11 +82,11 @@
                         </div>
                     </div>
                     <p>Create Your Own Custom Colors:</p>
-                    <div id="custom-colors">
+                    <div id="custom-colors" class="button-wrapper">
                         <button id="custom-color1" class="color-setting-square custom">+</button>
                         <dialog id="dialog-1">
-                            <div id="dialog-inner-wrapper">
-                                <div id="custom-colors-settings-wrapper">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
                                         <input type="number" value="0" class="red-value-input" min="0" max="255">
@@ -94,7 +109,7 @@
                                     </div>
 
                                 </div>
-                                <div id="custom-colors-previewer">
+                                <div class="custom-colors-previewer">
                                     <div class="color-preview"></div>
                                 </div>
                             </div>
@@ -103,8 +118,8 @@
                         </dialog>
                         <button id="custom-color2" class="hidden custom" aria-label="hidden"></button>
                         <dialog id="dialog-2">
-                            <div id="dialog-inner-wrapper">
-                                <div id="custom-colors-settings-wrapper">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
                                         <input type="number" value="0" class="red-value-input" min="0" max="255">
@@ -127,15 +142,15 @@
                                     </div>
 
                                 </div>
-                                <div id="custom-colors-previewer">
+                                <div class="custom-colors-previewer">
                                     <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
                         <button id="custom-color3" class="hidden custom" aria-label="hidden"></button>
                         <dialog id="dialog-3">
-                            <div id="dialog-inner-wrapper">
-                                <div id="custom-colors-settings-wrapper">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
                                         <input type="number" value="0" class="red-value-input" min="0" max="255">
@@ -154,19 +169,19 @@
 
                                     <div class="exit-save-buttons">
                                         <button class="close-button">Exit</button>
-                                        <button class="save-button" >Save</button>
+                                        <button class="save-button">Save</button>
                                     </div>
 
                                 </div>
-                                <div id="custom-colors-previewer">
+                                <div class="custom-colors-previewer">
                                     <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
                         <button id="custom-color4" class="hidden custom" aria-label="hidden"></button>
                         <dialog id="dialog-4">
-                            <div id="dialog-inner-wrapper">
-                                <div id="custom-colors-settings-wrapper">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
                                         <input type="number" value="0" class="red-value-input" min="0" max="255">
@@ -185,19 +200,19 @@
 
                                     <div class="exit-save-buttons">
                                         <button class="close-button">Exit</button>
-                                        <button class="save-button" >Save</button>
+                                        <button class="save-button">Save</button>
                                     </div>
 
                                 </div>
-                                <div id="custom-colors-previewer">
+                                <div class="custom-colors-previewer">
                                     <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
                         <button id="custom-color5" class="hidden custom" aria-label="hidden"></button>
                         <dialog id="dialog-5">
-                            <div id="dialog-inner-wrapper">
-                                <div id="custom-colors-settings-wrapper">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
                                         <input type="number" value="0" class="red-value-input" min="0" max="255">
@@ -216,19 +231,19 @@
 
                                     <div class="exit-save-buttons">
                                         <button class="close-button">Exit</button>
-                                        <button class="save-button" >Save</button>
+                                        <button class="save-button">Save</button>
                                     </div>
 
                                 </div>
-                                <div id="custom-colors-previewer">
+                                <div class="custom-colors-previewer">
                                     <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
                         <button id="custom-color6" class="hidden custom" aria-label="hidden"></button>
                         <dialog id="dialog-6">
-                            <div id="dialog-inner-wrapper">
-                                <div id="custom-colors-settings-wrapper">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
                                         <input type="number" value="0" class="red-value-input" min="0" max="255">
@@ -247,19 +262,19 @@
 
                                     <div class="exit-save-buttons">
                                         <button class="close-button">Exit</button>
-                                        <button class="save-button" >Save</button>
+                                        <button class="save-button">Save</button>
                                     </div>
 
                                 </div>
-                                <div id="custom-colors-previewer">
+                                <div class="custom-colors-previewer">
                                     <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
                         <button id="custom-color7" class="hidden custom" aria-label="hidden"></button>
                         <dialog id="dialog-7">
-                            <div id="dialog-inner-wrapper">
-                                <div id="custom-colors-settings-wrapper">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
                                         <input type="number" value="0" class="red-value-input" min="0" max="255">
@@ -278,11 +293,11 @@
 
                                     <div class="exit-save-buttons">
                                         <button class="close-button">Exit</button>
-                                        <button class="save-button" >Save</button>
+                                        <button class="save-button">Save</button>
                                     </div>
 
                                 </div>
-                                <div id="custom-colors-previewer">
+                                <div class="custom-colors-previewer">
                                     <div class="color-preview"></div>
                                 </div>
                             </div>
@@ -293,22 +308,22 @@
                     <p>Choose Your Pencil Size:</p>
                     <div id="size-choices"> <span class="size-span-flex-wrapper">
                             <input id="super-small" class="size-option" type="radio" name="pencil-size"
-                                value="super-small"></input>
-                            <label for="super-small" id="for-super-small"><span class="sr-only">Super </span>Small</label>
+                                value="super-small">
+                            <label for="super-small" id="for-super-small"><span class="sr-only">Super
+                                </span>Small</label>
                         </span> <span class="size-span-flex-wrapper">
-                            <input id="small" class="size-option" type="radio" name="pencil-size" value="small"></input>
+                            <input id="small" class="size-option" type="radio" name="pencil-size" value="small">
                             <label for="small" id="for-small" class="sr-only">Small</label>
                         </span> <span class="size-span-flex-wrapper">
                             <input id="medium" class="size-option" type="radio" name="pencil-size" value="medium"
-                                checked></input>
-                                <label for="medium" id="for-medium" class="sr-only">Medium</label>
+                                checked>
+                            <label for="medium" id="for-medium" class="sr-only">Medium</label>
                         </span> <span class="size-span-flex-wrapper">
-                            <input id="big" class="size-option" type="radio" name="pencil-size" value="big"></input>
+                            <input id="big" class="size-option" type="radio" name="pencil-size" value="big">
                         </span>
                         <label for="big" id="for-big" class="sr-only">Big</label>
                         <span class="size-span-flex-wrapper">
-                            <input id="super-big" class="size-option" type="radio" name="pencil-size"
-                                value="super-big"></input>
+                            <input id="super-big" class="size-option" type="radio" name="pencil-size" value="super-big">
                             <label for="super-big" id="for-super-big"><span class="sr-only">Super </span>Big</label>
                         </span>
 
@@ -321,11 +336,11 @@
                     <p>Choose Your Pencil Type:</p>
                     <div id="pencil-types-wrapper">
                         <span class="pencil-types-flex-wrapper">
-                            <input id="pencil" class="pencil-type" type="radio" name="pencil-type" checked></input>
+                            <input id="pencil" class="pencil-type" type="radio" name="pencil-type" checked>
                             <label for="pencil">Pencil</label>
                         </span>
                         <span class="pencil-types-flex-wrapper">
-                            <input id="eraser" class="pencil-type" type="radio" name="pencil-type"></input>
+                            <input id="eraser" class="pencil-type" type="radio" name="pencil-type">
                             <label for="eraser">Eraser</label>
                         </span>
                     </div>
@@ -338,7 +353,6 @@
         </div>
     </div>
     <div id="circle"></div>
-    <script type="module" src="./src/drawingsim.js"></script>
 </body>
 
 </html>

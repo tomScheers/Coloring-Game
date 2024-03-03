@@ -1,0 +1,27 @@
+#color-settings {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 2fr 3fr 3fr 2fr 6fr 2fr 3fr;
+
+    .color-setting-square {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0;
+        background-color: transparent;
+        border: 0.3rem black solid;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgray, silver, darkgray, gray, dimgray, black;
+    @each $color in $colors {
+        ##{$color} {
+            background-color: $color;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+#lightning-and-blur {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 4rem;
+}
+
+#lightning,
+#blur {
+  display: flex;
+  flex-direction: column;
+}
+#lightning .light-square,
+#lightning .blur-square,
+#blur .light-square,
+#blur .blur-square {
+  background-color: red;
+}
+
+.settings-flex-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+}
+
+#light-100 {
+  filter: brightness(100%);
+}
+
+/*#blur-100 {
+    filter: blur(0.15rem);
+}*/
+#light-80 {
+  filter: brightness(80%);
+}
+
+/*#blur-80 {
+    filter: blur(0.12rem);
+}*/
+#light-60 {
+  filter: brightness(60%);
+}
+
+/*#blur-60 {
+    filter: blur(0.09rem);
+}*/
+#light-40 {
+  filter: brightness(40%);
+}
+
+/*#blur-40 {
+    filter: blur(0.06rem);
+}*/
+#light-20 {
+  filter: brightness(20%);
+}
+
+/*#blur-20 {
+    filter: blur(0.03rem);
+}*/
+#light-0 {
+  filter: brightness(0%);
+}
+
+/*#blur-0 {
+    filter: blur(0rem);
+}*/
+.eraser-light {
+  filter: brightness(100%) !important;
+}
+/*# sourceMappingURL=filter.css.map */

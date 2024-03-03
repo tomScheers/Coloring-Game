@@ -1,0 +1,11 @@
+.hidden {
+    pointer-events: none;
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border: transparent 0.3rem solid;
+}
+.custom {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
