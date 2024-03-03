@@ -1,4 +1,6 @@
-import {changeViaInput} from "./changeViaInput.js";
+import {
+    changeViaInput
+} from "./changeViaInput.js";
 /**
  * The function `makeInputFieldsFunctional` adds event listeners to number input fields to trigger a
  * change via input in a dialog.
@@ -7,13 +9,13 @@ import {changeViaInput} from "./changeViaInput.js";
  * function to interact with the dialog box when input fields are changed or when certain events occur.
  */
 export const makeInputFieldsFunctional = (dialog) => {
-    const customColorsInputElements = document.querySelectorAll('input[type=number]');
+    const customColorsInputElements = document.querySelectorAll("input[type=number]");
     customColorsInputElements.forEach((input) => {
         input.addEventListener("input", () => {
             if (input.value === "") return;
             input.value = parseFloat(input.value);
         })
-        input.addEventListener('blur', () => {
+        input.addEventListener("blur", () => {
             input.blur();
             changeViaInput(input, dialog)
         });

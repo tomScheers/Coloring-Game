@@ -5,7 +5,6 @@ import {
 
 import {
     context,
-    circle,
     colorBlurButtons,
     colorButtons,
     colorBrightnessButtons,
@@ -42,7 +41,8 @@ export const setToPencil = () => {
     updateCurrentColor();
     setCircleCircumference(getRadius());
 
-    setCircleColor(userData.currentColor);
+    setCircleColor();
+    circle.style.opacity = 0.3;
     context.strokeStyle = userData.currentColor;
     context.lineWidth = getRadius(userData.size) * 2;
     context.filter = `blur(${userData.blurVal}rem)`;

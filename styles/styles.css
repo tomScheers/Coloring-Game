@@ -46,7 +46,8 @@ body #drawing-paper #drawing-canvas {
   z-index: 1;
   filter: blur(0.2rem);
   pointer-events: none;
-  background-color: red;
+  width: 2rem;
+  height: 2rem;
   opacity: 0.3;
 }
 
@@ -177,6 +178,10 @@ body #drawing-paper #drawing-canvas {
   background-color: rgb(231, 233, 230);
   position: absolute;
   margin: auto;
+}
+#settings-left #color-settings dialog::-webkit-backdrop {
+  -webkit-backdrop-filter: brightness(40%) blur(0.34rem);
+          backdrop-filter: brightness(40%) blur(0.34rem);
 }
 #settings-left #color-settings dialog::backdrop {
   -webkit-backdrop-filter: brightness(40%) blur(0.34rem);
@@ -367,4 +372,5 @@ body #drawing-paper #drawing-canvas {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}/*# sourceMappingURL=styles.css.map */
+}
+/*# sourceMappingURL=styles.css.map */

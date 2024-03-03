@@ -6,11 +6,11 @@ import {
 
 import {
     context,
-    circle,
     colorBlurButtons,
     colorButtons,
     colorBrightnessButtons,
     customColorButtons,
+    circle
 } from "../../data/variables.js";
 
 import {
@@ -32,9 +32,9 @@ export const setToEraser = () => {
     context.lineWidth = getRadius(userData.size) * 10;
     context.filter = `blur(${userData.blurVal}rem)`;
     context.strokeStyle = `rgb(${userData.lockedSquareColor[0]}, ${userData.lockedSquareColor[1]}, ${userData.lockedSquareColor[2]})`;
-    setCircleColor("blue");
-    console.log(circle);
-    console.log(circle)
+    setCircleColor("white");
+    circle.style.opacity = 0.8;
+    circle.style.filter = "blur(0.2rem)";
     colorButtons.forEach((b) => {
         setToLocked(b);
         b.classList.remove("selected-settings");

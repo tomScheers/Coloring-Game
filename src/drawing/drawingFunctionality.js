@@ -45,9 +45,9 @@ context.strokeStyle = userData.currentColor;
 
 const addDrawEventListeners = () => {
     canvas.addEventListener("mousedown", startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('mouseout', stopDrawing);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseout", stopDrawing);
 }
 export {
     addDrawEventListeners
