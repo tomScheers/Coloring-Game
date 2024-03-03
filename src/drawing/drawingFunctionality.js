@@ -12,10 +12,20 @@ import {
 } from "../data/functions.js";
 
 let isDrawing = false;
+
 let startPoint = {
     x: 0,
     y: 0
 };
+
+/**
+ * The function `startDrawing` sets a flag to indicate drawing has started and records the starting
+ * point for drawing on a canvas element.
+ * @param event - The `event` parameter in the `startDrawing` function is an event object that contains
+ * information about the event that triggered the function. This could be a mouse click, mouse move,
+ * touch event, etc. The event object typically includes properties like `clientX` and `clientY` which
+ * represent
+ */
 const startDrawing = (event) => {
     isDrawing = true;
 
@@ -28,12 +38,23 @@ const startDrawing = (event) => {
     context.moveTo(startPoint.x, startPoint.y);
 }
 
+/**
+ * The `draw` function in JavaScript is used to draw lines on a canvas element based on user mouse
+ * movements.
+ * @param event - The `event` parameter in the `draw` function represents the event that triggered the
+ * drawing action, such as a mouse movement or touch event. It contains information about the event,
+ * including the coordinates of the cursor or touch point.
+ * @returns The `draw` function returns `undefined`.
+ */
 const draw = (event) => {
     if (!isDrawing) return;
     context.lineTo(event.clientX - canvas.getBoundingClientRect().left, event.clientY - canvas.getBoundingClientRect().top);
     context.stroke();
 }
 
+/**
+ * The function `stopDrawing` sets the variable `isDrawing` to false.
+ */
 const stopDrawing = () => {
     isDrawing = false;
 }
@@ -43,12 +64,16 @@ canvas.height = canvas.width / 4 * 6;
 context.lineWidth = getRadius(userData.size) * 2;
 context.strokeStyle = userData.currentColor;
 
+/**
+ * The function `addDrawEventListeners` adds event listeners for drawing on a canvas element.
+ */
 const addDrawEventListeners = () => {
     canvas.addEventListener("mousedown", startDrawing);
     canvas.addEventListener("mousemove", draw);
     canvas.addEventListener("mouseup", stopDrawing);
     canvas.addEventListener("mouseout", stopDrawing);
 }
+
 export {
     addDrawEventListeners
 };

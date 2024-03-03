@@ -29,6 +29,16 @@ const userData = {
     }
 };
 
+/**
+ * The function `setNewValues` updates the red, green, and blue values in the `userData` object.
+ * @param redVal - The `redVal` parameter represents the new value for the red color channel in a color
+ * scheme.
+ * @param greenVal - The `setNewValues` function takes three parameters: `redVal`, `greenVal`, and
+ * `blueVal`. It sets these values in the `userData` object. If you have any specific question or need
+ * further assistance, feel free to ask!
+ * @param blueVal - blueVal is a parameter representing the blue value that will be set in the userData
+ * object using the setNewValues function.
+ */
 const setNewValues = (redVal, greenVal, blueVal) => {
     userData.redVal = redVal;
     userData.greenVal = greenVal;

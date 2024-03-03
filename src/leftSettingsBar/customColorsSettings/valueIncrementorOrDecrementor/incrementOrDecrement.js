@@ -1,7 +1,6 @@
-import { userData } from "../../../data/userData.js";
-
-
-
+import {
+    userData
+} from "../../../data/userData.js";
 
 /**
  * The function `incrementOrDecrement` increments or decrements a value in an input element based on
@@ -21,14 +20,18 @@ export const incrementOrDecrement = (currentItem, dialog) => {
     const propKey = `${currentItem.className.split("-")[0]}Val`;
     const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList[0]} input`);
     const isIncrement = currentItem.classList[0].split("-").includes("increment");
+
     if (isIncrement) {
-        if (parseFloat(inputElement.value) + 1 > inputElement.max) return;
+        const newValIsOverMax = parseFloat(inputElement.value) + 1 > inputElement.max;
+        if (newValIsOverMax) return;
         inputElement.value++;
         userData.customColors[dialog.id][propKey]++;
-    } else {
-        if (parseFloat(inputElement.value) - 1 < inputElement.min) return;
-        inputElement.value--;
-        userData.customColors[dialog.id][propKey]--;
+        return;
     }
+
+    const newValIsUnderMin = parseFloat(inputElement.value) - 1 < inputElement.min;
+    if (newValIsUnderMin) return;
+    inputElement.value--;
+    userData.customColors[dialog.id][propKey]--;
 
 }

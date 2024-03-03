@@ -1,6 +1,6 @@
 import {
     setColorButtons
-} from "./leftSettingsBar/colorSettings.js";
+} from './leftSettingsBar/colorSettings.js';
 
 import {
     dialogList,
@@ -10,36 +10,36 @@ import {
 import {
     dialogFunctionality
 }
-from "./leftSettingsBar/customColorsSettings/customColorSettings.js";
+from './leftSettingsBar/customColorsSettings/customColorSettings.js';
 
 import {
     setSizeButtons
-} from "./leftSettingsBar/sizeSettings.js";
+} from './leftSettingsBar/sizeSettings.js';
 
 import {
     setPencilOptions
-} from "./leftSettingsBar/pencilEraserSettings/pencilEraserSettings.js";
+} from './leftSettingsBar/pencilEraserSettings/pencilEraserSettings.js';
 
 import {
     setCircleCircumference,
     getRadius
-} from "./data/functions.js";
+} from './data/functions.js';
 
 import {
     setColorBlurButtons
-} from "./leftSettingsBar/filterSettings/blurFilter.js";
+} from './leftSettingsBar/filterSettings/blurFilter.js';
 
 import {
     setColorBrightnessButtons
-} from "./leftSettingsBar/filterSettings/brightnessFilter.js";
+} from './leftSettingsBar/filterSettings/brightnessFilter.js';
 
 import {
     createMouseListener
-} from "./blurCircleAroundMouser.js";
+} from './blurCircleAroundMouser.js';
 
 import {
     addDrawEventListeners
-} from "./drawing/drawingFunctionality.js";
+} from './drawing/drawingFunctionality.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     setCircleCircumference();

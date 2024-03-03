@@ -2,7 +2,9 @@ import {
     incrementOrDecrement
 } from "./incrementOrDecrement.js";
 
-import { userData } from "../../../data/userData.js";
+import {
+    userData
+} from "../../../data/userData.js";
 
 /**
  * The function `incrementOrDecrementCustomColorValues` iterates over custom color elements in a
@@ -14,6 +16,7 @@ import { userData } from "../../../data/userData.js";
 export const incrementOrDecrementCustomColorValues = (dialog) => {
     const customColorsMap = ["red-value-decrement", "red-value-increment", "green-value-decrement", "green-value-increment", "blue-value-decrement", "blue-value-increment"];
     const previewSquare = document.querySelector(`#${dialog.id} .color-preview`);
+
     customColorsMap.forEach((id) => {
         const currentItem = document.querySelector(`#${dialog.id} .${id}`);
         currentItem.addEventListener("click", () => {

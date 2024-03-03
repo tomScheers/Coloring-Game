@@ -1,6 +1,8 @@
 import {
-    userData
-} from "./userData.js";
+    setCircleColor,
+    setCircleCircumference
+} from "./functions.js";
+
 const dialogList = document.querySelectorAll("dialog");
 const colorButtons = document.querySelectorAll(".color-settings-icon");
 const colorBrightnessButtons = document.querySelectorAll(".light-square");
@@ -11,9 +13,10 @@ const pencilOptions = document.querySelectorAll(".pencil-type")
 const canvas = document.getElementById("drawing-canvas");
 const context = canvas.getContext("2d");
 const circle = document.getElementById("circle");
-circle.style.backgroundColor = userData.currentColor;
-circle.style.width = "2rem";
-circle.style.height = "2rem";
+
+setCircleColor();
+setCircleCircumference(2);
+
 export {
     dialogList,
     colorButtons,
