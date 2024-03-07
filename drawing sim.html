@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="A simple rather handy drawing application for your daily usage, you get a wide variety of colors to choose from and can you can adjust so many more settings!">
+        content="A simple and handy drawing application for daily use, offering a wide variety of colors and adjustable settings.">
     <meta name="theme-color" content="#333333">
     <meta name="author" content="Tom Scheers">
     <meta name="language" content="English">
-    <meta name="subtitle" content="draw beautiful arts">
+    <meta name="subtitle" content="Draw Beautiful Arts">
     <meta name="keywords" content="drawing, game, programming">
     <meta name="category" content="game">
+
     <title>Drawing Game</title>
+
     <link rel="stylesheet" href="./styles/styles.min.css">
     <link rel="stylesheet" href="./styles/leftSettingsBar/colorSettings.min.css">
     <link rel="stylesheet" href="./styles/leftSettingsBar/sizeAndTypeSettings.min.css">
@@ -22,20 +24,23 @@
     <link rel="stylesheet" href="./styles/leftSettingsBar/customColors/settings.min.css">
     <link rel="stylesheet" href="./styles/leftSettingsBar/customColors.min.css">
     <link rel="stylesheet" href="./styles/leftSettingsBar/filter.min.css">
+    <link rel="stylesheet" href="./styles/navBar/navBar.min.css">
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <script type="module" src="./src/drawingsim.js"></script>
 </head>
 
 <body>
-    <div id="grid-container">
+    <div id="body-wrapper">
         <nav id="settings-top">
-
+            <button id="reset-button" class="nav-button">⟳</button>
+            <button id="goback-button" class="nav-button rotate">↪</button>
+            <button id="gofurther-button" class="nav-button rotate">↩</button>
         </nav>
-        <div id="grid-con">
-            <section id="settings-left">
-                <div id="color-settings" class="section-wrapper">
+        <main id="main-page">
+            <aside id="settings-left">
+                <section id="color-settings" class="section-wrapper">
                     <p>Change Color Settings:</p>
-                    <div id="rainbow-colors" class="button-wrapper">
+                    <section id="rainbow-colors" class="button-wrapper">
                         <button id="red" class="color-settings-icon color-setting-square selected-settings"></button>
                         <button id="orange" class="color-settings-icon color-setting-square"></button>
                         <button id="yellow" class="color-settings-icon color-setting-square"></button>
@@ -43,8 +48,8 @@
                         <button id="blue" class="color-settings-icon color-setting-square"></button>
                         <button id="indigo" class="color-settings-icon color-setting-square"></button>
                         <button id="violet" class="color-settings-icon color-setting-square"></button>
-                    </div>
-                    <div id="black-white-colors" class="button-wrapper">
+                    </section>
+                    <section id="black-white-colors" class="button-wrapper">
                         <button id="white" class="color-settings-icon color-setting-square"></button>
                         <button id="lightgray" class="color-settings-icon color-setting-square"></button>
                         <button id="silver" class="color-settings-icon color-setting-square"></button>
@@ -52,9 +57,9 @@
                         <button id="gray" class="color-settings-icon color-setting-square"></button>
                         <button id="dimgray" class="color-settings-icon color-setting-square"></button>
                         <button id="black" class="color-settings-icon color-setting-square"></button>
-                    </div>
-                    <p>Put on a filter:</p>
-                    <div id="lightning-and-blur">
+                    </section>
+                    <p>Apply filter:</p>
+                    <section id="lightning-and-blur">
                         <div id="lightning">
                             <span class="settings-flex-wrapper">
                                 <button id="light-100"
@@ -80,11 +85,11 @@
                                 <button id="blur-100" class="color-setting-square blur-square"></button>
                             </span>
                         </div>
-                    </div>
+                    </section>
                     <p>Create Your Own Custom Colors:</p>
-                    <div id="custom-colors" class="button-wrapper">
+                    <section id="custom-colors" class="button-wrapper">
                         <button id="custom-color1" class="color-setting-square custom">+</button>
-                        <dialog id="dialog-1">
+                        <dialog class="dialog-element" role="dialog" id="dialog-1">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
@@ -116,8 +121,8 @@
 
 
                         </dialog>
-                        <button id="custom-color2" class="hidden custom" aria-label="hidden"></button>
-                        <dialog id="dialog-2">
+                        <button id="custom-color2" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-2">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
@@ -147,8 +152,8 @@
                                 </div>
                             </div>
                         </dialog>
-                        <button id="custom-color3" class="hidden custom" aria-label="hidden"></button>
-                        <dialog id="dialog-3">
+                        <button id="custom-color3" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-3">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
@@ -178,8 +183,8 @@
                                 </div>
                             </div>
                         </dialog>
-                        <button id="custom-color4" class="hidden custom" aria-label="hidden"></button>
-                        <dialog id="dialog-4">
+                        <button id="custom-color4" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-4">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
@@ -209,8 +214,8 @@
                                 </div>
                             </div>
                         </dialog>
-                        <button id="custom-color5" class="hidden custom" aria-label="hidden"></button>
-                        <dialog id="dialog-5">
+                        <button id="custom-color5" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-5">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
@@ -240,8 +245,8 @@
                                 </div>
                             </div>
                         </dialog>
-                        <button id="custom-color6" class="hidden custom" aria-label="hidden"></button>
-                        <dialog id="dialog-6">
+                        <button id="custom-color6" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-6">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
@@ -271,8 +276,8 @@
                                 </div>
                             </div>
                         </dialog>
-                        <button id="custom-color7" class="hidden custom" aria-label="hidden"></button>
-                        <dialog id="dialog-7">
+                        <button id="custom-color7" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-7">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
@@ -302,23 +307,27 @@
                                 </div>
                             </div>
                         </dialog>
-                    </div>
-                </div>
-                <div id="size-settings" class="section-wrapper">
+                    </section>
+                </section>
+                <section id="size-settings" class="section-wrapper">
                     <p>Choose Your Pencil Size:</p>
-                    <div id="size-choices"> <span class="size-span-flex-wrapper">
+                    <div id="size-choices">
+                        <span class="size-span-flex-wrapper">
                             <input id="super-small" class="size-option" type="radio" name="pencil-size"
                                 value="super-small">
                             <label for="super-small" id="for-super-small"><span class="sr-only">Super
                                 </span>Small</label>
-                        </span> <span class="size-span-flex-wrapper">
+                        </span>
+                        <span class="size-span-flex-wrapper">
                             <input id="small" class="size-option" type="radio" name="pencil-size" value="small">
                             <label for="small" id="for-small" class="sr-only">Small</label>
-                        </span> <span class="size-span-flex-wrapper">
+                        </span>
+                        <span class="size-span-flex-wrapper">
                             <input id="medium" class="size-option" type="radio" name="pencil-size" value="medium"
                                 checked>
                             <label for="medium" id="for-medium" class="sr-only">Medium</label>
-                        </span> <span class="size-span-flex-wrapper">
+                        </span>
+                        <span class="size-span-flex-wrapper">
                             <input id="big" class="size-option" type="radio" name="pencil-size" value="big">
                         </span>
                         <label for="big" id="for-big" class="sr-only">Big</label>
@@ -326,13 +335,9 @@
                             <input id="super-big" class="size-option" type="radio" name="pencil-size" value="super-big">
                             <label for="super-big" id="for-super-big"><span class="sr-only">Super </span>Big</label>
                         </span>
-
-
-
-
                     </div>
-                </div>
-                <div id="pencil-type-settings" class="section-wrapper">
+                </section>
+                <section id="pencil-type-settings" class="section-wrapper">
                     <p>Choose Your Pencil Type:</p>
                     <div id="pencil-types-wrapper">
                         <span class="pencil-types-flex-wrapper">
@@ -344,15 +349,17 @@
                             <label for="eraser">Eraser</label>
                         </span>
                     </div>
-
-                </div>
-            </section>
+                </section>
+            </aside>
             <section id="drawing-paper">
                 <canvas id="drawing-canvas"></canvas>
             </section>
-        </div>
-    </div>
+        </main>
+    </div>        
     <div id="circle"></div>
+    <script type="module" src="./src/drawingsim.js"></script>
 </body>
+
+
 
 </html>

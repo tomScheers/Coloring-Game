@@ -41,6 +41,8 @@ import {
     addDrawEventListeners
 } from './drawing/drawingFunctionality.js';
 
+import { addNavButtons } from './navBar/addButtons.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     setCircleCircumference();
     setPencilOptions();
@@ -50,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setColorButtons(colorButtons);
     dialogFunctionality(dialogList[0]);
     addDrawEventListeners(getRadius());
+    addNavButtons();
     document.addEventListener("mousemove", createMouseListener);
 
 

@@ -1,4 +1,4 @@
-dialog {
+.dialog-element {
   width: 70vw;
   border: 3px solid black;
   height: 80vh;
@@ -6,15 +6,15 @@ dialog {
   position: absolute;
   margin: auto;
 }
-dialog::-webkit-backdrop {
+.dialog-element::-webkit-backdrop {
   -webkit-backdrop-filter: brightness(40%) blur(0.34rem);
           backdrop-filter: brightness(40%) blur(0.34rem);
 }
-dialog::backdrop {
+.dialog-element::backdrop {
   -webkit-backdrop-filter: brightness(40%) blur(0.34rem);
           backdrop-filter: brightness(40%) blur(0.34rem);
 }
-dialog .dialog-inner-wrapper {
+.dialog-element .dialog-inner-wrapper {
   display: flex;
   height: 100%;
 }

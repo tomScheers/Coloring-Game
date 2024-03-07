@@ -26,7 +26,9 @@ const userData = {
         darkgray: [128, 128, 128],
         dimgray: [105, 105, 105],
         black: [0, 0, 0]
-    }
+    },
+    canvasVersions: [],
+    currentIndex: 0,
 };
 
 /**

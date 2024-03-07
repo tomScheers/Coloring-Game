@@ -56,7 +56,13 @@ const draw = (event) => {
  * The function `stopDrawing` sets the variable `isDrawing` to false.
  */
 const stopDrawing = () => {
+    if (!isDrawing) return;
     isDrawing = false;
+    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+    userData.currentIndex++;
+    userData.canvasVersions.push(data);
+    console.log(userData.canvasVersions);
 }
 
 canvas.width = window.innerWidth / 3 * 2;

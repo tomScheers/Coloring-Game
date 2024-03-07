@@ -1,0 +1,10 @@
+.nav-button {
+    background-color: transparent;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    &:hover {
+        cursor: pointer;
+    }
+}

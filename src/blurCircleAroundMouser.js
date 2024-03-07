@@ -8,6 +8,7 @@ import {
 import {
     circle
 } from "./data/variables.js";
+
 export const createMouseListener = (event) => {
     const mousePos = getMousePos(event);
     circle.style.left = `calc(${mousePos.x}px - ${circle.style.width} / 2)`;

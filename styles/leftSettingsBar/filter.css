@@ -27,44 +27,50 @@
   filter: brightness(100%);
 }
 
-/*#blur-100 {
-    filter: blur(0.15rem);
-}*/
+#blur-100 {
+  filter: blur(0.15rem);
+}
+
 #light-80 {
   filter: brightness(80%);
 }
 
-/*#blur-80 {
-    filter: blur(0.12rem);
-}*/
+#blur-80 {
+  filter: blur(0.12rem);
+}
+
 #light-60 {
   filter: brightness(60%);
 }
 
-/*#blur-60 {
-    filter: blur(0.09rem);
-}*/
+#blur-60 {
+  filter: blur(0.09rem);
+}
+
 #light-40 {
   filter: brightness(40%);
 }
 
-/*#blur-40 {
-    filter: blur(0.06rem);
-}*/
+#blur-40 {
+  filter: blur(0.06rem);
+}
+
 #light-20 {
   filter: brightness(20%);
 }
 
-/*#blur-20 {
-    filter: blur(0.03rem);
-}*/
+#blur-20 {
+  filter: blur(0.03rem);
+}
+
 #light-0 {
   filter: brightness(0%);
 }
 
-/*#blur-0 {
-    filter: blur(0rem);
-}*/
+#blur-0 {
+  filter: blur(0rem);
+}
+
 .eraser-light {
   filter: brightness(100%) !important;
 }
