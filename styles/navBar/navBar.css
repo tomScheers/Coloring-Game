@@ -8,4 +8,18 @@
 .nav-button:hover {
   cursor: pointer;
 }
+
+.text-button {
+  font-size: 1.5rem;
+}
+
+#settings-dialog {
+  width: 50vw;
+  height: 70vh;
+  margin: auto;
+  color: black;
+}
+#settings-dialog * {
+  color: black;
+}
 /*# sourceMappingURL=navBar.css.map */

@@ -7,7 +7,7 @@
 #size-choices,
 #pencil-types-wrapper {
     display: flex;
-    label {
+    .size-label, .type-label {
         position: absolute;
         transform: translateY(1.5rem);
     }

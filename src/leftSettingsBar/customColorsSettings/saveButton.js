@@ -25,8 +25,9 @@ import {
  */
 export const addSaveButtonFunctionality = (dialog) => {
     const currentButton = document.getElementById(`custom-color${dialog.id.split("-")[1]}`);
-    const previewSquare = document.querySelector(`#${dialog.id} .color-preview`);
-    const saveButton = document.querySelector(`#${dialog.id} .save-button`);
+    const previewSquare = dialog.querySelector(`.color-preview`);
+    const saveButton = dialog.querySelector(`.save-button`);
+
     saveButton.addEventListener("click", () => {
         dialog.close();
         currentButton.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;

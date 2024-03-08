@@ -15,10 +15,10 @@ import {
  */
 export const incrementOrDecrementCustomColorValues = (dialog) => {
     const customColorsMap = ["red-value-decrement", "red-value-increment", "green-value-decrement", "green-value-increment", "blue-value-decrement", "blue-value-increment"];
-    const previewSquare = document.querySelector(`#${dialog.id} .color-preview`);
+    const previewSquare = dialog.querySelector(`.color-preview`);
 
     customColorsMap.forEach((id) => {
-        const currentItem = document.querySelector(`#${dialog.id} .${id}`);
+        const currentItem = dialog.querySelector(`.${id}`);
         currentItem.addEventListener("click", () => {
             incrementOrDecrement(currentItem, dialog)
             previewSquare.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;

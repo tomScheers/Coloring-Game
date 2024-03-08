@@ -18,7 +18,7 @@ import {
  */
 export const incrementOrDecrement = (currentItem, dialog) => {
     const propKey = `${currentItem.className.split("-")[0]}Val`;
-    const inputElement = document.querySelector(`#${dialog.id} .${currentItem.parentNode.classList[0]} input`);
+    const inputElement = dialog.querySelector(`.${currentItem.parentNode.classList[0]} input`);
     const isIncrement = currentItem.classList[0].split("-").includes("increment");
 
     if (isIncrement) {

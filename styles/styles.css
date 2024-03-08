@@ -8,7 +8,7 @@
   color: white;
 }
 
-body {
+#body {
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@ body {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 8% auto;
+  grid-template-rows: 6% auto;
   grid-template-columns: auto;
 }
 
@@ -41,7 +41,7 @@ body {
   background-color: #333333;
   z-index: 1000;
 }
-#settings-left p, #settings-left label {
+#settings-left .make-par {
   text-align: center;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -62,5 +62,9 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+#drawing-canvas {
+  background-color: white;
 }
 /*# sourceMappingURL=styles.css.map */

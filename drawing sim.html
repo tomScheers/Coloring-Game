@@ -29,17 +29,26 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body id="body">
     <div id="body-wrapper">
         <nav id="settings-top">
             <button id="reset-button" class="nav-button">⟳</button>
             <button id="goback-button" class="nav-button rotate">↪</button>
             <button id="gofurther-button" class="nav-button rotate">↩</button>
+            <button id="saveas-button" class="nav-button text-button">Save</button>
+            <button id="settings-button" class="nav-button text-button">Settings</button>
+            <dialog id="settings-dialog" role="dialog">
+                <h1>Settings</h1>
+                <input name="project-name" type="text" id="name-input" placeholder="Add Image Name" autocomplete="on" autocapitalize="words"/>
+                <input name="name" type="text" id="author-input" placeholder="Add Your Name" autocomplete="given-name" autocapitalize="words" />
+                <button id="settings-exit-button" class="close-button">Exit</button>
+                <button id="settings-save-button" class="save-button">Save</button>
+            </dialog>
         </nav>
         <main id="main-page">
             <aside id="settings-left">
                 <section id="color-settings" class="section-wrapper">
-                    <p>Change Color Settings:</p>
+                    <p class="make-par">Change Color Settings:</p>
                     <section id="rainbow-colors" class="button-wrapper">
                         <button id="red" class="color-settings-icon color-setting-square selected-settings"></button>
                         <button id="orange" class="color-settings-icon color-setting-square"></button>
@@ -58,7 +67,7 @@
                         <button id="dimgray" class="color-settings-icon color-setting-square"></button>
                         <button id="black" class="color-settings-icon color-setting-square"></button>
                     </section>
-                    <p>Apply filter:</p>
+                    <p class="make-par">Apply filter:</p>
                     <section id="lightning-and-blur">
                         <div id="lightning">
                             <span class="settings-flex-wrapper">
@@ -86,7 +95,7 @@
                             </span>
                         </div>
                     </section>
-                    <p>Create Your Own Custom Colors:</p>
+                    <p class="make-par">Create Your Own Custom Colors:</p>
                     <section id="custom-colors" class="button-wrapper">
                         <button id="custom-color1" class="color-setting-square custom">+</button>
                         <dialog class="dialog-element" role="dialog" id="dialog-1">
@@ -94,17 +103,17 @@
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="red-value-input value-input" min="0" max="255">
                                         <button class="red-value-increment rotate">+</button>
                                     </div>
                                     <div class="green-value-changer input-wrapper">
                                         <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="green-value-input value-input" min="0" max="255">
                                         <button class="green-value-increment rotate">+</button>
                                     </div>
                                     <div class="blue-value-changer input-wrapper">
                                         <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0" max="255">
                                         <button class="blue-value-increment rotate">+</button>
                                     </div>
 
@@ -127,17 +136,17 @@
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="red-value-input value-input" min="0" max="255">
                                         <button class="red-value-increment rotate">+</button>
                                     </div>
                                     <div class="green-value-changer input-wrapper">
                                         <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="green-value-input value-input" min="0" max="255">
                                         <button class="green-value-increment rotate">+</button>
                                     </div>
                                     <div class="blue-value-changer input-wrapper">
                                         <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0" max="255">
                                         <button class="blue-value-increment rotate">+</button>
                                     </div>
 
@@ -158,17 +167,17 @@
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="red-value-input value-input" min="0" max="255">
                                         <button class="red-value-increment rotate">+</button>
                                     </div>
                                     <div class="green-value-changer input-wrapper">
                                         <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="green-value-input value-input" min="0" max="255">
                                         <button class="green-value-increment rotate">+</button>
                                     </div>
                                     <div class="blue-value-changer input-wrapper">
                                         <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0" max="255">
                                         <button class="blue-value-increment rotate">+</button>
                                     </div>
 
@@ -189,17 +198,17 @@
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="red-value-input value-input" min="0" max="255">
                                         <button class="red-value-increment rotate">+</button>
                                     </div>
                                     <div class="green-value-changer input-wrapper">
                                         <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="green-value-input value-input" min="0" max="255">
                                         <button class="green-value-increment rotate">+</button>
                                     </div>
                                     <div class="blue-value-changer input-wrapper">
                                         <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0" max="255">
                                         <button class="blue-value-increment rotate">+</button>
                                     </div>
 
@@ -220,17 +229,17 @@
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="red-value-input value-input" min="0" max="255">
                                         <button class="red-value-increment rotate">+</button>
                                     </div>
                                     <div class="green-value-changer input-wrapper">
                                         <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="green-value-input value-input" min="0" max="255">
                                         <button class="green-value-increment rotate">+</button>
                                     </div>
                                     <div class="blue-value-changer input-wrapper">
                                         <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0" max="255">
                                         <button class="blue-value-increment rotate">+</button>
                                     </div>
 
@@ -251,17 +260,17 @@
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="red-value-input value-input" min="0" max="255">
                                         <button class="red-value-increment rotate">+</button>
                                     </div>
                                     <div class="green-value-changer input-wrapper">
                                         <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="green-value-input value-input" min="0" max="255">
                                         <button class="green-value-increment rotate">+</button>
                                     </div>
                                     <div class="blue-value-changer input-wrapper">
                                         <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0" max="255">
                                         <button class="blue-value-increment rotate">+</button>
                                     </div>
 
@@ -282,17 +291,17 @@
                                 <div class="custom-colors-settings-wrapper">
                                     <div class="red-value-changer input-wrapper">
                                         <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="red-value-input value-input" min="0" max="255">
                                         <button class="red-value-increment rotate">+</button>
                                     </div>
                                     <div class="green-value-changer input-wrapper">
                                         <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="green-value-input value-input" min="0" max="255">
                                         <button class="green-value-increment rotate">+</button>
                                     </div>
                                     <div class="blue-value-changer input-wrapper">
                                         <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input" min="0" max="255">
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0" max="255">
                                         <button class="blue-value-increment rotate">+</button>
                                     </div>
 
@@ -310,43 +319,44 @@
                     </section>
                 </section>
                 <section id="size-settings" class="section-wrapper">
-                    <p>Choose Your Pencil Size:</p>
+                    <p class="make-par">Choose Your Pencil Size:</p>
                     <div id="size-choices">
                         <span class="size-span-flex-wrapper">
                             <input id="super-small" class="size-option" type="radio" name="pencil-size"
                                 value="super-small">
-                            <label for="super-small" id="for-super-small"><span class="sr-only">Super
+                            <label class="make-par size-label" for="super-small" id="for-super-small"><span class="sr-only">Super
                                 </span>Small</label>
                         </span>
                         <span class="size-span-flex-wrapper">
                             <input id="small" class="size-option" type="radio" name="pencil-size" value="small">
-                            <label for="small" id="for-small" class="sr-only">Small</label>
+                            <label class="size-label sr-only" for="small" id="for-small">Small</label>
                         </span>
                         <span class="size-span-flex-wrapper">
                             <input id="medium" class="size-option" type="radio" name="pencil-size" value="medium"
                                 checked>
-                            <label for="medium" id="for-medium" class="sr-only">Medium</label>
+                            <label class="size-label sr-only" for="medium" id="for-medium">Medium</label>
                         </span>
                         <span class="size-span-flex-wrapper">
-                            <input id="big" class="size-option" type="radio" name="pencil-size" value="big">
+                            <input id="big" class="size-option" type="radio" name="pencil-size" value="big">                        
+                            <label class="size-label sr-only" for="big" id="for-big">Big</label>
                         </span>
-                        <label for="big" id="for-big" class="sr-only">Big</label>
+
                         <span class="size-span-flex-wrapper">
                             <input id="super-big" class="size-option" type="radio" name="pencil-size" value="super-big">
-                            <label for="super-big" id="for-super-big"><span class="sr-only">Super </span>Big</label>
+                            <label class="make-par size-label" for="super-big" id="for-super-big"><span class="sr-only">Super </span>Big</label>
                         </span>
                     </div>
                 </section>
                 <section id="pencil-type-settings" class="section-wrapper">
-                    <p>Choose Your Pencil Type:</p>
+                    <p class="make-par">Choose Your Pencil Type:</p>
                     <div id="pencil-types-wrapper">
                         <span class="pencil-types-flex-wrapper">
                             <input id="pencil" class="pencil-type" type="radio" name="pencil-type" checked>
-                            <label for="pencil">Pencil</label>
+                            <label class="make-par type-label" for="pencil">Pencil</label>
                         </span>
                         <span class="pencil-types-flex-wrapper">
                             <input id="eraser" class="pencil-type" type="radio" name="pencil-type">
-                            <label for="eraser">Eraser</label>
+                            <label class="make-par type-label" for="eraser">Eraser</label>
                         </span>
                     </div>
                 </section>

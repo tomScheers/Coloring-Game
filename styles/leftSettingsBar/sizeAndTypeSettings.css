@@ -8,8 +8,9 @@
 #pencil-types-wrapper {
   display: flex;
 }
-#size-choices label,
-#pencil-types-wrapper label {
+#size-choices .size-label, #size-choices .type-label,
+#pencil-types-wrapper .size-label,
+#pencil-types-wrapper .type-label {
   position: absolute;
   transform: translateY(1.5rem);
 }

@@ -41,7 +41,9 @@ import {
     addDrawEventListeners
 } from './drawing/drawingFunctionality.js';
 
-import { addNavButtons } from './navBar/addButtons.js';
+import {
+    addNavButtons
+} from './navBar/addButtons.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     setCircleCircumference();

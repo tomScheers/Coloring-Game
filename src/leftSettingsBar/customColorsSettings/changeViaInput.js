@@ -13,7 +13,7 @@ import {
  * used to find the color preview square element within the dialog using its ID.
  */
 export const changeViaInput = (elem, dialog) => {
-    const previewSquare = document.querySelector(`#${dialog.id} .color-preview`);
+    const previewSquare = dialog.querySelector(`.color-preview`);
     const enteredValue = parseFloat(elem.value);
 
     if (enteredValue < parseFloat(elem.min) || elem.value.length <= 0) {

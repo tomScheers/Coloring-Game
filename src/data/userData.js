@@ -29,6 +29,11 @@ const userData = {
     },
     canvasVersions: [],
     currentIndex: 0,
+    isAlert: false,
+    userSettings: {
+        fileName: "Untitled_Project",
+        author: "Anonymous_User", 
+    }
 };
 
 /**

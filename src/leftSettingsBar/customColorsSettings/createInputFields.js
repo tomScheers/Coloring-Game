@@ -9,7 +9,7 @@ import {
  * function to interact with the dialog box when input fields are changed or when certain events occur.
  */
 export const makeInputFieldsFunctional = (dialog) => {
-    const customColorsInputElements = document.querySelectorAll("input[type=number]");
+    const customColorsInputElements = dialog.querySelectorAll("input[type=number]");
     customColorsInputElements.forEach((input) => {
         input.addEventListener("input", () => {
             if (input.value === "") return;

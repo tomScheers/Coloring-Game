@@ -12,7 +12,7 @@ import {
 export const createDialogCloseAndOpenButtons = (dialog) => {
     const currentButton = document.getElementById(`custom-color${dialog.id.split("-")[1]}`);
     const showButton = document.querySelector(`#custom-color${dialog.id.split("-")[1]}`);
-    const closeButton = document.querySelector(`#${dialog.id} .close-button`);
+    const closeButton = dialog.querySelector(`.close-button`);
 
     showButton.addEventListener("click", () => {
         if (currentButton.classList.contains("color-settings-icon") || userData.eraser) return;
