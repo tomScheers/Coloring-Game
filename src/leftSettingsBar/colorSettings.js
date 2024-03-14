@@ -5,8 +5,7 @@ import {
 import {
     colorBrightnessButtons,
     colorBlurButtons,
-    context,
-    circle
+    context
 } from "../data/variables.js";
 
 import {
@@ -14,7 +13,6 @@ import {
 } from "../data/functions.js";
 
 export const setColorButtons = (buttons) => {
-
     buttons.forEach((button) => {
         button.ariaLabel = `${button.id.split("-")[0]}-button`;
         button.addEventListener("click", () => {

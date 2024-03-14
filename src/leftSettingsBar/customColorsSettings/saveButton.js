@@ -7,22 +7,10 @@ import {
 } from "./customColorSettings.js";
 
 import {
-    dialogList
-} from "../../data/variables.js";
-
-import {
     setColorButtons
 } from "../colorSettings.js";
 
 
-/**
- * The function `addSaveButtonFunctionality` adds functionality to a save button in a dialog box for
- * custom color settings.
- * @param dialog - The `dialog` parameter in the `addSaveButtonFunctionality` function 
- * represent a dialog element in the DOM. This function adds functionality to a save button within the
- * dialog. When the save button is clicked, it closes the dialog, updates the color of a button based
- * on custom colors stored
- */
 export const addSaveButtonFunctionality = (dialog) => {
     const currentButton = document.getElementById(`custom-color${dialog.id.split("-")[1]}`);
     const previewSquare = dialog.querySelector(`.color-preview`);
@@ -30,14 +18,19 @@ export const addSaveButtonFunctionality = (dialog) => {
 
     saveButton.addEventListener("click", () => {
         dialog.close();
+
         currentButton.style.backgroundColor = `rgb(${userData.customColors[dialog.id].redVal}, ${userData.customColors[dialog.id].greenVal}, ${userData.customColors[dialog.id].blueVal})`;
         currentButton.innerText = "";
         currentButton.classList.add("color-settings-icon");
-        userData.colorMap[currentButton.id] = [userData.customColors[dialog.id].redVal, userData.customColors[dialog.id].greenVal, userData.customColors[dialog.id].blueVal]
+
+        userData.colorMap[currentButton.id] = [userData.customColors[dialog.id].redVal, userData.customColors[dialog.id].greenVal, userData.customColors[dialog.id].blueVal];
         const nextButton = document.getElementById(`custom-color${parseInt(dialog.id.split("-")[1]) + 1}`);
+
         if (nextButton === null) return;
+
         nextButton.innerText = "+";
-        dialogFunctionality(dialogList[parseInt(dialog.id.split("-")[1])]);
+        const nextDialog = document.getElementById(`dialog-${[parseInt(dialog.id.split("-")[1]) + 1]}`);
+        dialogFunctionality(nextDialog);
         setColorButtons(([currentButton]));
         nextButton.classList.remove("hidden");
         nextButton.classList.add("color-setting-square");

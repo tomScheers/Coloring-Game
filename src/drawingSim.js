@@ -3,11 +3,6 @@ import {
 } from './leftSettingsBar/colorSettings.js';
 
 import {
-    dialogList,
-    colorButtons,
-} from "./data/variables.js";
-
-import {
     dialogFunctionality
 }
 from './leftSettingsBar/customColorsSettings/customColorSettings.js';
@@ -49,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     setSizeButtons();
     setColorBlurButtons();
     setColorBrightnessButtons();
-    setColorButtons(colorButtons);
-    dialogFunctionality(dialogList[0]);
+    setColorButtons(document.querySelectorAll(".color-settings-icon"));
+    dialogFunctionality(document.getElementById("dialog-1"));
     addDrawEventListeners(getRadius());
     addNavButtons();
     document.addEventListener("mousemove", createMouseListener);

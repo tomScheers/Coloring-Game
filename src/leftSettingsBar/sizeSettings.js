@@ -3,8 +3,7 @@
  } from "../data/userData.js";
 
  import {
-     context,
-     sizeButtons
+     context
  } from "../data/variables.js";
 
  import {
@@ -12,12 +11,8 @@
      setCircleCircumference
  } from "../data/functions.js";
 
- /**
-  * The function `setSizeButtons` sets event listeners on size radio buttons to update the selected size value
-  * in the userData object and adjust the circle circumference and line width accordingly.
-  */
-
- export const setSizeButtons = () => {
+export const setSizeButtons = () => {
+     const sizeButtons = document.querySelectorAll(".size-option");
      sizeButtons.forEach((button) => {
          button.addEventListener("click", () => {
              const selectedSizeValue = button.value;

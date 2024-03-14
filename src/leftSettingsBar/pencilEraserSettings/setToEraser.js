@@ -7,9 +7,7 @@ import {
 import {
     context,
     colorBlurButtons,
-    colorButtons,
     colorBrightnessButtons,
-    customColorButtons,
     circle
 } from "../../data/variables.js";
 
@@ -28,13 +26,18 @@ const setToLocked = (button) => {
  * not have a return value specified, this is to escape the forEach.
  */
 export const setToEraser = () => {
+    const colorButtons = document.querySelectorAll(".color-settings-icon");
+    const customColorButtons = document.querySelectorAll(".custom");
+
     setCircleCircumference(getRadius() * 1.5);
     context.lineWidth = getRadius(userData.size) * 10;
     context.filter = `blur(${userData.blurVal}rem)`;
     context.strokeStyle = `rgb(${userData.lockedSquareColor[0]}, ${userData.lockedSquareColor[1]}, ${userData.lockedSquareColor[2]})`;
+
     setCircleColor("white");
     circle.style.opacity = 0.8;
     circle.style.filter = "blur(0.2rem)";
+    
     colorButtons.forEach((b) => {
         setToLocked(b);
         b.classList.remove("selected-settings");

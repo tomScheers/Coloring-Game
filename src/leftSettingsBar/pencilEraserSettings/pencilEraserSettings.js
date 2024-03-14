@@ -1,8 +1,4 @@
 import {
-    pencilOptions
-} from "../../data/variables.js";
-
-import {
     userData
 } from "../../data/userData.js";
 
@@ -14,15 +10,8 @@ import {
     setToEraser
 } from "./setToEraser.js";
 
-import {
-    circle
-} from "../../data/variables.js";
-
-/**
- * The function `setPencilOptions` adds event listeners to pencil options buttons and updates the user
- * data based on the selected option.
- */
 export const setPencilOptions = () => {
+    const pencilOptions = document.querySelectorAll(".pencil-type")
     pencilOptions.forEach((button) => {
         button.addEventListener("click", () => {
             if ((button.id === "eraser") === (userData.eraser)) return;

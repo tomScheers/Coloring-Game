@@ -7,7 +7,7 @@ const userData = {
     size: "medium",
     eraser: false,
     lockedSquareColor: [255, 255, 255],
-    currentColor: `rgb(255,0,0)`,
+    isDrawing: false,
     customColors: {
 
     },
@@ -34,6 +34,14 @@ const userData = {
         fileName: "Untitled_Project",
         author: "Anonymous_User",
         blob: document.getElementById("setting-cursor-blob").checked,
+    },
+
+    get currentCanvasVersion() {
+        return this.canvasVersions[this.currentIndex];
+    },
+
+    set currentCanvasVersion(value) {
+        this.canvasVersions = value;
     },
 
     get colorValues() {

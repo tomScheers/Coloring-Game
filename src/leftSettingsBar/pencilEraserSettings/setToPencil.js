@@ -6,9 +6,7 @@ import {
 import {
     context,
     colorBlurButtons,
-    colorButtons,
-    colorBrightnessButtons,
-    customColorButtons
+    colorBrightnessButtons
 } from "../../data/variables.js";
 
 import {
@@ -25,6 +23,9 @@ import {
  * interface.
  */
 export const setToPencil = () => {
+    const colorButtons = document.querySelectorAll(".color-settings-icon");
+    const customColorButtons = document.querySelectorAll(".custom");
+
     colorButtons.forEach((b) => {
         b.classList.remove("selected-settings");
         const color = userData.colorMap[b.id];
@@ -40,16 +41,16 @@ export const setToPencil = () => {
 
     setCircleColor();
     circle.style.opacity = 0.3;
-    context.strokeStyle = userData.currentColor;
+    context.strokeStyle = userData.colorValues;
     context.lineWidth = getRadius(userData.size) * 2;
     context.filter = `blur(${userData.blurVal}rem)`;
 
     colorBlurButtons.forEach((b) => {
-        b.style.backgroundColor = userData.currentColor;
+        b.style.backgroundColor = userData.colorValues;
     })
 
     colorBrightnessButtons.forEach((b) => {
-        b.style.backgroundColor = userData.currentColor;
+        b.style.backgroundColor = userData.colorValues;
         b.classList.remove("eraser-light");
     })
 
@@ -60,7 +61,7 @@ export const setToPencil = () => {
         }
         if (!button.classList.contains("color-settings-icon")) return;
         const currentDialog = `dialog-${button.id.slice(-1)}`;
-        const currentColorData = userData.customColors[currentDialog]
+        const currentColorData = userData.customColors[currentDialog];
         button.style.backgroundColor = `rgb(${currentColorData.redVal}, ${currentColorData.greenVal}, ${currentColorData.blueVal})`;
     })
 }
