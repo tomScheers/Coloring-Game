@@ -1,6 +1,5 @@
 import {
-    userData,
-    setNewValues
+    userData
 } from "../data/userData.js";
 
 import {
@@ -11,7 +10,6 @@ import {
 } from "../data/variables.js";
 
 import {
-    updateCurrentColor,
     setCircleColor
 } from "../data/functions.js";
 
@@ -29,19 +27,19 @@ export const setColorButtons = (buttons) => {
             })
 
             button.classList.add("selected-settings");
-            setNewValues(newColor[0], newColor[1], newColor[2]);
-            updateCurrentColor();
-            setCircleColor()
-            context.strokeStyle = userData.currentColor;
+            userData.colorValues = [newColor[0], newColor[1], newColor[2]];
+            console.log(userData.colorValues);
+            setCircleColor();
+            context.strokeStyle = userData.colorValues;
 
             colorBlurButtons.forEach((b) => {
                 const buttonBlurValue = 0.075 * (parseFloat(b.id.split("-")[1]) / 50);
                 b.style.filter = `blur(${buttonBlurValue}rem)`;
-                b.style.backgroundColor = userData.currentColor;
+                b.style.backgroundColor = userData.colorValues;
             })
 
             colorBrightnessButtons.forEach((b) => {
-                b.style.backgroundColor = userData.currentColor;
+                b.style.backgroundColor = userData.colorValues;
             })
         })
     })

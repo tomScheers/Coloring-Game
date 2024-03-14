@@ -1,3 +1,5 @@
+import { userData } from "./userData.js";
+
 import {
     setCircleColor,
     setCircleCircumference
@@ -16,7 +18,11 @@ const context = canvas.getContext("2d", {
 });
 const circle = document.getElementById("circle");
 setCircleColor();
-setCircleCircumference(2);
+if (userData.userSettings.blob) {
+
+    setCircleCircumference(2);
+}
+
 
 export {
     dialogList,

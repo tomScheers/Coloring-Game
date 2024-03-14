@@ -6,15 +6,6 @@ import {
     circle
 } from "./variables.js";
 
-
-/**
- * The function `updateCurrentColor` updates the `currentColor` property in the `userData` object with
- * the RGB values provided.
- */
-const updateCurrentColor = () => {
-    userData.currentColor = `rgb(${userData.redVal}, ${userData.greenVal}, ${userData.blueVal})`;
-}
-
 /**
  * The function `getRadius` returns a numerical value based on the size provided in the `userData`
  * object.
@@ -66,6 +57,7 @@ const getMousePos = (event) => {
  * create a circle with the specified circumference.
  */
 const setCircleCircumference = (size) => {
+    console.log(size);
     circle.style.width = `${size}rem`;
     circle.style.height = `${size}rem`;
 }
@@ -77,12 +69,11 @@ const setCircleCircumference = (size) => {
  * you to specify the color you want to set for the background color of the circle element. If no color
  * is provided when calling the function, it will default to `userData.currentColor`.
  */
-const setCircleColor = (color = userData.currentColor) => {
+const setCircleColor = (color = userData.colorValues) => {
     circle.style.backgroundColor = color;
 }
 
 export {
-    updateCurrentColor,
     getMousePos,
     getRadius,
     setCircleCircumference,

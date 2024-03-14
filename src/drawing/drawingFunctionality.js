@@ -71,7 +71,7 @@ const stopDrawing = () => {
 canvas.width = window.innerWidth / 3 * 2;
 canvas.height = window.innerHeight / 50 * 47;
 context.lineWidth = getRadius(userData.size) * 2;
-context.strokeStyle = userData.currentColor;
+context.strokeStyle = userData.colorValues;
 
 const scaleCanvasOnResize = () => {
     // Save the current drawing
@@ -85,7 +85,7 @@ const scaleCanvasOnResize = () => {
     context.putImageData(imageData, 0, 0);
 
     context.lineWidth = getRadius(userData.size) * 2;
-    context.strokeStyle = userData.currentColor;
+    context.strokeStyle = userData.colorValues;
     context.filter = `blur(${userData.blurVal}rem) brightness(${userData.brightness}%)`;
 }
 

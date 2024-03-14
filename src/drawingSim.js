@@ -21,7 +21,6 @@ import {
 } from './leftSettingsBar/pencilEraserSettings/pencilEraserSettings.js';
 
 import {
-    setCircleCircumference,
     getRadius
 } from './data/functions.js';
 
@@ -46,7 +45,6 @@ import {
 } from './navBar/addButtons.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-    setCircleCircumference();
     setPencilOptions();
     setSizeButtons();
     setColorBlurButtons();
@@ -56,6 +54,4 @@ document.addEventListener("DOMContentLoaded", () => {
     addDrawEventListeners(getRadius());
     addNavButtons();
     document.addEventListener("mousemove", createMouseListener);
-
-
 });

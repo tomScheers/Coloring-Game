@@ -12,12 +12,10 @@ import {
 } from "../../data/variables.js";
 
 import {
-    userData,
-    setNewValues
+    userData
 } from "../../data/userData.js";
 
 import {
-    updateCurrentColor,
     setCircleColor
 } from "../../data/functions.js";
 
@@ -37,8 +35,7 @@ export const setToPencil = () => {
     colorButtons[0].classList.add("selected-settings");
     colorBrightnessButtons[0].classList.add("selected-settings");
 
-    setNewValues(255, 0, 0);
-    updateCurrentColor();
+    userData.colorValues = [255, 0, 0];
     setCircleCircumference(getRadius());
 
     setCircleColor();

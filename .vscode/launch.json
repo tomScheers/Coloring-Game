@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open drawing sim.html",
-            "file": "c:\\Users\\Tom Scheers\\OneDrive\\Code\\VS-Code Projects\\Coloring-Game\\drawing sim.html"
+            "name": "Open coloring game.html",
+            "file": "c:\\Users\\Tom Scheers\\OneDrive\\Code\\VS-Code Projects\\Coloring-Game\\coloring game.html"
         }
     ]
 }

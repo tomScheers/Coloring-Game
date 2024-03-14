@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A simple and handy drawing application for daily use, offering a wide variety of colors and adjustable settings.">
+    <meta name="theme-color" content="#333333">
+    <meta name="author" content="Tom Scheers">
+    <meta name="language" content="English">
+    <meta name="subtitle" content="Draw Beautiful Arts">
+    <meta name="keywords" content="drawing, game, programming">
+    <meta name="category" content="game">
+
+    <title>Drawing Game</title>
+
+    <link rel="stylesheet" href="./styles/styles.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/colorSettings.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/sizeAndTypeSettings.min.css">
+    <link rel="stylesheet" href="./styles/drawingPaper.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors/button.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors/preview.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors/settings.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/customColors.min.css">
+    <link rel="stylesheet" href="./styles/leftSettingsBar/filter.min.css">
+    <link rel="stylesheet" href="./styles/navBar/navBar.min.css">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body id="body">
+    <div id="body-wrapper">
+        <nav id="settings-top">
+            <button id="reset-button" class="nav-button">⟳</button>
+            <button id="goback-button" class="nav-button rotate">↪</button>
+            <button id="gofurther-button" class="nav-button rotate">↩</button>
+            <button id="saveas-button" class="nav-button text-button">Save</button>
+            <button id="settings-button" class="nav-button text-button">Settings</button>
+            <dialog id="settings-dialog" role="dialog">
+                <h1>Settings</h1>
+                <input name="project-name" type="text" id="name-input" placeholder="Add Image Name" autocomplete="on"
+                    autocapitalize="words" />
+                <input name="name" type="text" id="author-input" placeholder="Add Your Name" autocomplete="given-name"
+                    autocapitalize="words" />
+                <input name="cursor-border" type="checkbox" id="setting-cursor-blob" />
+                <label for="setting-cursor-blob">Get a colored blob around your cursor</label>
+                <button id="settings-exit-button" class="close-button">Exit</button>
+                <button id="settings-save-button" class="save-button">Save</button>
+            </dialog>
+        </nav>
+        <main id="main-page">
+            <aside id="settings-left">
+                <section id="color-settings" class="section-wrapper">
+                    <p class="make-par">Change Color Settings:</p>
+                    <section id="rainbow-colors" class="button-wrapper">
+                        <button id="red" class="color-settings-icon color-setting-square selected-settings"></button>
+                        <button id="orange" class="color-settings-icon color-setting-square"></button>
+                        <button id="yellow" class="color-settings-icon color-setting-square"></button>
+                        <button id="green" class="color-settings-icon color-setting-square"></button>
+                        <button id="blue" class="color-settings-icon color-setting-square"></button>
+                        <button id="indigo" class="color-settings-icon color-setting-square"></button>
+                        <button id="violet" class="color-settings-icon color-setting-square"></button>
+                    </section>
+                    <section id="black-white-colors" class="button-wrapper">
+                        <button id="white" class="color-settings-icon color-setting-square"></button>
+                        <button id="lightgray" class="color-settings-icon color-setting-square"></button>
+                        <button id="silver" class="color-settings-icon color-setting-square"></button>
+                        <button id="darkgray" class="color-settings-icon color-setting-square"></button>
+                        <button id="gray" class="color-settings-icon color-setting-square"></button>
+                        <button id="dimgray" class="color-settings-icon color-setting-square"></button>
+                        <button id="black" class="color-settings-icon color-setting-square"></button>
+                    </section>
+                    <p class="make-par">Apply filter:</p>
+                    <section id="lightning-and-blur">
+                        <div id="lightning">
+                            <span class="settings-flex-wrapper">
+                                <button id="light-100"
+                                    class="color-setting-square light-square selected-settings"></button>
+                                <button id="light-80" class="color-setting-square light-square"></button>
+                                <button id="light-60" class="color-setting-square light-square"></button>
+                            </span>
+                            <span class="settings-flex-wrapper">
+                                <button id="light-40" class="color-setting-square light-square"></button>
+                                <button id="light-20" class="color-setting-square light-square"></button>
+                                <button id="light-0" class="color-setting-square light-square"></button>
+                            </span>
+                        </div>
+                        <div id="blur">
+                            <span class="settings-flex-wrapper">
+                                <button id="blur-0" class="color-setting-square blur-square selected-settings"></button>
+                                <button id="blur-20" class="color-setting-square blur-square"></button>
+                                <button id="blur-40" class="color-setting-square blur-square"></button>
+                            </span>
+                            <span class="settings-flex-wrapper">
+                                <button id="blur-60" class="color-setting-square blur-square"></button>
+                                <button id="blur-80" class="color-setting-square blur-square"></button>
+                                <button id="blur-100" class="color-setting-square blur-square"></button>
+                            </span>
+                        </div>
+                    </section>
+                    <p class="make-par">Create Your Own Custom Colors:</p>
+                    <section id="custom-colors" class="button-wrapper">
+                        <button id="custom-color1" class="color-setting-square custom">+</button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-1">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer input-wrapper">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="red-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="green-value-changer input-wrapper">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="green-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="blue-value-changer input-wrapper">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="blue-value-increment rotate">+</button>
+                                    </div>
+
+                                    <div class="exit-save-buttons">
+                                        <button class="close-button">Exit</button>
+                                        <button class="save-button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
+
+
+                        </dialog>
+                        <button id="custom-color2" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-2">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer input-wrapper">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="red-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="green-value-changer input-wrapper">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="green-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="blue-value-changer input-wrapper">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="blue-value-increment rotate">+</button>
+                                    </div>
+
+                                    <div class="exit-save-buttons">
+                                        <button class="close-button">Exit</button>
+                                        <button class="save-button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
+                        </dialog>
+                        <button id="custom-color3" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-3">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer input-wrapper">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="red-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="green-value-changer input-wrapper">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="green-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="blue-value-changer input-wrapper">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="blue-value-increment rotate">+</button>
+                                    </div>
+
+                                    <div class="exit-save-buttons">
+                                        <button class="close-button">Exit</button>
+                                        <button class="save-button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
+                        </dialog>
+                        <button id="custom-color4" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-4">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer input-wrapper">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="red-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="green-value-changer input-wrapper">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="green-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="blue-value-changer input-wrapper">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="blue-value-increment rotate">+</button>
+                                    </div>
+
+                                    <div class="exit-save-buttons">
+                                        <button class="close-button">Exit</button>
+                                        <button class="save-button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
+                        </dialog>
+                        <button id="custom-color5" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-5">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer input-wrapper">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="red-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="green-value-changer input-wrapper">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="green-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="blue-value-changer input-wrapper">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="blue-value-increment rotate">+</button>
+                                    </div>
+
+                                    <div class="exit-save-buttons">
+                                        <button class="close-button">Exit</button>
+                                        <button class="save-button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
+                        </dialog>
+                        <button id="custom-color6" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-6">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer input-wrapper">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="red-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="green-value-changer input-wrapper">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="green-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="blue-value-changer input-wrapper">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="blue-value-increment rotate">+</button>
+                                    </div>
+
+                                    <div class="exit-save-buttons">
+                                        <button class="close-button">Exit</button>
+                                        <button class="save-button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
+                        </dialog>
+                        <button id="custom-color7" class="hidden custom"></button>
+                        <dialog class="dialog-element" role="dialog" id="dialog-7">
+                            <div class="dialog-inner-wrapper">
+                                <div class="custom-colors-settings-wrapper">
+                                    <div class="red-value-changer input-wrapper">
+                                        <button class="red-value-decrement">-</button>
+                                        <input type="number" value="0" class="red-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="red-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="green-value-changer input-wrapper">
+                                        <button class="green-value-decrement">-</button>
+                                        <input type="number" value="0" class="green-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="green-value-increment rotate">+</button>
+                                    </div>
+                                    <div class="blue-value-changer input-wrapper">
+                                        <button class="blue-value-decrement">-</button>
+                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
+                                            max="255">
+                                        <button class="blue-value-increment rotate">+</button>
+                                    </div>
+
+                                    <div class="exit-save-buttons">
+                                        <button class="close-button">Exit</button>
+                                        <button class="save-button">Save</button>
+                                    </div>
+
+                                </div>
+                                <div class="custom-colors-previewer">
+                                    <div class="color-preview"></div>
+                                </div>
+                            </div>
+                        </dialog>
+                    </section>
+                </section>
+                <section id="size-settings" class="section-wrapper">
+                    <p class="make-par">Choose Your Pencil Size:</p>
+                    <div id="size-choices">
+                        <span class="size-span-flex-wrapper">
+                            <input id="super-small" class="size-option" type="radio" name="pencil-size"
+                                value="super-small">
+                            <label class="make-par size-label" for="super-small" id="for-super-small"><span
+                                    class="sr-only">Super
+                                </span>Small</label>
+                        </span>
+                        <span class="size-span-flex-wrapper">
+                            <input id="small" class="size-option" type="radio" name="pencil-size" value="small">
+                            <label class="size-label sr-only" for="small" id="for-small">Small</label>
+                        </span>
+                        <span class="size-span-flex-wrapper">
+                            <input id="medium" class="size-option" type="radio" name="pencil-size" value="medium"
+                                checked>
+                            <label class="size-label sr-only" for="medium" id="for-medium">Medium</label>
+                        </span>
+                        <span class="size-span-flex-wrapper">
+                            <input id="big" class="size-option" type="radio" name="pencil-size" value="big">
+                            <label class="size-label sr-only" for="big" id="for-big">Big</label>
+                        </span>
+
+                        <span class="size-span-flex-wrapper">
+                            <input id="super-big" class="size-option" type="radio" name="pencil-size" value="super-big">
+                            <label class="make-par size-label" for="super-big" id="for-super-big"><span
+                                    class="sr-only">Super </span>Big</label>
+                        </span>
+                    </div>
+                </section>
+                <section id="pencil-type-settings" class="section-wrapper">
+                    <p class="make-par">Choose Your Pencil Type:</p>
+                    <div id="pencil-types-wrapper">
+                        <span class="pencil-types-flex-wrapper">
+                            <input id="pencil" class="pencil-type" type="radio" name="pencil-type" checked>
+                            <label class="make-par type-label" for="pencil">Pencil</label>
+                        </span>
+                        <span class="pencil-types-flex-wrapper">
+                            <input id="eraser" class="pencil-type" type="radio" name="pencil-type">
+                            <label class="make-par type-label" for="eraser">Eraser</label>
+                        </span>
+                    </div>
+                </section>
+            </aside>
+            <section id="drawing-paper">
+                <canvas id="drawing-canvas"></canvas>
+            </section>
+        </main>
+    </div>
+    <div id="circle"></div>
+    <script type="module" src="./src/drawingsim.js"></script>
+</body>
+
+
+
+</html>
