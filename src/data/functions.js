@@ -11,13 +11,13 @@ const getRadius = () => {
         case "super-small":
             return 0.5;
         case "small":
-            return 1;
+            return 1.5;
         case "medium":
-            return 2;
-        case "big":
             return 3;
+        case "big":
+            return 5;
         case "super-big":
-            return 4;
+            return 7;
     }
 };
 

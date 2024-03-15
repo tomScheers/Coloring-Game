@@ -21,7 +21,8 @@ export const setPencilOptions = () => {
                 setToEraser();
                 return;
             }
-                setToPencil();
-        })
-    })
+
+            setToPencil();
+        });
+    });
 }

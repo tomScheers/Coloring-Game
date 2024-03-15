@@ -34,6 +34,18 @@ const userData = {
         fileName: "Untitled_Project",
         author: "Anonymous_User",
         blob: document.getElementById("setting-cursor-blob").checked,
+        
+        get theUsersSettings() {
+            return {
+                fileName: this.fileName,
+                author: this.author,
+                blob: this.blob,
+            };
+        },
+
+        set theUsersSettings(value) {
+            [this.fileName, this.author, this.blob] = [value.fileName, value.author, value.blob];
+        },
     },
 
     get currentCanvasVersion() {

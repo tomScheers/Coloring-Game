@@ -17,11 +17,6 @@ import {
     setCircleColor
 } from "../../data/functions.js";
 
-
-/**
- * The function `setToPencil` in JavaScript sets various settings and colors for a drawing tool
- * interface.
- */
 export const setToPencil = () => {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const customColorButtons = document.querySelectorAll(".custom");
@@ -32,7 +27,7 @@ export const setToPencil = () => {
         b.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
     })
 
-    // sets first button to be selected
+    // sets first button to be selected by default
     colorButtons[0].classList.add("selected-settings");
     colorBrightnessButtons[0].classList.add("selected-settings");
 

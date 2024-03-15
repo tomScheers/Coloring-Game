@@ -38,16 +38,27 @@
             <button id="saveas-button" class="nav-button text-button">Save</button>
             <button id="settings-button" class="nav-button text-button">Settings</button>
             <dialog id="settings-dialog" role="dialog">
+
                 <h1>Settings</h1>
-                <input name="project-name" type="text" id="name-input" placeholder="Add Image Name" autocomplete="on"
-                    autocapitalize="words" />
-                <input name="name" type="text" id="author-input" placeholder="Add Your Name" autocomplete="given-name"
-                    autocapitalize="words" />
-                <input name="cursor-border" type="checkbox" id="setting-cursor-blob" />
-                <label for="setting-cursor-blob">Get a colored blob around your cursor</label>
-                <button id="settings-exit-button" class="close-button">Exit</button>
-                <button id="settings-save-button" class="save-button">Save</button>
+                <div id="settings-container">
+                    <input name="project-name" type="text" id="name-input" placeholder="Add Image Name"
+                        autocomplete="on" autocapitalize="words" class="settings-option" />
+                    <input name="name" type="text" id="author-input" placeholder="Add Your Name"
+                        autocomplete="given-name" autocapitalize="words" class="settings-option" />
+                    <span class="settings-option">
+                        <input name="cursor-border" type="checkbox" id="setting-cursor-blob" />
+                        <label for="setting-cursor-blob">Get a colored blob around your cursor</label>
+                    </span>
+                    <span id="exit-buttons">
+                        <button id="settings-exit-button" class="close-button settings-option">Exit</button><a
+                            href="https://rgbcolorpicker.com" class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                        <button id="settings-save-button" class="save-button">Save</button>
+                    </span>
+                </div>
+
             </dialog>
+            <a id="about" class="nav-button text-button" href="https://github.com/tomScheers/Coloring-Game"
+                target="_blank">About</a>
         </nav>
         <main id="main-page">
             <aside id="settings-left">
@@ -125,7 +136,8 @@
                                     </div>
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button>
+                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
+                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
                                         <button class="save-button">Save</button>
                                     </div>
 
@@ -161,7 +173,8 @@
                                     </div>
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button>
+                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
+                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
                                         <button class="save-button">Save</button>
                                     </div>
 
@@ -195,7 +208,8 @@
                                     </div>
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button>
+                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
+                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
                                         <button class="save-button">Save</button>
                                     </div>
 
@@ -229,7 +243,8 @@
                                     </div>
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button>
+                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
+                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
                                         <button class="save-button">Save</button>
                                     </div>
 
@@ -263,7 +278,8 @@
                                     </div>
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button>
+                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
+                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
                                         <button class="save-button">Save</button>
                                     </div>
 
@@ -297,7 +313,8 @@
                                     </div>
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button>
+                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
+                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
                                         <button class="save-button">Save</button>
                                     </div>
 
@@ -331,7 +348,8 @@
                                     </div>
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button>
+                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
+                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
                                         <button class="save-button">Save</button>
                                     </div>
 

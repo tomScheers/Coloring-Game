@@ -16,7 +16,7 @@ import {
 
 import {
     setSettingsButton
-} from "./settingsButton.js";
+} from "./userSettings/settingsButton.js";
 
 export const addNavButtons = () => {
     setResetButton();

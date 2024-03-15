@@ -1,18 +1,15 @@
 import {
     colorBrightnessButtons
 } from "../../data/variables.js";
+
 import {
     userData
 } from "../../data/userData.js";
+
 import {
     circle,
     context
 } from "../../data/variables.js";
-
-/**
- * The function `setColorBrightnessButtons` sets the background color of the brightness buttons to the current color,
- * updates brightness settings on button click, and applies corresponding styles.
- */
 
 export const setColorBrightnessButtons = () => {
     colorBrightnessButtons.forEach((button) => {

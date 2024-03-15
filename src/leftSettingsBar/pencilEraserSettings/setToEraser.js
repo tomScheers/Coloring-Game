@@ -19,12 +19,6 @@ const setToLocked = (button) => {
     button.style.backgroundColor = `rgb(${userData.lockedSquareColor[0]}, ${userData.lockedSquareColor[1]}, ${userData.lockedSquareColor[2]})`
 }
 
-/**
- * The `setToEraser` function sets various properties and styles based on user data for a drawing tool.
- * @returns Nothing is being explicitly returned from the `setToEraser` function. The function is setting
- * various properties and styles on elements and buttons based on the `userData` values, but it does
- * not have a return value specified, this is to escape the forEach.
- */
 export const setToEraser = () => {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const customColorButtons = document.querySelectorAll(".custom");

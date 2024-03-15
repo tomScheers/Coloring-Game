@@ -32,14 +32,10 @@ canvas.height = window.innerHeight / 50 * 47;
 context.lineWidth = getRadius(userData.size) * 2;
 context.strokeStyle = userData.colorValues;
 
-const addDrawEventListeners = () => {
+export const addDrawEventListeners = () => {
     canvas.addEventListener("mousedown", startDrawing);
     canvas.addEventListener("mousemove", draw);
     canvas.addEventListener("mouseup", stopDrawing);
     canvas.addEventListener("mouseout", stopDrawing);
     window.addEventListener("resize", scaleCanvasOnResize);
 }
-
-export {
-    addDrawEventListeners
-};

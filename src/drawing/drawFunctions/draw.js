@@ -9,6 +9,7 @@ import {
 
 export const draw = (event) => {
     if (!userData.isDrawing) return;
-    context.lineTo(event.clientX - canvas.getBoundingClientRect().left, event.clientY - canvas.getBoundingClientRect().top);
+    const newMousePosition = [event.clientX - canvas.getBoundingClientRect().left, event.clientY - canvas.getBoundingClientRect().top];
+    context.lineTo(newMousePosition[0], newMousePosition[1]);
     context.stroke();
 }

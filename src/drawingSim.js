@@ -1,4 +1,8 @@
 import {
+    userData
+} from './data/userData.js';
+
+import {
     setColorButtons
 } from './leftSettingsBar/colorSettings.js';
 
@@ -48,5 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dialogFunctionality(document.getElementById("dialog-1"));
     addDrawEventListeners(getRadius());
     addNavButtons();
-    document.addEventListener("mousemove", createMouseListener);
+    if (userData.blob) {
+        document.addEventListener("mousemove", createMouseListener);
+    }
 });

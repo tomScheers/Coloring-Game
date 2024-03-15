@@ -16,7 +16,8 @@ export const setSizeButtons = () => {
      sizeButtons.forEach((button) => {
          button.addEventListener("click", () => {
              const selectedSizeValue = button.value;
-             userData.size = `${selectedSizeValue}`;
+             userData.size = selectedSizeValue;
+
              if (userData.eraser) {
                  setCircleCircumference(getRadius() * 1.5)
                  context.lineWidth = getRadius(userData.size) * 10;
