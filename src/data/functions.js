@@ -27,7 +27,8 @@ const setCircleCircumference = (size) => {
     circle.style.height = `${size}rem`;
 }
 
-const setCircleColor = (color = userData.colorValues) => {
+const setCircleColor = (color = document.querySelector(".selected-settings").style.backgroundColor) => {
+    console.log(color)
     circle.style.backgroundColor = color;
 }
 

@@ -50,8 +50,7 @@
                         <label for="setting-cursor-blob">Get a colored blob around your cursor</label>
                     </span>
                     <span id="exit-buttons">
-                        <button id="settings-exit-button" class="close-button settings-option">Exit</button><a
-                            href="https://rgbcolorpicker.com" class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                        <button id="settings-exit-button" class="close-button settings-option">Exit</button>
                         <button id="settings-save-button" class="save-button">Save</button>
                     </span>
                 </div>
@@ -110,40 +109,20 @@
                             </span>
                         </div>
                     </section>
-                    <p class="make-par">Create Your Own Custom Colors:</p>
+                    <p class="make-par">Create Your Own Custom Colors <button id="change-custom-color-values">-</button> :</p>
+
                     <section id="custom-colors" class="button-wrapper">
                         <button id="custom-color1" class="color-setting-square custom">+</button>
                         <dialog class="dialog-element" role="dialog" id="dialog-1">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
-                                    <div class="red-value-changer input-wrapper">
-                                        <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="red-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="green-value-changer input-wrapper">
-                                        <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="green-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="blue-value-changer input-wrapper">
-                                        <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="blue-value-increment rotate">+</button>
-                                    </div>
+                                    <input type="color" class="custom-color-input-picker" />
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
-                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                                        <button class="close-button">Exit</button>
                                         <button class="save-button">Save</button>
                                     </div>
 
-                                </div>
-                                <div class="custom-colors-previewer">
-                                    <div class="color-preview"></div>
                                 </div>
                             </div>
 
@@ -153,34 +132,13 @@
                         <dialog class="dialog-element" role="dialog" id="dialog-2">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
-                                    <div class="red-value-changer input-wrapper">
-                                        <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="red-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="green-value-changer input-wrapper">
-                                        <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="green-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="blue-value-changer input-wrapper">
-                                        <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="blue-value-increment rotate">+</button>
-                                    </div>
+                                    <input type="color" class="custom-color-input-picker" />
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
-                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                                        <button class="close-button">Exit</button>
                                         <button class="save-button">Save</button>
                                     </div>
 
-                                </div>
-                                <div class="custom-colors-previewer">
-                                    <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
@@ -188,34 +146,13 @@
                         <dialog class="dialog-element" role="dialog" id="dialog-3">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
-                                    <div class="red-value-changer input-wrapper">
-                                        <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="red-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="green-value-changer input-wrapper">
-                                        <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="green-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="blue-value-changer input-wrapper">
-                                        <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="blue-value-increment rotate">+</button>
-                                    </div>
+                                    <input type="color" class="custom-color-input-picker" />
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
-                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                                        <button class="close-button">Exit</button>
                                         <button class="save-button">Save</button>
                                     </div>
 
-                                </div>
-                                <div class="custom-colors-previewer">
-                                    <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
@@ -223,34 +160,13 @@
                         <dialog class="dialog-element" role="dialog" id="dialog-4">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
-                                    <div class="red-value-changer input-wrapper">
-                                        <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="red-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="green-value-changer input-wrapper">
-                                        <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="green-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="blue-value-changer input-wrapper">
-                                        <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="blue-value-increment rotate">+</button>
-                                    </div>
+                                    <input type="color" class="custom-color-input-picker" />
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
-                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                                        <button class="close-button">Exit</button>
                                         <button class="save-button">Save</button>
                                     </div>
 
-                                </div>
-                                <div class="custom-colors-previewer">
-                                    <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
@@ -258,34 +174,13 @@
                         <dialog class="dialog-element" role="dialog" id="dialog-5">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
-                                    <div class="red-value-changer input-wrapper">
-                                        <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="red-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="green-value-changer input-wrapper">
-                                        <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="green-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="blue-value-changer input-wrapper">
-                                        <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="blue-value-increment rotate">+</button>
-                                    </div>
+                                    <input type="color" class="custom-color-input-picker" />
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
-                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                                        <button class="close-button">Exit</button>
                                         <button class="save-button">Save</button>
                                     </div>
 
-                                </div>
-                                <div class="custom-colors-previewer">
-                                    <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
@@ -293,34 +188,13 @@
                         <dialog class="dialog-element" role="dialog" id="dialog-6">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
-                                    <div class="red-value-changer input-wrapper">
-                                        <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="red-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="green-value-changer input-wrapper">
-                                        <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="green-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="blue-value-changer input-wrapper">
-                                        <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="blue-value-increment rotate">+</button>
-                                    </div>
+                                    <input type="color" class="custom-color-input-picker" />
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
-                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                                        <button class="close-button">Exit</button>
                                         <button class="save-button">Save</button>
                                     </div>
 
-                                </div>
-                                <div class="custom-colors-previewer">
-                                    <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>
@@ -328,34 +202,13 @@
                         <dialog class="dialog-element" role="dialog" id="dialog-7">
                             <div class="dialog-inner-wrapper">
                                 <div class="custom-colors-settings-wrapper">
-                                    <div class="red-value-changer input-wrapper">
-                                        <button class="red-value-decrement">-</button>
-                                        <input type="number" value="0" class="red-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="red-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="green-value-changer input-wrapper">
-                                        <button class="green-value-decrement">-</button>
-                                        <input type="number" value="0" class="green-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="green-value-increment rotate">+</button>
-                                    </div>
-                                    <div class="blue-value-changer input-wrapper">
-                                        <button class="blue-value-decrement">-</button>
-                                        <input type="number" value="0" class="blue-value-input value-input" min="0"
-                                            max="255">
-                                        <button class="blue-value-increment rotate">+</button>
-                                    </div>
+                                    <input type="color" class="custom-color-input-picker" />
 
                                     <div class="exit-save-buttons">
-                                        <button class="close-button">Exit</button><a href="https://rgbcolorpicker.com"
-                                            class="rgb-color-picker-link" target="_blank">Color Picker</a>
+                                        <button class="close-button">Exit</button>
                                         <button class="save-button">Save</button>
                                     </div>
 
-                                </div>
-                                <div class="custom-colors-previewer">
-                                    <div class="color-preview"></div>
                                 </div>
                             </div>
                         </dialog>

@@ -40,6 +40,7 @@
   grid-template-rows: 9fr 4fr 3fr;
   background-color: #333333;
   z-index: 1000;
+  padding: 1rem 0.3rem;
 }
 #settings-left .make-par {
   text-align: center;

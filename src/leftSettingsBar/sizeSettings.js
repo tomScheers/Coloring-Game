@@ -19,7 +19,7 @@ export const setSizeButtons = () => {
              userData.size = selectedSizeValue;
 
              if (userData.eraser) {
-                 setCircleCircumference(getRadius() * 1.5)
+                 setCircleCircumference(getRadius())
                  context.lineWidth = getRadius(userData.size) * 10;
                  return;
              }

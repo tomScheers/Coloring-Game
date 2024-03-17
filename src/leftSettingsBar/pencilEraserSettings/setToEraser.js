@@ -23,7 +23,7 @@ export const setToEraser = () => {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
     const customColorButtons = document.querySelectorAll(".custom");
 
-    setCircleCircumference(getRadius() * 1.5);
+    setCircleCircumference(getRadius());
     context.lineWidth = getRadius(userData.size) * 10;
     context.filter = `blur(${userData.blurVal}rem)`;
     context.strokeStyle = `rgb(${userData.lockedSquareColor[0]}, ${userData.lockedSquareColor[1]}, ${userData.lockedSquareColor[2]})`;

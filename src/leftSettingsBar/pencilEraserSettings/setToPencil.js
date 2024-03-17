@@ -23,8 +23,8 @@ export const setToPencil = () => {
 
     colorButtons.forEach((b) => {
         b.classList.remove("selected-settings");
-        const color = userData.colorMap[b.id];
-        b.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+        if (b.classList.contains("custom")) b.style.backgroundColor = b.style.backgroundColor;
+        else b.style.backgroundColor = b.id;
     })
 
     // sets first button to be selected by default
@@ -55,8 +55,6 @@ export const setToPencil = () => {
             return;
         }
         if (!button.classList.contains("color-settings-icon")) return;
-        const currentDialog = `dialog-${button.id.slice(-1)}`;
-        const currentColorData = userData.customColors[currentDialog];
-        button.style.backgroundColor = `rgb(${currentColorData.redVal}, ${currentColorData.greenVal}, ${currentColorData.blueVal})`;
+        button.style.backgroundColor = userData.colorMap[button.id];
     })
 }

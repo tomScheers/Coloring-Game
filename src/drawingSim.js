@@ -7,11 +7,6 @@ import {
 } from './leftSettingsBar/colorSettings.js';
 
 import {
-    dialogFunctionality
-}
-from './leftSettingsBar/customColorsSettings/customColorSettings.js';
-
-import {
     setSizeButtons
 } from './leftSettingsBar/sizeSettings.js';
 
@@ -43,13 +38,16 @@ import {
     addNavButtons
 } from './navBar/addButtons.js';
 
+import { customColorFunctionality } from './leftSettingsBar/betterCustomColorSettings/customColorFunctionality.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     setPencilOptions();
     setSizeButtons();
     setColorBlurButtons();
     setColorBrightnessButtons();
     setColorButtons(document.querySelectorAll(".color-settings-icon"));
-    dialogFunctionality(document.getElementById("dialog-1"));
+    // dialogFunctionality(document.getElementById("dialog-1"));
+    customColorFunctionality(document.getElementById("dialog-1"));
     addDrawEventListeners(getRadius());
     addNavButtons();
     if (userData.blob) {
