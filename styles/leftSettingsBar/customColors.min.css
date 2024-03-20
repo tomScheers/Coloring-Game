@@ -1,2 +1,21 @@
-.dialog-element{width:70vw;border:3px solid #000;height:80vh;background-color:#e7e9e6;position:absolute;margin:auto}.dialog-element::-webkit-backdrop{-webkit-backdrop-filter:brightness(40%) blur(0.34rem);backdrop-filter:brightness(40%) blur(0.34rem)}.dialog-element::backdrop{-webkit-backdrop-filter:brightness(40%) blur(0.34rem);backdrop-filter:brightness(40%) blur(0.34rem)}.dialog-element .dialog-inner-wrapper{display:flex;height:100%}
+.dialog-element {
+    width: 70vw;
+    border: 3px solid #000;
+    height: 80vh;
+    background-color: #e7e9e6;
+    position: absolute;
+    margin: auto;
+}
+.dialog-element::-webkit-backdrop {
+    -webkit-backdrop-filter: brightness(40%) blur(0.34rem);
+    backdrop-filter: brightness(40%) blur(0.34rem);
+}
+.dialog-element::backdrop {
+    -webkit-backdrop-filter: brightness(40%) blur(0.34rem);
+    backdrop-filter: brightness(40%) blur(0.34rem);
+}
+.dialog-element .dialog-inner-wrapper {
+    display: flex;
+    height: 100%;
+}
 /*# sourceMappingURL=customColors.min.css.map */

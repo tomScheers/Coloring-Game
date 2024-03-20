@@ -1,15 +1,8 @@
-import {
-    colorBrightnessButtons
-} from "../../data/variables.js";
+import { colorBrightnessButtons } from "../../data/variables.js";
 
-import {
-    userData
-} from "../../data/userData.js";
+import { userData } from "../../data/userData.js";
 
-import {
-    circle,
-    context
-} from "../../data/variables.js";
+import { circle, context } from "../../data/variables.js";
 
 export const setColorBrightnessButtons = () => {
     colorBrightnessButtons.forEach((button) => {
@@ -24,9 +17,9 @@ export const setColorBrightnessButtons = () => {
 
             colorBrightnessButtons.forEach((b) => {
                 b.classList.remove("selected-settings");
-            })
+            });
 
             button.classList.add("selected-settings");
-        })
-    })
-}
+        });
+    });
+};

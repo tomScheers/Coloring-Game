@@ -1,11 +1,6 @@
-import {
-    userData
-} from "./userData.js";
+import { userData } from "./userData.js";
 
-import {
-    setCircleColor,
-    setCircleCircumference
-} from "./functions.js";
+import { setCircleColor, setCircleCircumference } from "./functions.js";
 
 const colorBrightnessButtons = document.querySelectorAll(".light-square");
 const colorBlurButtons = document.querySelectorAll(".blur-square");
@@ -21,11 +16,4 @@ if (userData.userSettings.blob) {
     setCircleCircumference(2);
 }
 
-
-export {
-    colorBrightnessButtons,
-    colorBlurButtons,
-    canvas,
-    context,
-    circle
-}
+export { colorBrightnessButtons, colorBlurButtons, canvas, context, circle };

@@ -1,2 +1,63 @@
-*,*::after,*::before{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;box-sizing:border-box;color:#fff}#body{overflow:hidden}#body-wrapper{height:100vh;width:100vw;display:grid;grid-template-rows:6% auto;grid-template-columns:auto}#main-page{min-height:100%;display:inline-grid;grid-template-columns:1fr 2fr}#settings-top{background-color:#1a1a1a;z-index:2;display:flex;align-items:center;justify-content:space-around;width:100vw}#settings-left{display:grid;grid-template-rows:9fr 4fr 3fr;background-color:#333;z-index:1000;padding:1rem .3rem}#settings-left .make-par{text-align:center;-webkit-user-select:none;-moz-user-select:none;user-select:none}.selected-settings{border:#fff .3rem solid !important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}#drawing-canvas{background-color:#fff}
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    color: #fff;
+}
+#body {
+    overflow: hidden;
+}
+#body-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 6% auto;
+    grid-template-columns: auto;
+}
+#main-page {
+    min-height: 100%;
+    display: inline-grid;
+    grid-template-columns: 1fr 2fr;
+}
+#settings-top {
+    background-color: #1a1a1a;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+}
+#settings-left {
+    display: grid;
+    grid-template-rows: 9fr 4fr 3fr;
+    background-color: #333;
+    z-index: 1000;
+    padding: 1rem 0.3rem;
+}
+#settings-left .make-par {
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.selected-settings {
+    border: #fff 0.3rem solid !important;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+#drawing-canvas {
+    background-color: #fff;
+}
 /*# sourceMappingURL=styles.min.css.map */

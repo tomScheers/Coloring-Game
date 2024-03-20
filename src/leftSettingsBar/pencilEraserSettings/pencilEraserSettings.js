@@ -1,20 +1,14 @@
-import {
-    userData
-} from "../../data/userData.js";
+import { userData } from "../../data/userData.js";
 
-import {
-    setToPencil
-} from "./setToPencil.js";
+import { setToPencil } from "./setToPencil.js";
 
-import {
-    setToEraser
-} from "./setToEraser.js";
+import { setToEraser } from "./setToEraser.js";
 
 export const setPencilOptions = () => {
-    const pencilOptions = document.querySelectorAll(".pencil-type")
+    const pencilOptions = document.querySelectorAll(".pencil-type");
     pencilOptions.forEach((button) => {
         button.addEventListener("click", () => {
-            if ((button.id === "eraser") === (userData.eraser)) return;
+            if ((button.id === "eraser") === userData.eraser) return;
 
             // inverts the userData.eraser boolean
             userData.eraser = !userData.eraser;
@@ -24,7 +18,6 @@ export const setPencilOptions = () => {
             } else {
                 setToPencil();
             }
-
         });
     });
-}
+};

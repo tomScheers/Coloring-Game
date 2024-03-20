@@ -1,16 +1,12 @@
-import {
-    userData
-} from "../data/userData.js";
+import { userData } from "../data/userData.js";
 
-import {
-    canvas,
-    context
-} from "../data/variables.js";
+import { canvas, context } from "../data/variables.js";
 
 export const incrementCanvasVersion = () => {
     const forwardButton = document.getElementById("gofurther-button");
     forwardButton.addEventListener("click", () => {
-        const indexIsLastCanvas = userData.currentIndex > userData.canvasVersions.length;
+        const indexIsLastCanvas =
+            userData.currentIndex > userData.canvasVersions.length;
         if (indexIsLastCanvas) return;
 
         // Copy the data of the current canvas
@@ -19,9 +15,8 @@ export const incrementCanvasVersion = () => {
         // Get the data of the canvas that you'll increment to
         const data = userData.canvasVersions[userData.currentIndex];
         if (data === undefined) return;
-        console.log(data)
         newData.data.set(data);
         context.putImageData(newData, 0, 0);
         userData.currentIndex++;
     });
-}
+};

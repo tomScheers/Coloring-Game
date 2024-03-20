@@ -1,6 +1,4 @@
-import {
-    setToLocked
-} from "./buttonToLocked.js";
+import { setToLocked } from "./buttonToLocked.js";
 
 export const lockCustomColorButtons = () => {
     const customColorButtons = document.querySelectorAll(".custom");

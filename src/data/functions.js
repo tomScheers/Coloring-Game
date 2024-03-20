@@ -1,10 +1,6 @@
-import {
-    userData
-} from "./userData.js";
+import { userData } from "./userData.js";
 
-import {
-    circle
-} from "./variables.js";
+import { circle } from "./variables.js";
 
 const getRadius = () => {
     switch (userData.size) {
@@ -21,19 +17,15 @@ const getRadius = () => {
     }
 };
 
-
 const setCircleCircumference = (size) => {
     circle.style.width = `${size}rem`;
     circle.style.height = `${size}rem`;
-}
-
-const setCircleColor = (color = document.querySelector(".selected-settings").style.backgroundColor) => {
-    console.log(color)
-    circle.style.backgroundColor = color;
-}
-
-export {
-    getRadius,
-    setCircleCircumference,
-    setCircleColor
 };
+
+const setCircleColor = (
+    color = document.querySelector(".selected-settings").style.backgroundColor
+) => {
+    circle.style.backgroundColor = color;
+};
+
+export { getRadius, setCircleCircumference, setCircleColor };

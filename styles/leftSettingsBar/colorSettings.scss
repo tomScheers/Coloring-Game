@@ -18,7 +18,8 @@
         align-items: center;
         justify-content: space-around;
     }
-    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgray, silver, darkgray, gray, dimgray, black;
+    $colors: red, orange, yellow, green, blue, indigo, violet, white, lightgray,
+        silver, darkgray, gray, dimgray, black;
     @each $color in $colors {
         ##{$color} {
             background-color: $color;

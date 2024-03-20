@@ -1,6 +1,4 @@
-import {
-    canvas
-} from "../data/variables.js";
+import { canvas } from "../data/variables.js";
 
 import { userData } from "../data/userData.js";
 

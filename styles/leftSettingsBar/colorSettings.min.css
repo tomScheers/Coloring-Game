@@ -1,2 +1,63 @@
-#color-settings{display:grid;grid-template-columns:auto;grid-template-rows:2fr 3fr 3fr 2fr 6fr 2fr 3fr}#color-settings .color-setting-square{width:2rem;height:2rem;border-radius:0;background-color:rgba(0,0,0,0);border:.3rem #000 solid}#color-settings .color-setting-square:hover{cursor:pointer}#color-settings .button-wrapper{display:flex;align-items:center;justify-content:space-around}#color-settings #red{background-color:red}#color-settings #orange{background-color:orange}#color-settings #yellow{background-color:#ff0}#color-settings #green{background-color:green}#color-settings #blue{background-color:blue}#color-settings #indigo{background-color:indigo}#color-settings #violet{background-color:violet}#color-settings #white{background-color:#fff}#color-settings #lightgray{background-color:#d3d3d3}#color-settings #silver{background-color:silver}#color-settings #darkgray{background-color:#a9a9a9}#color-settings #gray{background-color:gray}#color-settings #dimgray{background-color:dimgray}#color-settings #black{background-color:#000}
+#color-settings {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 2fr 3fr 3fr 2fr 6fr 2fr 3fr;
+}
+#color-settings .color-setting-square {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0.3rem #000 solid;
+}
+#color-settings .color-setting-square:hover {
+    cursor: pointer;
+}
+#color-settings .button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#color-settings #red {
+    background-color: red;
+}
+#color-settings #orange {
+    background-color: orange;
+}
+#color-settings #yellow {
+    background-color: #ff0;
+}
+#color-settings #green {
+    background-color: green;
+}
+#color-settings #blue {
+    background-color: blue;
+}
+#color-settings #indigo {
+    background-color: indigo;
+}
+#color-settings #violet {
+    background-color: violet;
+}
+#color-settings #white {
+    background-color: #fff;
+}
+#color-settings #lightgray {
+    background-color: #d3d3d3;
+}
+#color-settings #silver {
+    background-color: silver;
+}
+#color-settings #darkgray {
+    background-color: #a9a9a9;
+}
+#color-settings #gray {
+    background-color: gray;
+}
+#color-settings #dimgray {
+    background-color: dimgray;
+}
+#color-settings #black {
+    background-color: #000;
+}
 /*# sourceMappingURL=colorSettings.min.css.map */

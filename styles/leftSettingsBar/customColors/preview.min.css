@@ -1,2 +1,16 @@
-.custom-colors-previewer{width:50%;height:100%;display:flex;align-items:center;justify-content:center}.custom-colors-previewer .color-preview{width:10rem;height:10rem;border-radius:0;background-color:rgba(0,0,0,0);border:.3rem #000 solid;background-color:#000}
+.custom-colors-previewer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.custom-colors-previewer .color-preview {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0.3rem #000 solid;
+    background-color: #000;
+}
 /*# sourceMappingURL=preview.min.css.map */

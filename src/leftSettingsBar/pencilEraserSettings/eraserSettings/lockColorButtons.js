@@ -1,6 +1,4 @@
-import {
-    setToLocked
-} from "./buttonToLocked.js";
+import { setToLocked } from "./buttonToLocked.js";
 
 export const lockColorButtons = () => {
     const colorButtons = document.querySelectorAll(".color-settings-icon");
@@ -9,4 +7,4 @@ export const lockColorButtons = () => {
         setToLocked(b);
         b.classList.remove("selected-settings");
     });
-}
+};

@@ -12,9 +12,7 @@ const userData = {
         blue: 255,
     },
     isDrawing: false,
-    customColors: {
-
-    },
+    customColors: {},
     colorMap: {
         red: [255, 0, 0],
         orange: [255, 165, 0],
@@ -29,7 +27,7 @@ const userData = {
         gray: [169, 169, 169],
         darkgray: [128, 128, 128],
         dimgray: [105, 105, 105],
-        black: [0, 0, 0]
+        black: [0, 0, 0],
     },
     canvasVersions: [],
     currentIndex: 0,
@@ -48,7 +46,11 @@ const userData = {
         },
 
         set theUsersSettings(value) {
-            [this.fileName, this.author, this.blob] = [value.fileName, value.author, value.blob];
+            [this.fileName, this.author, this.blob] = [
+                value.fileName,
+                value.author,
+                value.blob,
+            ];
         },
     },
 
@@ -73,7 +75,11 @@ const userData = {
     },
 
     set lockedSquareColorValues(value) {
-        [this.lockedSquareColor.red, this.lockedSquareColor.green, this.lockedSquareColor.blue] = value;
+        [
+            this.lockedSquareColor.red,
+            this.lockedSquareColor.green,
+            this.lockedSquareColor.blue,
+        ] = value;
     },
 
     get filterValues() {
@@ -93,6 +99,7 @@ const userData = {
     },
 
     get brightnessValue() {
+        console.log("hello");
         return `brightness(${this.brightness}%)`;
     },
 
@@ -109,6 +116,4 @@ const userData = {
     },
 };
 
-export {
-    userData
-}
+export { userData };

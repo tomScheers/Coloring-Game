@@ -1,33 +1,20 @@
 import {
     setCircleCircumference,
     getRadius,
-    setCircleColor
+    setCircleColor,
 } from "../../data/functions.js";
 
-import {
-    context,
-    circle
-} from "../../data/variables.js";
+import { context, circle } from "../../data/variables.js";
 
-import {
-    userData
-} from "../../data/userData.js";
+import { userData } from "../../data/userData.js";
 
-import {
-    lockColorButtons
-} from "./eraserSettings/lockColorButtons.js";
+import { lockColorButtons } from "./eraserSettings/lockColorButtons.js";
 
-import {
-    lockColorBlurButtons
-} from "./eraserSettings/lockBlurButtons.js";
+import { lockColorBlurButtons } from "./eraserSettings/lockBlurButtons.js";
 
-import {
-    lockBrightnessButtons
-} from "./eraserSettings/lockBrightnessButtons.js";
+import { lockBrightnessButtons } from "./eraserSettings/lockBrightnessButtons.js";
 
-import {
-    lockCustomColorButtons
-} from "./eraserSettings/lockCustomButtons.js";
+import { lockCustomColorButtons } from "./eraserSettings/lockCustomButtons.js";
 
 export const setToEraser = () => {
     setCircleCircumference(getRadius());
@@ -44,4 +31,4 @@ export const setToEraser = () => {
     lockColorBlurButtons();
     lockBrightnessButtons();
     lockCustomColorButtons();
-}
+};

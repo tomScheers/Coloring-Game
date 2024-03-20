@@ -1,11 +1,5 @@
-import {
-    userData
-} from "../data/userData.js";
-import {
-    context,
-    canvas
-} from "../data/variables.js";
-
+import { userData } from "../data/userData.js";
+import { context, canvas } from "../data/variables.js";
 
 export const setCanvasVersions = () => {
     const goBack = document.getElementById("goback-button");
@@ -25,6 +19,6 @@ export const setCanvasVersions = () => {
 
         // Pushes the data of the previous canvas onto the old canvas
         context.putImageData(newData, 0, 0);
-        userData.currentIndex--; 
-    })
-}
+        userData.currentIndex--;
+    });
+};

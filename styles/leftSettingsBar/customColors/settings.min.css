@@ -1,2 +1,16 @@
-.custom-colors-settings-wrapper{display:flex;flex-direction:column;justify-content:space-around;align-items:center;align-self:center;width:100%;height:80%;overflow:hidden}.custom-colors-settings-wrapper div{display:flex;width:70%;justify-content:space-around}
+.custom-colors-settings-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+.custom-colors-settings-wrapper div {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
 /*# sourceMappingURL=settings.min.css.map */

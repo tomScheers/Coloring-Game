@@ -15,11 +15,12 @@ export const openCloseDialog = (dialog) => {
         if (
             currentButton.classList.contains("color-settings-icon") ||
             userData.eraser
-        ) return;
+        )
+            return;
         dialog.showModal();
     });
 
     closeButton.addEventListener("click", () => {
         dialog.close();
     });
-}
+};

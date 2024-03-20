@@ -1,23 +1,12 @@
-import {
-    setCircleCircumference,
-    getRadius
-} from "../../data/functions.js";
+import { setCircleCircumference, getRadius } from "../../data/functions.js";
 
-import {
-    userData
-} from "../../data/userData.js";
+import { userData } from "../../data/userData.js";
 
-import {
-    createMouseListener
-} from "../../blurCircleAroundMouser.js";
+import { createMouseListener } from "../../blurCircleAroundMouser.js";
 
-import {
-    showSettingsDialogOnClick
-} from "./showUserSettings.js";
+import { showSettingsDialogOnClick } from "./showUserSettings.js";
 
-import {
-    exitSettingsOnClick
-} from "./exitSettingsButton.js";
+import { exitSettingsOnClick } from "./exitSettingsButton.js";
 
 export const setSettingsButton = () => {
     showSettingsDialogOnClick();
@@ -34,7 +23,7 @@ export const setSettingsButton = () => {
         userData.userSettings.theUsersSettings = {
             fileName: nameInput.value || userData.userSettings.fileName,
             author: authorInput.value || userData.userSettings.author,
-            blob: cursorBlobButton.checked
+            blob: cursorBlobButton.checked,
         };
 
         if (cursorBlobButton.checked) {
@@ -46,4 +35,4 @@ export const setSettingsButton = () => {
         setCircleCircumference(0);
         document.removeEventListener("mousemove", createMouseListener);
     });
-}
+};

@@ -4,4 +4,4 @@ export const exitSettingsOnClick = () => {
         const dialog = document.getElementById("settings-dialog");
         dialog.close();
     });
-}
+};

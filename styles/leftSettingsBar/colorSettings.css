@@ -1,62 +1,62 @@
 #color-settings {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 2fr 3fr 3fr 2fr 6fr 2fr 3fr;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 2fr 3fr 3fr 2fr 6fr 2fr 3fr;
 }
 #color-settings .color-setting-square {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0;
-  background-color: transparent;
-  border: 0.3rem black solid;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0;
+    background-color: transparent;
+    border: 0.3rem black solid;
 }
 #color-settings .color-setting-square:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 #color-settings .button-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 #color-settings #red {
-  background-color: red;
+    background-color: red;
 }
 #color-settings #orange {
-  background-color: orange;
+    background-color: orange;
 }
 #color-settings #yellow {
-  background-color: yellow;
+    background-color: yellow;
 }
 #color-settings #green {
-  background-color: green;
+    background-color: green;
 }
 #color-settings #blue {
-  background-color: blue;
+    background-color: blue;
 }
 #color-settings #indigo {
-  background-color: indigo;
+    background-color: indigo;
 }
 #color-settings #violet {
-  background-color: violet;
+    background-color: violet;
 }
 #color-settings #white {
-  background-color: white;
+    background-color: white;
 }
 #color-settings #lightgray {
-  background-color: lightgray;
+    background-color: lightgray;
 }
 #color-settings #silver {
-  background-color: silver;
+    background-color: silver;
 }
 #color-settings #darkgray {
-  background-color: darkgray;
+    background-color: darkgray;
 }
 #color-settings #gray {
-  background-color: gray;
+    background-color: gray;
 }
 #color-settings #dimgray {
-  background-color: dimgray;
+    background-color: dimgray;
 }
 #color-settings #black {
-  background-color: black;
+    background-color: black;
 }

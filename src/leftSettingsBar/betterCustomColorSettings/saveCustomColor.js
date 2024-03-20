@@ -2,7 +2,6 @@ import { customColorFunctionality } from "./customColorFunctionality.js";
 
 import { setColorButtons } from "../colorSettings.js";
 
-
 export const saveCustomColor = (dialog) => {
     const currentButton = document.getElementById(
         `custom-color${dialog.id.split("-")[1]}`
@@ -10,11 +9,8 @@ export const saveCustomColor = (dialog) => {
 
     const saveButton = dialog.querySelector(`.save-button`);
 
-
-
     saveButton.addEventListener("click", () => {
         const colorPicker = dialog.querySelector(`.custom-color-input-picker`);
-        console.log(colorPicker.value)
         dialog.close();
 
         currentButton.style.backgroundColor = colorPicker.value;
@@ -36,4 +32,4 @@ export const saveCustomColor = (dialog) => {
         nextButton.classList.remove("hidden");
         nextButton.classList.add("color-setting-square");
     });
-}
+};
