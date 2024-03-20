@@ -6,7 +6,11 @@ const userData = {
     brightness: 100,
     size: "medium",
     eraser: false,
-    lockedSquareColor: [255, 255, 255],
+    lockedSquareColor: {
+        red: 255,
+        green: 255,
+        blue: 255,
+    },
     isDrawing: false,
     customColors: {
 
@@ -34,7 +38,7 @@ const userData = {
         fileName: "Untitled_Project",
         author: "Anonymous_User",
         blob: document.getElementById("setting-cursor-blob").checked,
-        
+
         get theUsersSettings() {
             return {
                 fileName: this.fileName,
@@ -62,6 +66,46 @@ const userData = {
 
     set colorValues(values) {
         [this.redVal, this.greenVal, this.blueVal] = values;
+    },
+
+    get lockedSquareColorValues() {
+        return `rgb(${this.lockedSquareColor.red}, ${this.lockedSquareColor.green}, ${this.lockedSquareColor.blue})`;
+    },
+
+    set lockedSquareColorValues(value) {
+        [this.lockedSquareColor.red, this.lockedSquareColor.green, this.lockedSquareColor.blue] = value;
+    },
+
+    get filterValues() {
+        return `blur(${this.blurVal}rem) brightness(${this.brightness}%)`;
+    },
+
+    set filterValues(values) {
+        [this.blurVal, this.brightness] = values;
+    },
+
+    get blurValue() {
+        return `blur(${this.blurVal}rem)`;
+    },
+
+    set blurValue(value) {
+        this.blurVal = value;
+    },
+
+    get brightnessValue() {
+        return `brightness(${this.brightness}%)`;
+    },
+
+    set brightnessValue(value) {
+        this.brightness = value;
+    },
+
+    get currentCanvas() {
+        return this.canvasVersions[this.currentIndex - 1];
+    },
+
+    set currentCanvas(value) {
+        this.canvasVersions = value;
     },
 };
 

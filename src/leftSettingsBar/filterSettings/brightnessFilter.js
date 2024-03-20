@@ -14,13 +14,13 @@ import {
 export const setColorBrightnessButtons = () => {
     colorBrightnessButtons.forEach((button) => {
         button.ariaLabel = `${button.id}-button`;
-        
+
         button.addEventListener("click", () => {
             if (userData.eraser) return;
             const newBrightness = parseInt(button.id.split("-")[1]);
-            userData.brightness = newBrightness;
-            circle.style.filter = `brightness(${userData.brightness}%) blur(0.2rem)`;
-            context.filter = `brightness(${userData.brightness}%) blur(${userData.blurVal}rem)`;
+            userData.brightnessValue = newBrightness;
+            circle.style.filter = userData.filterValues;
+            context.filter = userData.filterValues;
 
             colorBrightnessButtons.forEach((b) => {
                 b.classList.remove("selected-settings");

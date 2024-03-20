@@ -23,5 +23,5 @@ export const scaleCanvasOnResize = () => {
     context.putImageData(imageData, 0, 0);
     context.lineWidth = getRadius(userData.size) * 2;
     context.strokeStyle = userData.colorValues;
-    context.filter = `blur(${userData.blurVal}rem) brightness(${userData.brightness}%)`;
+    context.filter = userData.filterValues;
 }

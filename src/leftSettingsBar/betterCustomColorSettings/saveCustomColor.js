@@ -1,5 +1,3 @@
-import { userData } from "../../data/userData.js";
-
 import { customColorFunctionality } from "./customColorFunctionality.js";
 
 import { setColorButtons } from "../colorSettings.js";

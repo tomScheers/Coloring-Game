@@ -18,6 +18,8 @@ export const incrementCanvasVersion = () => {
 
         // Get the data of the canvas that you'll increment to
         const data = userData.canvasVersions[userData.currentIndex];
+        if (data === undefined) return;
+        console.log(data)
         newData.data.set(data);
         context.putImageData(newData, 0, 0);
         userData.currentIndex++;

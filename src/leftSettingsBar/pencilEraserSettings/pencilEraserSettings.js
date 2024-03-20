@@ -16,13 +16,15 @@ export const setPencilOptions = () => {
         button.addEventListener("click", () => {
             if ((button.id === "eraser") === (userData.eraser)) return;
 
+            // inverts the userData.eraser boolean
             userData.eraser = !userData.eraser;
+
             if (userData.eraser) {
                 setToEraser();
-                return;
+            } else {
+                setToPencil();
             }
 
-            setToPencil();
         });
     });
 }

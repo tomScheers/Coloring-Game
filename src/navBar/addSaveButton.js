@@ -9,23 +9,23 @@ export const downloadSvgAsJpeg = () => {
 
     saveButton.addEventListener("click", () => {
         // Create a temporary canvas for the white background
-        const tempCanvas = document.createElement('canvas');
+        const tempCanvas = document.createElement("canvas");
         tempCanvas.width = canvas.width;
         tempCanvas.height = canvas.height;
-        const tempCtx = tempCanvas.getContext('2d');
+        const tempCtx = tempCanvas.getContext("2d");
 
         // Draw a white background on the temporary canvas
-        tempCtx.fillStyle = 'white';
+        tempCtx.fillStyle = "white";
         tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
 
         // Draw the existing content on the temporary canvas
         tempCtx.drawImage(canvas, 0, 0);
 
         // Convert the temporary canvas to data URL
-        var dataURL = tempCanvas.toDataURL('image/jpeg');
+        var dataURL = tempCanvas.toDataURL("image/jpeg");
 
         // Create a link element
-        var link = document.createElement('a');
+        var link = document.createElement("a");
 
         // Set the download attribute with the provided file name
         link.download = `${userData.userSettings.fileName}.jpeg`;

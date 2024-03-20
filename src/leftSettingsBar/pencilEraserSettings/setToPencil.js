@@ -38,7 +38,7 @@ export const setToPencil = () => {
     circle.style.opacity = 0.3;
     context.strokeStyle = userData.colorValues;
     context.lineWidth = getRadius(userData.size) * 2;
-    context.filter = `blur(${userData.blurVal}rem)`;
+    context.filter = userData.blurValue;
 
     colorBlurButtons.forEach((b) => {
         b.style.backgroundColor = userData.colorValues;

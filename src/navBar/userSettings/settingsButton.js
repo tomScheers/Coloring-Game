@@ -18,8 +18,8 @@ import {
 import {
     exitSettingsOnClick
 } from "./exitSettingsButton.js";
-export const setSettingsButton = () => {
 
+export const setSettingsButton = () => {
     showSettingsDialogOnClick();
     exitSettingsOnClick();
     const nameInput = document.getElementById("name-input");
@@ -39,10 +39,11 @@ export const setSettingsButton = () => {
 
         if (cursorBlobButton.checked) {
             setCircleCircumference(getRadius());
+            circle.style.backgroundColor = userData.colorValues;
             document.addEventListener("mousemove", createMouseListener);
-        } else {
-            setCircleCircumference(0);
-            document.removeEventListener("mousemove", createMouseListener);
+            return;
         }
+        setCircleCircumference(0);
+        document.removeEventListener("mousemove", createMouseListener);
     });
 }
