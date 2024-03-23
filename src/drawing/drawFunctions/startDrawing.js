@@ -8,7 +8,7 @@ let startPoint = {
 };
 
 export const startDrawing = (event) => {
-    userData.isDrawing = true;
+    userData.canvasIsBeingDrawn = true;
 
     startPoint = {
         x: event.clientX - canvas.getBoundingClientRect().left,

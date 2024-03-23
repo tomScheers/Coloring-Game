@@ -1,23 +1,2 @@
-.hidden {
-    pointer-events: none;
-    width: 2rem;
-    height: 2rem;
-    background-color: rgba(0, 0, 0, 0);
-    border: rgba(0, 0, 0, 0) 0.3rem solid;
-}
-.custom {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-#change-custom-color-values {
-    display: inline;
-    background-color: rgba(122, 122, 122, 0.5);
-    width: 1rem;
-    height: 1rem;
-    border-radius: 0.1rem;
-    border: none;
-}
-#change-custom-color-values:hover {
-    cursor: pointer;
-}
+.hidden{pointer-events:none;width:2rem;height:2rem;background-color:rgba(0,0,0,0);border:rgba(0,0,0,0) .3rem solid}.custom{font-size:1.2rem;font-weight:bold}#change-custom-color-values{display:inline-flex;justify-content:center;align-items:center;background-color:rgba(122,122,122,.5);width:1rem;height:1rem;border-radius:.1rem;border:none}#change-custom-color-values:hover{cursor:pointer}
 /*# sourceMappingURL=button.min.css.map */

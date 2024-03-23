@@ -1,4 +1,5 @@
-const userData = {
+"use strict";
+export const userData = {
     redVal: 255,
     greenVal: 0,
     blueVal: 0,
@@ -6,13 +7,13 @@ const userData = {
     brightness: 100,
     size: "medium",
     eraser: false,
+    editingCustomColors: false,
     lockedSquareColor: {
         red: 255,
         green: 255,
         blue: 255,
     },
     isDrawing: false,
-    customColors: {},
     colorMap: {
         red: [255, 0, 0],
         orange: [255, 165, 0],
@@ -114,6 +115,12 @@ const userData = {
     set currentCanvas(value) {
         this.canvasVersions = value;
     },
-};
 
-export { userData };
+    get canvasIsBeingDrawn() {
+        return this.isDrawing;
+    },
+
+    set canvasIsBeingDrawn(value) {
+        this.isDrawing = value;
+    }
+};

@@ -11,12 +11,15 @@
 }
 
 #change-custom-color-values {
-    display: inline;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(122, 122, 122, 0.5);
     width: 1rem;
     height: 1rem;
     border-radius: 0.1rem;
     border: none;
+
     &:hover {
         cursor: pointer;
     }

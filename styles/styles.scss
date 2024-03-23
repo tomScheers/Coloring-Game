@@ -66,3 +66,19 @@
 #drawing-canvas {
     background-color: white;
 }
+
+input[type="color"] {
+    border: 1rem black solid;
+    width: 10rem;
+    height: 10rem;
+    padding: 0;
+    &::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+    &::-webkit-color-swatch {
+        border: none;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}

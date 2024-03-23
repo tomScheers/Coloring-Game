@@ -20,6 +20,8 @@ import { addNavButtons } from "./navBar/addButtons.js";
 
 import { customColorFunctionality } from "./leftSettingsBar/betterCustomColorSettings/customColorFunctionality.js";
 
+import { deleteCustomColor } from "./leftSettingsBar/betterCustomColorSettings/changeCustomColorAfterAssignment.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     setPencilOptions();
     setSizeButtons();
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     customColorFunctionality(document.getElementById("dialog-1"));
     addDrawEventListeners(getRadius());
     addNavButtons();
+    deleteCustomColor();
     if (userData.blob) {
         document.addEventListener("mousemove", createMouseListener);
     }
