@@ -1,27 +1,27 @@
 .hidden {
-  pointer-events: none;
-  width: 2rem;
-  height: 2rem;
-  background-color: transparent;
-  border: transparent 0.3rem solid;
+    pointer-events: none;
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border: transparent 0.3rem solid;
 }
 
 .custom {
-  font-size: 1.2rem;
-  font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 #change-custom-color-values {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(122, 122, 122, 0.5);
-  width: 1rem;
-  height: 1rem;
-  border-radius: 0.1rem;
-  border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(122, 122, 122, 0.5);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.1rem;
+    border: none;
 }
 #change-custom-color-values:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 /*# sourceMappingURL=button.css.map */

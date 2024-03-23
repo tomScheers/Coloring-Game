@@ -100,7 +100,6 @@ export const userData = {
     },
 
     get brightnessValue() {
-        console.log("hello");
         return `brightness(${this.brightness}%)`;
     },
 
@@ -122,5 +121,5 @@ export const userData = {
 
     set canvasIsBeingDrawn(value) {
         this.isDrawing = value;
-    }
+    },
 };

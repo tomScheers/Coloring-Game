@@ -20,7 +20,7 @@ import { addNavButtons } from "./navBar/addButtons.js";
 
 import { customColorFunctionality } from "./leftSettingsBar/betterCustomColorSettings/customColorFunctionality.js";
 
-import { deleteCustomColor } from "./leftSettingsBar/betterCustomColorSettings/changeCustomColorAfterAssignment.js";
+import { deleteCustomColor } from "./leftSettingsBar/betterCustomColorSettings/deleteCustomColorButtons.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     setPencilOptions();

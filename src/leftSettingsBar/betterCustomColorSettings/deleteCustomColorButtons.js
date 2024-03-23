@@ -20,7 +20,7 @@ export const deleteCustomColor = () => {
         );
         if (selectedButton.id.split("-")[0] === "custom") {
             userData.colorValues = [255, 0, 0];
-            
+
             colorBlurButtons.forEach((b) => {
                 b.style.backgroundColor = userData.colorValues;
             });
@@ -33,7 +33,6 @@ export const deleteCustomColor = () => {
             originalButton.classList.add("selected-settings");
             context.strokeStyle = userData.colorValues;
         }
-        console.log("HELLO")
         customColorSection.innerHTML = `
                             <button
                                 id="custom-color1"

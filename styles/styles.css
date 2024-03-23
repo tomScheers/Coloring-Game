@@ -1,87 +1,87 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    color: white;
 }
 
 #body {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 #body-wrapper {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-rows: 6% auto;
-  grid-template-columns: auto;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 6% auto;
+    grid-template-columns: auto;
 }
 
 #main-page {
-  min-height: 100%;
-  display: inline-grid;
-  grid-template-columns: 1fr 2fr;
+    min-height: 100%;
+    display: inline-grid;
+    grid-template-columns: 1fr 2fr;
 }
 
 #settings-top {
-  background-color: #1a1a1a;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100vw;
+    background-color: #1a1a1a;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
 }
 
 #settings-left {
-  display: grid;
-  grid-template-rows: 9fr 4fr 3fr;
-  background-color: #333333;
-  z-index: 1000;
-  padding: 1rem 0.3rem;
+    display: grid;
+    grid-template-rows: 9fr 4fr 3fr;
+    background-color: #333333;
+    z-index: 1000;
+    padding: 1rem 0.3rem;
 }
 #settings-left .make-par {
-  text-align: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .selected-settings {
-  border: white 0.3rem solid !important;
+    border: white 0.3rem solid !important;
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 #drawing-canvas {
-  background-color: white;
+    background-color: white;
 }
 
-input[type=color] {
-  border: 1rem black solid;
-  width: 10rem;
-  height: 10rem;
-  padding: 0;
+input[type="color"] {
+    border: 1rem black solid;
+    width: 10rem;
+    height: 10rem;
+    padding: 0;
 }
-input[type=color]::-webkit-color-swatch-wrapper {
-  padding: 0;
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
 }
-input[type=color]::-webkit-color-swatch {
-  border: none;
+input[type="color"]::-webkit-color-swatch {
+    border: none;
 }
-input[type=color]:hover {
-  cursor: pointer;
+input[type="color"]:hover {
+    cursor: pointer;
 }
 /*# sourceMappingURL=styles.css.map */
